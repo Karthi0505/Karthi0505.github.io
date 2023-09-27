@@ -1,0 +1,312 @@
+
+/* 0090ff */
+/* 5380c1 */
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./fonts/Poppins-Regular.ttf') format('truetype');
+ }
+
+ @font-face {
+    font-family: 'Poppins-SemiBold';
+    src: url('./fonts/Poppins-SemiBold.ttf') format('truetype');
+ }
+
+ @font-face {
+    font-family: 'Poppins-Bold';
+    src: url('./fonts/Poppins-Bold.ttf') format('truetype');
+ }
+
+ .main-title, h1 {
+    font-family: 'Poppins-SemiBold';
+    font-size: 3.5rem;
+ }
+ .title-h3, h3 {
+    font-family: 'Poppins-SemiBold';
+ }
+
+
+
+body {
+    font-family: Poppins;
+    font-weight: 300;
+}
+
+/* Override  CSS Start */
+.container-fluid {
+    --bs-gutter-x: 8rem;
+}
+/* Override  CSS End --------------------*/
+
+
+/* Common CSS Start */
+.bg-blue {
+    background-color: #0090ff;
+}
+.bg-blue-2 {
+    background-color: #2a81c5;
+}
+.text-blue {
+    color: #2a81c5;
+}
+/* Common CSS End ---------------------- */
+
+
+
+/* mainBanner-section Start */
+.mainBanner-section.home-banner {
+    position: relative;
+}
+.mainBanner-section.home-banner:before {
+    content: '';
+    background: linear-gradient(0deg, rgb(0 68 122 / 56%), rgb(0 77 139 / 60%)),  url(./../images/banner_image.jpg);
+    background-repeat: no-repeat, repeat;
+    background-size:cover;
+    background-position: center;
+    filter: brightness(0.85);
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.mainBanner-section.banner-spacing {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
+/* mainBanner-section End --------------------*/
+
+/* secondaryBanner-section Start */
+.secondaryBanner-section {
+    position: relative;
+}
+
+.secondaryBanner-section:before {
+    content: '';
+    background: linear-gradient(0deg, rgb(211 158 0 / 73%), #d19d00ba), url(./../images/pet_care_banner.png.jpg);
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.85);
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.secondaryBanner-section.dog-check-banner:before {
+    background: linear-gradient(0deg, rgb(211 158 0 / 73%), #d19d00ba), url(./../images/dr_Jenny.jpg);  
+    background-position: left;
+}
+/* secondaryBanner-section End -------------*/
+
+
+/* count-section_price Start */
+.count-section .count-circle {
+    height: 200px;
+    width: 200px;
+    border: 7px solid #FFF;
+    border-radius: 50%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.count-section .count-string {
+    /* font-family: 'Poppins-SemiBold'; */
+    font-size: 2.6rem;
+    font-weight: bold;
+    display:block
+}
+/* count-section_price End ---------------*/
+
+/* Header CSS Start */
+.main-header .navbar-brand > img{
+    max-width: 94px;
+}
+.main-header .navbar {
+    background-color: rgb(33 150 243 / 49%);
+}
+.main-header .navbar-nav .nav-link,
+.main-header .bi-search {
+    color: #FFF;
+    font-weight: 500;
+}
+.main-header .bi-search:before {
+    font-weight: bold !important;
+}
+/* Header CSS End ----------------------------*/
+
+/*Button CSS Start */
+.button-yellow {
+    background-color: #FFC107;
+    border: 2px solid #FFC107;
+    color: #FFF;
+    border-radius: 20px;
+    font-weight: bold;
+    padding: 10px 15px;
+    line-height: 1.3;
+}
+/*Button CSS Start */
+
+/* Social icons Start */
+.nav.social-icons li.nav-item a{
+    font-size: 30px;
+    margin-right: 10px;
+    color: #FFF;
+}
+/* Social icons Start ------------------------*/
+
+/* Footer css Start */
+footer {
+    
+}
+footer h3 {
+    font-family: Poppins;
+}
+/* Footer css Start --------------------------*/
+
+/* Scrap image css Start */
+.three_dot_shape {
+    max-width: 45px;   
+}
+.paintFlow1_topLeft,
+.paintFlow1_topRight {
+    position: relative;    
+    overflow: hidden;
+}
+.paintFlow1_topLeft:before {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('./../images/triangle_shape.png'), url('./../images/paint_flow_1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}   
+.paintFlow1_topRight:after {
+    content:'';
+    position: absolute;
+    top: -25px;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: url('./../images/dot_shape.png'), url('./../images/paint_flow_2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.triangle_shape {
+
+}
+.paintFlow2_bottomRight {
+    position: relative;
+    overflow: hidden;
+}
+.paintFlow2_bottomRight::after {
+    content:'';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    bottom: -188px;
+    right: -90px;
+    z-index: 0;
+    background: url('./../images/paint_flow_2.png');
+    transform: rotate(82deg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.dotShape_topHalf{
+    position: relative;
+}
+.dotShape_topHalf:after {
+    content:'';
+    position: absolute;
+    top: -11px;
+    left: 60px;
+    width: 80px;
+    height: 80px;
+    background: url('./../images/dot_shape.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: auto, contain;
+    background-position: 4px 0px;
+}
+.triangleShape_bottom {
+    position: relative;
+}
+.triangleShape_bottom:after {
+    content:'';
+    position: absolute;
+    bottom: 3px;
+    right: 60px;
+    width: 80px;
+    height: 80px;
+    background: url('./../images/triangle_shape.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: auto, contain;
+    background-position: 4px 0px;
+}
+.scrapImage_bottomStyle2:after{
+    bottom: -39px;
+    z-index: 1;
+}
+/* Scrap image css End -----------------------*/
+
+
+
+
+@media (min-width: 992px) {
+    .button-yellow {
+        min-width: 200px;
+    }
+    .paintFlow1_topLeft:before,
+    .paintFlow1_topRight:after {
+        width: 450px;
+        height: 450px; 
+    }
+    .paintFlow1_topLeft:before {
+        background-size: auto, contain;
+        background-position: 60px 72px, left top;
+    }
+    .paintFlow1_topRight:after {
+        background-size: 60px, contain;
+        background-position: 76% 140px, right;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+@media (max-width: 991px) { 
+    .paintFlow1_topLeft:before,
+    .paintFlow1_topLeft:after {
+        width: 115px;
+        height: 202px;
+    }
+    .paintFlow1_topLeft:before {
+        background-size: 40px, contain;
+        background-position: 45px 44px, left top;
+    }
+    .paintFlow1_topRight:after {
+        background-size: 42px, contain;
+        background-position: 81% 43px, right;
+    }
+    .paintFlow2_bottomRight::after {
+        height: 284px;
+    }
+    ul.nav.social-icons {
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+}
