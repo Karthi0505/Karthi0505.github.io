@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form id="myForm" action="index.html">
+        <div>
+            <label>Username</label>
+            <input type="text" id="username">
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" id="password">
+        </div>
+        <button type="submit" >Submit</button>
+    </form>
+
+    <div id="demo"></div>
+    
+
+    <script>
+        document.getElementById("myForm")
+            .addEventListener("submit", loadSecret);
+
+
+        function loadSecret(e){
+            e.preventDefault();
+
+            //console.log(e); //has the event object
+
+            let username_val = document.getElementById('username').value;
+            let password_val = document.getElementById('password').value;
+
+            //console.log(password_val)
+
+            //create our own Base64 token
+            let encodedData = window.btoa(username_val + ':' + password_val)
+            //console.log(window.btoa('Karthi'))
+            //console.log(encodedData)
+
+            let authToken = `Basic ${encodedData}`;
+            console.log(authToken)
+
+            //Setup our Ajax ##############################
+            let h = new Headers();
+            h.append('Authorization', authToken);
+
+            let url = './protected/secret.html';
+
+            let req = new Request(url, {method: "GET", headers: h});
+
+            fetch(req)
+                .then(data => data.text())
+                //.then(message => console.log(message))
+                .then(message => document.getElementById('demo').innerHTML = message)
+                .catch(err => {alert(err);})
+
+        }
+    </script>
+</body>
+</html>
