@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fetch Example1</h1>
+    <h2 id="one"></h2>
+    <h2 id="two"></h2>
+    <h2 id="three"></h2>
+    <h2 id="four"></h2>
+
+    <script>
+        
+        let f = fetch("./protected/data.txt")
+        console.log(f);
+
+        f.then(
+                function(x){
+                    console.log(x);
+                    //console.log("this is text: ", x.text())
+
+                    return x.text()
+                }
+            )
+            .then(
+                function(a){
+                    document.getElementById("one").innerHTML = a;
+                    console.log(a)
+                }
+            )
+        
+    </script>
+</body>
+</html>

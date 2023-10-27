@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        The boy would had 
+        <span id="total"></span> 
+        Chocolates
+    </h1>
+    
+    <script>
+        let choco_in_hand = 15;
+        let cover_in_hand = choco_in_hand;
+        let remaining_cover = cover_in_hand % 3 ;
+        let total_choco = choco_in_hand;
+
+        while(cover_in_hand >2){
+            choco_in_hand = choco_in_hand / 3;
+            cover_in_hand = choco_in_hand + remaining_cover;
+            remaining_cover = cover_in_hand % 3;
+            total_choco = choco_in_hand + total_choco;
+        }
+        console.log(Math.floor(total_choco));
+        document.getElementById('total').innerHTML = Math.floor(total_choco);
+        
+    </script>
+
+    <!-- <script src="./puzzle_program.js"></script> -->
+</body>
+</html>
