@@ -1,24 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="./../bootstrap.css">
 </head>
+
 <body>
-    <h1>
-        The boy would had 
-        <span id="total"></span> 
-        Chocolates
-    </h1>
-    
+    <div class="container-fluid">
+
+        <h1 class="my-5">
+            <div class="f2-4 mb-2">Question:</div>
+            <small class="d-block fs-4">Shop keeper gives 15 chocolate to the customer.<br>
+                And he said to the customer, if you give a 3 rappers of chocolate I'll give 1 chocolate. <br>
+                Totally how many chocolate he could get?</small>
+        </h1>
+
+        <p class="my-5 h1">
+            The boy would had
+            <span id="total"></span>
+            Chocolates
+        </p>
+    </div>
+
+    <div class="container-fluid">
+        <details>
+            <summary class="fs-3 bg-light py-2 px-3">Instructions: How to Check this code</summary>
+            <!-- List Component Start -->
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Inspect this page</div>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Source tab</div>
+                        <img class="img-fluid" src="./images/inspect_source.PNG"  />
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Select source file</div>
+                        <p>This .html source file has the JS code</p>
+                        <img class="img-fluid" src="./images/inspect_source_file.PNG" />
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Keep Breakpoint</div>
+                        <p>See the JS code starting and Click on the line number</p>
+                        <img class="img-fluid" src="./images/inspect_breakpoint.PNG" />
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Then "Refresh" the browser.</div>
+                        <img class="img-fluid" src="./images/inspect_breakpoint_refresh.PNG" />
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Step/run statement by statement</div>
+                        <p>Press <kbd>f9</kbd> (or) Click Step icon one by one</p>
+                        <img class="img-fluid" src="./images/inspect_brkpnt_step.PNG" />
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Now you can watch what happens to the code, when running line by line</div>
+                        
+                        You can also see the details like
+                        <ul class="mb-3">
+                            <li>variable's current value below the script dropdown</li>
+                            <li>CallStack details below the CallStack dropdown. etc..</li>
+                        </ul>
+                    
+                        <img class="img-fluid" src="./images/inspect_brkpnt_step_one_by_one.PNG" />
+
+                    </div>
+                </li>
+            </ol>
+            <!-- List Component End -->
+
+        </details>
+    </div>
+
     <script>
         let choco_in_hand = 15;
         let cover_in_hand = choco_in_hand;
-        let remaining_cover = cover_in_hand % 3 ;
+        let remaining_cover = cover_in_hand % 3;
         let total_choco = choco_in_hand;
 
-        while(cover_in_hand >2){
+        while (cover_in_hand > 2) {
             choco_in_hand = choco_in_hand / 3;
             cover_in_hand = choco_in_hand + remaining_cover;
             remaining_cover = cover_in_hand % 3;
@@ -26,9 +103,9 @@
         }
         console.log(Math.floor(total_choco));
         document.getElementById('total').innerHTML = Math.floor(total_choco);
-        
     </script>
 
     <!-- <script src="./puzzle_program.js"></script> -->
 </body>
+
 </html>
