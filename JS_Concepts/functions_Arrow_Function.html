@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./../bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+</head>
+
+<body style="font-size: 20px;">
+    
+    <div class="container-fluid">
+            
+        <h1 class="text-center my-5">Arrow function expressions</h1>
+        
+        <p>An arrow function expression is a compact alternative to a traditional function expression, with some semantic
+            differences and deliberate limitations in usage:</p>
+
+        <ul>
+            <li>Arrow functions don't have their own <a
+                    href="https://developer.mozilla.org/en-US/docs/Glossary/Binding">bindings</a> to <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">this</a>, <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments">arguments</a>,
+                or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super">super</a>,
+                and should not be used as <a href="https://developer.mozilla.org/en-US/docs/Glossary/Method">methods</a>.
+            </li>
+
+            <li>Arrow functions cannot be used as <a
+                    href="https://developer.mozilla.org/en-US/docs/Glossary/Constructor"></a>constructors. Calling them with
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new">new</a> throws a
+                <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError">TypeError</a>.
+                They also don't have access to the <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new.target">new.target</a>
+                keyword.</li>
+
+            <li>Arrow functions cannot use <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield">yield</a>
+                within their body and cannot be created as generator functions.</li>
+        </ul>
+
+        <pre>
+            <code class="language-javascript" >
+
+            // Arrow function Script Start-----------------------------------
+            let param1 = "Name";
+            let param2 = "Name2";
+
+            //With single parameter, parenthesis () is not necessary
+            let d = p1 => console.log('This is Arrow function expression ', param1);
+            d(param1);
+
+            //With single statement {} is not necessary and return keyword is not necesary
+            //With multiple parameter must be included inside ()
+            let c = (param1, param2) => console.log('This is Arrow function expression ' + param1, param2);
+            c(param1, param2);
+
+            //With multiple statements must include {}
+            let b = (param1, param2) => {
+                console.log('This is Arrow function expression ' + param1);
+                console.log('This is Arrow function expression ' + param2);
+            };
+            b(param1, param1);
+
+            //WHEN WE WANT TO RETURN SOMTHING
+            //If function {}curly brace is omitted, 'return' keyword is not needed.
+            let a = () => "Hello world"
+            console.log("a return value: ", a());
+
+            //If function {}curly brace is present, 'return' keyword is needed.
+            let a2 = () => { "Hello world" }
+            console.log("a2 return value: ", a2()); //undefined
+
+            let a3 = () => { return "Hello world" }
+            console.log("a3 return value is: ", a3()); //undefined
+
+
+            //----------------------------------------------
+
+            // function expression
+            let aa = function (p1) {
+                console.log('This is normal function expression', param1);
+                return p1
+            }
+            aa(param1)
+
+            // function declaration
+            function bb(p1) {
+                console.log('This is normal function declaration', param1);
+                return p1
+            }
+            bb(param1)
+            //--------------------------------------------------
+
+            // 'this' binding in normal function
+            const obj = {
+                name: 'Karthi',
+                num: '0505',
+                print: function () {
+                    console.log('this keyword in normal function inside object (method) : ', this)
+                }
+            }
+            obj.print();
+
+
+
+            // Arrow functions do not create their own this binding. 
+            //So the 'this' will point its parent object (here parent object is global object window)
+            const obj2 = {
+                name: 'Karthi',
+                num: '0505',
+                print: () => {
+                    console.log('this keyword in arrow function inside object (method) : ', this)
+                }
+            }
+            obj2.print();
+
+            // Arrow functions do not create their own this binding. 
+            //So the 'this' will point its parent object (here parent object is obj3)
+            const obj3 = {
+                name: 'Karthi',
+                num: '0505',
+                print: function () {
+                    const print2 = () => {
+                        console.log('this keyword in arrow function inside object and inside normal function method (method) : ', this)
+                    }
+                    print2();
+                }
+
+            }
+            obj3.print();
+            // Arrow function Script End-----------------------------------
+            </code>
+        </pre>
+    
+    </div>
+    
+
+    <script>
+         // Arrow function Script Start-----------------------------------
+        let param1 = "Name";
+        let param2 = "Name2";
+
+        //With single parameter, parenthesis () is not necessary
+        let d = p1 => console.log('This is Arrow function expression ', param1);
+        d(param1);
+
+        //With single statement {} is not necessary and return keyword is not necesary
+        //With multiple parameter must be included inside ()
+        let c = (param1, param2) => console.log('This is Arrow function expression ' + param1, param2);
+        c(param1, param2);
+
+        //With multiple statements must include {}
+        let b = (param1, param2) => {
+            console.log('This is Arrow function expression ' + param1);
+            console.log('This is Arrow function expression ' + param2);
+        };
+        b(param1, param1);
+
+        //WHEN WE WANT TO RETURN SOMTHING
+        //If function {}curly brace is omitted, 'return' keyword is not needed.
+        let a = () => "Hello world"
+        console.log("a return value: ", a());
+
+        //If function {}curly brace is present, 'return' keyword is needed.
+        let a2 = () => { "Hello world" }
+        console.log("a2 return value: ", a2()); //undefined
+
+        let a3 = () => { return "Hello world" }
+        console.log("a3 return value is: ", a3()); //undefined
+
+
+        //----------------------------------------------
+
+
+        // 'this' BINDING IN ARROW FUNCTION START ####################################
+        // 'this' binding in normal function
+        const obj = {
+            name: 'Karthi',
+            num: '0505',
+            print: function () {
+                console.log('this keyword in normal function inside object (method) : ', this)
+            }
+        }
+        obj.print();
+
+
+
+        // Arrow functions do not create their own this binding. 
+        //So the 'this' will point its parent object (here parent object is global object window)
+        const obj2 = {
+            name: 'Karthi',
+            num: '0505',
+            print: () => {
+                console.log('this keyword in arrow function inside object (method) : ', this)
+            }
+        }
+        obj2.print();
+
+        // Arrow functions do not create their own this binding. 
+        //So the 'this' will point its parent object (here parent object is obj3)
+        const obj3 = {
+            name: 'Karthi',
+            num: '0505',
+            print: function () {
+                const print2 = () => {
+                    console.log('this keyword in arrow function inside object and inside normal function method (method) : ', this)
+                }
+                print2();
+            }
+
+        }
+        obj3.print();
+        // 'this' BINDING IN ARROW FUNCTION END ####################################
+
+        // Arrow function Script End-----------------------------------
+    </script>
+
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+
+</html>

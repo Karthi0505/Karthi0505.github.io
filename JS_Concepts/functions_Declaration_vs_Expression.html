@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./../bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+
+        <h1 class="text-center my-5">Function Declaration (vs) Function Expression</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="h2">
+                <tr>
+                    <th>
+                        Function Declaration:
+                    </th>
+                    <th>Function Expression:</th>
+                </tr>
+                </thead>
+                <tbody class="fs-4">
+                <tr>
+                    <td>
+                        <ul>
+                            <li class="pb-3">A function created with function keyword and a function name.</li>
+                            <li>Function Declarations are "Hoisted".</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li class="pb-3">A function created annonymously, without name
+                            </li>
+                            <li class="pb-3">Function Expression are "Not-hoisted".</li>
+                            <li>
+                                <p>It can be assigned to a variable and we can call the function using that variable.</p>
+                                (or)
+                                <p>It can be used as a callback function</p>
+                                (or)
+                                <p>It can be used as a IIFE function</p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    
+    <pre>
+        <code class="language-javascript fs-5" >            
+        let param1 = "Name";
+        let param2 = "Name2";
+
+
+        // FUNCTION DECLARATION -Start ######################
+        dd(param1)
+
+        function dd(p1) {
+            console.log('This is normal function declaration', param1);
+            return p1
+        }
+        // FUNCTION DECLARATION -End ######################
+
+    
+        // FUNCTION EXPRESSION -Start #####################
+        //Normal function expression
+        let ee = function (p1) {
+            console.log('This is normal function expression', param1);
+            return p1
+        }
+        ee(param1)
+
+        // Arrow Function Expression
+        let ee2 = (p1) => {
+            console.log('This is normal function expression', param1);
+            return p1
+        }
+        ee2(param1)
+
+        // IIFE (Immediately Invoked Function Expression)
+        (function () {
+
+            console.log('This is normal function expression', param1);
+            //...
+        })()
+        
+        // FUNCTION EXPRESSION -End ######################
+            </code>
+        </pre>
+
+    </div>
+
+    <script>         
+        let param1 = "Name";
+        let param2 = "Name2";
+
+
+        // FUNCTION DECLARATION -Start ######################
+        dd(param1)
+
+        function dd(p1) {
+            console.log('This is normal function declaration', param1);
+            return p1
+        }
+        // FUNCTION DECLARATION -End ######################
+
+    
+        // FUNCTION EXPRESSION -Start #####################
+        //Normal function expression
+        let ee = function (p1) {
+            console.log('This is normal function expression', param1);
+            return p1
+        }
+        ee(param1)
+
+        // Arrow Function Expression
+        let ee2 = (p1) => {
+            console.log('This is normal function expression', param1);
+            return p1
+        }
+        ee2(param1)
+
+        // IIFE (Immediately Invoked Function Expression)
+        (function () {
+
+            console.log('This is normal function expression', param1);
+            //...
+        })()
+        
+        // FUNCTION EXPRESSION -End ######################
+    </script>
+
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+</html>

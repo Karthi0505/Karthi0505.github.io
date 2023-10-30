@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <form id="myForm" action="index.html">
+    <form id="myForm" >
         <div>
             <label>Username</label>
             <input type="text" id="username">
@@ -16,7 +16,7 @@
             <label>Password</label>
             <input type="password" id="password">
         </div>
-        <button type="submit" >Submit</button>
+        <button type="submit">Submit</button>
     </form>
 
     <div id="demo"></div>
@@ -26,16 +26,17 @@
         document.getElementById("myForm")
             .addEventListener("submit", loadSecret);
 
-
         function loadSecret(e){
-            e.preventDefault();
 
-            //console.log(e); //has the event object
+            e.preventDefault();
+            
+            console.log(e); //has the event object
 
             let username_val = document.getElementById('username').value;
             let password_val = document.getElementById('password').value;
 
             //console.log(password_val)
+
 
             //create our own Base64 token
             let encodedData = window.btoa(username_val + ':' + password_val)
@@ -57,7 +58,7 @@
                 .then(data => data.text())
                 //.then(message => console.log(message))
                 .then(message => document.getElementById('demo').innerHTML = message)
-                .catch(err => {alert(err);})
+                .catch(err => {console.log(err);})
 
         }
     </script>
