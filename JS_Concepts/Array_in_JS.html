@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./../bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    
+    <link rel="stylesheet" href="./../custom.css">
+</head>
+<body>
+    <div class="container-fluid">
+
+        <h1 class="text-center my-4">Array</h1>
+
+        <p class="mb-5 fs-4 text-center">
+            The Array object, enables storing a collection of multiple items under a single variable name. 
+            <span class="d-block mt-2">And has members for performing common array operations.</span>
+        </p>
+    </div>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <!-- Mutable Array Start #################### -->
+            <div class="col-sm-6 border py-3">
+                <h2 class="text-center mb-3">Mutable</h2>
+
+                <!-- Array.push()   -Start------------>
+                <a class="btn btn-dark btn-lg d-block" data-bs-toggle="collapse" href="#array_push" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Array.push()
+                </a>
+                <div class="collapse mb-4" id="array_push">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Card title</h5> -->
+                            <p class="card-text fs-5">
+                                <strong>Adds</strong> element <strong>at the end</strong> of array.
+                                <span class="d-block">
+                                    And returns the new length of the array.
+                                </span>
+                            </p>
+                            <h3 class="h4">Syntax:</h3>
+<pre><code class="language-javascript fs-5"> 
+push()
+push(element1)
+push(element1, element2, /* …, */ elementN)
+</code></pre>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">
+                           <h4 class="h5">Example 1:</h4>
+<pre>
+<code class="language-javascript fs-5" >  
+const sports = ["soccer", "baseball"];
+const total = sports.push("football", "swimming");
+
+console.log(sports); // ['soccer', 'baseball', 'football', 'swimming']
+console.log(total); // 4
+</code></pre>
+                          </li>
+                          <li class="list-group-item">
+                            <h4 class="h5">Example 2: Merging two arrays</h4>
+<pre>
+<code class="language-javascript fs-5" >  
+const vegetables = ["parsnip", "potato"];
+const moreVegs = ["celery", "beetroot"];
+
+// Merge the second array into the first one
+vegetables.push(...moreVegs);
+
+console.log(vegetables); // ['parsnip', 'potato', 'celery', 'beetroot']
+</code></pre>
+                          </li>
+                        </ul>
+
+                        <div class="card-footer">
+                            Array.unshift() has similar behavior to push(), but applied to the start of an array
+                        </div>
+                    </div>
+                </div>
+                <!-- Array.push()   -End------------>
+
+                <!-- Array.unshift()   -Start------------>
+                <a class="btn btn-dark btn-lg d-block mt-3" data-bs-toggle="collapse" href="#array_unshift" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Array.unshift()
+                </a>
+                <div class="collapse mb-4" id="array_unshift">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Card title</h5> -->
+                            <p class="card-text fs-5">
+                                <strong>Adds</strong> element <strong>at the beginning</strong> of array.
+                            </p>
+                            <h3 class="h4">Syntax:</h3>
+<pre><code class="language-javascript fs-5"> 
+unshift()
+unshift(element1)
+unshift(element1, element2, /* …, */ elementN)
+</code></pre>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">
+                           <h4 class="h5">Example 1:</h4>
+<pre>
+<code class="language-javascript fs-5" >  
+const array1 = [1, 2, 3];
+
+console.log(array1.unshift(4, 5));
+// Expected output: 5
+
+console.log(array1);
+// Expected output: Array [4, 5, 1, 2, 3]
+</code></pre>
+                          </li>
+                          <li class="list-group-item">
+                            <h4 class="h5">Example 2: </h4>
+<pre>
+<code class="language-javascript fs-5" >  
+const arr = [1, 2];
+
+arr.unshift(0); // result of the call is 3, which is the new array length
+// arr is [0, 1, 2]
+
+arr.unshift(-2, -1); // the new array length is 5
+// arr is [-2, -1, 0, 1, 2]
+
+arr.unshift([-4, -3]); // the new array length is 6
+// arr is [[-4, -3], -2, -1, 0, 1, 2]
+
+arr.unshift([-7, -6], [-5]); // the new array length is 8
+// arr is [ [-7, -6], [-5], [-4, -3], -2, -1, 0, 1, 2 ]
+</code></pre>
+                          </li>
+                        </ul>
+
+                        <div class="card-footer">
+                            Array.push() has similar behavior to unshift(), but applied to the end of an array.
+                        </div>
+                    </div>
+                </div>
+                <!-- Array.unshift()   -End------------>
+
+
+
+
+            </div>
+            <!-- Mutable Array End #################### -->
+
+
+            <!-- Immutable Array Start #################### -->
+            <div class="col-sm-6 border">
+                <h2 class="text-center">Immutable</h2>
+
+
+            </div>
+            <!-- Immutable Array End #################### -->
+        </div>
+
+
+    </div>
+
+
+
+    <script src="./../bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+
+</body>
+
+</html>
