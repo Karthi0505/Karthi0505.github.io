@@ -14,15 +14,13 @@
 
         <h1 class="my-5">
             <div class="f2-4 mb-2">Question:</div>
-            <small class="d-block fs-4">Shop keeper gives 15 chocolate to the customer.<br>
-                And he said to the customer, if you give a 3 rappers of chocolate I'll give 1 chocolate. <br>
-                Totally how many chocolate he could get?</small>
+            <small class="d-block fs-4">Sum continuous two pairs in an array</small>
         </h1>
 
         <p class="my-5 h1">
-            The boy would had
-            <span id="total"></span>
-            Chocolates
+            The sum of continuous Pair is
+            <span id="total"> </span>
+            
         </p>
     </div>
 
@@ -90,21 +88,7 @@
     </div>
 
     <script>
-        (function(){
-            let choco_in_hand = 15;
-            let cover_in_hand = choco_in_hand;
-            let remaining_cover = cover_in_hand % 3;
-            let total_choco = choco_in_hand;
-
-            while (cover_in_hand > 2) {
-                choco_in_hand = choco_in_hand / 3;
-                cover_in_hand = choco_in_hand + remaining_cover;
-                remaining_cover = cover_in_hand % 3;
-                total_choco = choco_in_hand + total_choco;
-            }
-            console.log(Math.floor(total_choco));
-            document.getElementById('total').innerHTML = Math.floor(total_choco);
-        })()
+        
     </script>
 
     <!-- <script src="./puzzle_program.js"></script> -->
