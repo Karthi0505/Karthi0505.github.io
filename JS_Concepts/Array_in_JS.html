@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +9,17 @@
     <link rel="stylesheet" href="./../bootstrap.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-    
+
     <link rel="stylesheet" href="./../custom.css">
 </head>
+
 <body>
     <div class="container-fluid">
 
         <h1 class="text-center my-4">Array</h1>
 
         <p class="mb-5 fs-4 text-center">
-            The Array object, enables storing a collection of multiple items under a single variable name. 
+            The Array object, enables storing a collection of multiple items under a single variable name.
             <span class="d-block mt-2">And has members for performing common array operations.</span>
         </p>
     </div>
@@ -29,44 +31,54 @@
             <div class="col-sm-6 border py-3">
                 <h2 class="text-center mb-3">Mutable</h2>
 
-                <!-- Array.push()   -Start------------>
-                <a class="btn btn-dark btn-lg d-block" data-bs-toggle="collapse" href="#array_push" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Array.push()
-                </a>
-                <div class="collapse mb-4" id="array_push">
-                    <div class="card">
-                        <div class="card-body">
-                            <!-- <h5 class="card-title">Card title</h5> -->
-                            <p class="card-text fs-5">
-                                <strong>Adds</strong> element <strong>at the end</strong> of array.
-                                <span class="d-block">
-                                    And returns the new length of the array.
+
+                <!-- Accordion Start -->
+                <div class="accordion style-1" id="accordionExample">
+
+                    <!-- Array.push()   -Start------------>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#array_push" aria-expanded="false" aria-controls="array_push">
+                                <span>
+                                    <strong>Array.push()</strong>
+                                    <small class=" d-block">
+                                        Adds at end
+                                    </small>
                                 </span>
-                            </p>
-                            <h3 class="h4">Syntax:</h3>
-<pre><code class="language-javascript fs-5"> 
-push()
+                            </button>
+                        </h2>
+                        <div id="array_push" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+
+                                <p class="fs-5">
+                                    <strong>Adds</strong> element <strong>at the end</strong> of array.
+                                    <span class="d-block">
+                                        And <strong>returns the new length</strong> of the array.
+                                    </span>
+                                </p>
+
+                                <h3 class="h4">Syntax:</h3>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">push()
 push(element1)
 push(element1, element2, /* …, */ elementN)
 </code></pre>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">
-                           <h4 class="h5">Example 1:</h4>
-<pre>
-<code class="language-javascript fs-5" >  
-const sports = ["soccer", "baseball"];
+<!-- JS code end -->
+                                <hr>
+                                <h4 class="h5">Example 1:</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const sports = ["soccer", "baseball"];
 const total = sports.push("football", "swimming");
 
 console.log(sports); // ['soccer', 'baseball', 'football', 'swimming']
 console.log(total); // 4
 </code></pre>
-                          </li>
-                          <li class="list-group-item">
-                            <h4 class="h5">Example 2: Merging two arrays</h4>
-<pre>
-<code class="language-javascript fs-5" >  
-const vegetables = ["parsnip", "potato"];
+<!-- JS code end -->
+                                <hr>
+                                <h4 class="h5">Example 2: Merging two arrays</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const vegetables = ["parsnip", "potato"];
 const moreVegs = ["celery", "beetroot"];
 
 // Merge the second array into the first one
@@ -74,40 +86,47 @@ vegetables.push(...moreVegs);
 
 console.log(vegetables); // ['parsnip', 'potato', 'celery', 'beetroot']
 </code></pre>
-                          </li>
-                        </ul>
+<!-- JS code end -->
 
-                        <div class="card-footer">
-                            Array.unshift() has similar behavior to push(), but applied to the start of an array
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Array.push()   -End------------>
+                    <!-- Array.push()   -End------------>
 
-                <!-- Array.unshift()   -Start------------>
-                <a class="btn btn-dark btn-lg d-block mt-3" data-bs-toggle="collapse" href="#array_unshift" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Array.unshift()
-                </a>
-                <div class="collapse mb-4" id="array_unshift">
-                    <div class="card">
-                        <div class="card-body">
-                            <!-- <h5 class="card-title">Card title</h5> -->
-                            <p class="card-text fs-5">
-                                <strong>Adds</strong> element <strong>at the beginning</strong> of array.
-                            </p>
-                            <h3 class="h4">Syntax:</h3>
-<pre><code class="language-javascript fs-5"> 
-unshift()
+                    <!-- Array.unshift()   -Start------------>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#array_unshift" aria-expanded="false" aria-controls="array_unshift">
+                                <span>
+                                    <strong>Array.unshift()</strong>
+                                    <small class=" d-block">
+                                        Adds at beginning
+                                    </small>
+                                </span>
+                            </button>
+                        </h2>
+                        <div id="array_unshift" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+
+                                <p class="fs-5">
+                                    <strong>Adds</strong> element <strong>at the beginning</strong> of array.
+                                    <span class="d-block">
+                                        And <strong>returns the new length</strong> of the array.
+                                    </span>
+                                </p>
+
+                                <h3 class="h4">Syntax:</h3>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">unshift()
 unshift(element1)
 unshift(element1, element2, /* …, */ elementN)
 </code></pre>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">
-                           <h4 class="h5">Example 1:</h4>
-<pre>
-<code class="language-javascript fs-5" >  
-const array1 = [1, 2, 3];
+<!-- JS code end -->
+                                <hr>
+                                <h4 class="h5">Example 1:</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const array1 = [1, 2, 3];
 
 console.log(array1.unshift(4, 5));
 // Expected output: 5
@@ -115,11 +134,10 @@ console.log(array1.unshift(4, 5));
 console.log(array1);
 // Expected output: Array [4, 5, 1, 2, 3]
 </code></pre>
-                          </li>
-                          <li class="list-group-item">
-                            <h4 class="h5">Example 2: </h4>
-<pre>
-<code class="language-javascript fs-5" >  
+<!-- JS code end -->
+                                <hr>
+                                <h4 class="h5">Example 2: </h4>
+<!-- JS code start --><pre><code class="language-javascript fs-5" >  
 const arr = [1, 2];
 
 arr.unshift(0); // result of the call is 3, which is the new array length
@@ -134,21 +152,339 @@ arr.unshift([-4, -3]); // the new array length is 6
 arr.unshift([-7, -6], [-5]); // the new array length is 8
 // arr is [ [-7, -6], [-5], [-4, -3], -2, -1, 0, 1, 2 ]
 </code></pre>
-                          </li>
-                        </ul>
+<!-- JS code end -->
 
-                        <div class="card-footer">
-                            Array.push() has similar behavior to unshift(), but applied to the end of an array.
+                            </div>
                         </div>
                     </div>
+                    <!-- Array.unshift()   -End------------>
+
+                    <!-- Array.pop()   -Start------------>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#array_pop" aria-expanded="false" aria-controls="array_pop">
+                                <span>
+                                    <strong>Array.pop()</strong>
+                                    <small class=" d-block">
+                                        Removes at end
+                                    </small>
+                                </span>
+                            </button>
+                        </h2>
+                        <div id="array_pop" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+
+                                <p class="fs-5">
+                                    <strong>Removes last</strong> element.
+                                    <span class="d-block">And <strong>returns removed element</strong></span>
+                                </p>
+                                <h3 class="h4">Syntax:</h3>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">pop()
+</code></pre>
+<!-- JS code end -->
+                                <hr>
+                                <h4 class="h5">Example 1:</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const plants = ['broccoli', 'kale', 'tomato'];
+
+console.log(plants.pop());
+// Expected output: "tomato"
+
+console.log(plants);
+// Expected output: Array ["broccoli", "kale"]
+</code></pre>
+<!-- JS code end -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Array.pop()   -End------------>
+                    
+                    <!-- Array.shift()   -Start------------>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#array_shift" aria-expanded="false" aria-controls="array_shift">
+                                <span>
+                                    <strong>Array.shift()</strong>
+                                    <small class=" d-block">
+                                        Removes at beginning
+                                    </small>
+                                </span>
+                            </button>
+                        </h2>
+                        <div id="array_shift" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+
+                                <p class="fs-5">
+                                    <strong>Removes first</strong> element.
+                                    <span class="d-block">And <strong>returns removed element</strong></span>
+                                </p>
+                                <h3 class="h4">Syntax:</h3>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">shift()
+</code></pre>
+<!-- JS code end -->
+                                <hr>
+                                <h4 class="h5">Example 1:</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const myFish = ["angel", "Gold fish", "Guppy fish"];
+
+const shifted = myFish.shift();
+
+console.log("Removed this element:", shifted);
+// Removed this element: angel
+
+console.log("myFish after:", myFish);
+// myFish after: ["Gold fish", "Guppy fish"]
+</code></pre>
+<!-- JS code end -->
+                                <hr>
+                                <h4 class="h5">Example 2: Using shift() method in while loop</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const names = ["Karthi", "Leo Das", "Herold Das", "Ronaldo", "Socrates"];
+
+while (typeof (i = names.shift()) !== "undefined") {
+    console.log(i);
+}
+// "Karthi", "Leo Das", "Herold Das", "Ronaldo", "Socrates"
+</code></pre>
+<!-- JS code end -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Array.shift()   -End------------>
+
+                    <!-- Array.splice()   -Start------------>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#array_splice" aria-expanded="false" aria-controls="array_splice">
+                                <span>
+                                    <strong>Array.splice()</strong>
+                                    <small class=" d-block">
+                                        Insertion and removal inbetween
+                                    </small>
+                                </span>
+                            </button>
+                        </h2>
+                        <div id="array_splice" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+
+                                <p class="fs-5">
+                                    <strong>Insertion</strong> and <strong>removal</strong> inbetween an array.
+                                    <span class="d-block">And <strong>returns deleted elements</strong></span>
+                                </p>
+                                <h3 class="h4">Syntax:</h3>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">splice(start)
+splice(start, deleteCount)
+splice(start, deleteCount, item1, item2, /* …, */ itemN)
+</code></pre>
+<!-- JS code end -->
+                                <hr>
+                                <h4 class="h5">Example 1:</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const months = ["Jan", "Feb", "Masi", "Margazhi", "Apr"];
+const removed = months.splice(2, 2, "Mar");
+
+console.log(removed); // ['Masi', 'Margazhi']
+
+console.log(months); // ['Jan', 'Feb', 'Mar', 'Apr']
+</code></pre>
+<!-- JS code end -->
+                                <hr>
+                                <h4 class="h5">Example 2: Remove 0 (zero) elements and insert "drum" and "guitar"</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const instruments = ["flute", "Mouthorgan", "keyboard"];
+const removed = instruments.splice(1, 0, "drum", "guitar");
+
+// instruments is['flute', 'drum', 'guitar', 'Mouthorgan', 'keyboard']
+// removed is [], no elements removed
+</code></pre>
+<!-- JS code end -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Array.splice()   -End------------>
+
+                    <!-- Array.sort()   -Start------------>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#array_sort" aria-expanded="false" aria-controls="array_sort">
+                                <span>
+                                    <strong>Array.sort()</strong>
+                                    <small class=" d-block">
+                                        sorts in some order
+                                    </small>
+                                </span>
+                            </button>
+                        </h2>
+                        <div id="array_sort" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+
+                                <p class="fs-5">
+                                    Used to <strong>Sort</strong> an array <strong>in some order.</strong>
+
+                                    <span class="d-block">Sorts by <strong>Default in Alphebatic order</strong></span>
+                                </p>
+                                <p class="fs-5">
+                                    To make <strong>Custom sort order</strong> put a <strong>compare function</strong> inside it
+                                </p>
+                                <p class="fs-5">
+                                    <strong>Returns the sorted</strong> (mutated array)
+                                </p>
+                                <h3 class="h4">Syntax:</h3>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">sort()
+sort(compareFn)
+</code></pre>
+<!-- JS code end -->
+                                <hr>
+                                <h4 class="h5">Example 1: Alphabetic order</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const fruits = ['Orange', 'Pomogranate', 'Guava', 'Apple'];
+fruits.sort();
+console.log(fruits); // ['Apple', 'Guava', 'Orange', 'Pomogranate']
+</code></pre>
+<!-- JS code end -->
+                                <hr>
+                                <h4 class="h5">Example 2: Numerical assending order</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const points = [40, 100, 1, 5, 25, 10];
+points.sort( function(a, b){return a - b} );
+
+console.log(points);
+//[1, 5, 10, 25, 40, 100]
+</code></pre>
+<!-- JS code end -->
+
+                                <hr>
+                                <h4 class="h5">Example 3: Sorting Object Arrays</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const cars = [
+    {type:"Volvo", year:2016},
+    {type:"Saab", year:2001},
+    {type:"BMW", year:2010}
+];
+
+cars.sort(function(a, b){return a.year - b.year});
+
+//{type: 'Saab', year: 2001}
+//{type: 'BMW', year: 2010}
+//{type: 'Volvo', year: 2016}
+</code></pre>
+<!-- JS code end -->
+                                <hr>
+
+                                <h4 class="h5">Example 4: Sorting Object Arrays - Comparing string properties is a little more complex</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const cars = [
+    {type:"Volvo", year:2016},
+    {type:"Saab", year:2001},
+    {type:"BMW", year:2010}
+];
+
+displayCars();
+
+function myFunction() {
+    cars.sort(function(a, b){
+        let x = a.type.toLowerCase();
+        let y = b.type.toLowerCase();
+        if (x < y) {return -1;}
+        if (x > y) {return 1;}
+        return 0;
+    });
+    displayCars();
+}
+</code></pre>
+<!-- JS code end -->
+
+                                <hr>
+                                <h4 class="h5">Example 5: Stable Array sort()</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const myArr = [
+    {name:"X00",price:100 },
+    {name:"X01",price:100 },
+    {name:"X02",price:100 },
+    {name:"X03",price:100 },
+    {name:"X04",price:110 },
+    {name:"X05",price:110 },
+    {name:"X06",price:110 },
+    {name:"X07",price:110 },
+    {name:"X08",price:120 },
+    {name:"X09",price:120 },
+    {name:"X10",price:120 },
+    {name:"X11",price:120 },
+    {name:"X12",price:130 },
+    {name:"X13",price:130 },
+    {name:"X14",price:130 },
+    {name:"X15",price:130 },
+    {name:"X16",price:140 },
+    {name:"X17",price:140 },
+    {name:"X18",price:140 },
+    {name:"X19",price:140 }
+];
+
+myArr.sort( (p1, p2) => {
+    if (p1.price < p2.price) return -1;
+    if (p1.price > p2.price) return 1;
+    return 0;
+});
+</code></pre>
+<!-- JS code end -->
+
+                                <hr>
+                                <h4 class="h5">Example 6: Sorting in Random Order</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const points = [40, 100, 1, 5, 25, 10];
+points.sort(function(){return 0.5 - Math.random()});
+</code></pre>
+<!-- JS code end -->
+
+                                <hr>
+                                <h4 class="h5">Example 7: The Fisher Yates Method for Random sort</h4>
+                                <p>The above example, array.sort(), is not accurate. It will favor some numbers over the others.</p>
+                                <p>
+                                    The most popular correct method, is called the Fisher Yates shuffle, and was introduced in data science as early as 1938!
+                                </p>
+                                <p>
+                                    In JavaScript the method can be translated to this:
+                                </p>
+
+                                <p>Click the button (again and again) to sort the array in random order.</p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const points = [40, 100, 1, 5, 25, 10]; 
+
+function myFunction() {
+    for (let i = points.length -1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i+1));
+        let k = points[i];
+        points[i] = points[j];
+        points[j] = k;
+    }
+    console.log(points);
+}
+
+document.getElementById("demo").addEventListener("click", myFunction);
+</code></pre>
+<!-- JS code end -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Array.sort()   -End------------>
+
                 </div>
-                <!-- Array.unshift()   -End------------>
+                <!-- Accordion End -->
 
 
-
-
-            </div>
-            <!-- Mutable Array End #################### -->
+            </div> <!-- Mutable Array End #################### -->
 
 
             <!-- Immutable Array Start #################### -->
