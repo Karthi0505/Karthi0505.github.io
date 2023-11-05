@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./../bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+
+    <link rel="stylesheet" href="./../custom.css">
+</head>
+<body>
+    <div class="container-fluid fs-5">
+        <h1 class="text-center my-4">Clipboard API</h1>
+
+        <p class="mb-5 fs-4 text-center border rounded p-4 w-75 mx-auto">The Clipboard API provides the ability to respond to clipboard commands <strong>(cut, copy, and paste)</strong> as well as to asynchronously </strong>read from and write to the system clipboard</strong>.</p>
+    </div>
+
+
+    <div class="container-fluid">
+        <h2 class="">Accessing the clipboard</h2>
+        
+        <p>Instead of creating a Clipboard object through instantiation, you access the system clipboard through the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/clipboard">Navigator.clipboard</a> global:</p>
+
+        <hr>
+
+        <!-- readText Example -Start ######################### -->
+        <h2 class="fs-5 mt-5">Example 1: </h2>
+        <div class="mb-5">
+            <h3><span class="text-danger">readText</span> <small>(used for getting the copied text from the Clipboard)</small></h3>
+
+            <button class="my-1" onclick="getCopied()">Click to Get and paste copied text</button>
+
+            <!-- Display copied text here -->
+            <p class="mt-3 editor border-4 border-info py-2 mb-2 w-25 fs-6 text-center border" style="min-height:86px; overflow:auto;"></p>
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">navigator.clipboard
+    .readText()
+    .then(
+        (clipText) => (document.querySelector(".editor").innerText += clipText),
+    );
+</code></pre>
+<!-- JS code end -->
+
+            <script>
+                function getCopied() {
+                    navigator.clipboard
+                        .readText()
+                        .then(
+                            (clipText) => (document.querySelector(".editor").innerText += clipText),
+                        );
+                }
+            </script>
+        </div>
+        <!-- readText Example -End ######################### -->
+
+<hr>
+
+        
+        <!-- writeText Example -Start ######################## -->        
+        <h2 class="fs-5 mt-5">Example 2: </h2>
+        <div>
+            <h3><span class="text-danger">writeText</span> <small>(used for COPYING the text into the Clipboard)</small></h3>
+                            
+            <input type="text" value="Hello World" id="myInput">
+            <button onclick="copyInputText()">Copy text</button>
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">function copyInputText(){
+    const copyText = document.getElementById("myInput");
+    navigator.clipboard.writeText(copyText.value);
+}
+</code></pre>
+<!-- JS code end -->   
+            <script>
+                // Copy the text inside the text field
+                function copyInputText(){
+                    const copyText = document.getElementById("myInput");
+                    navigator.clipboard.writeText(copyText.value);
+                }
+            </script>
+        </div>
+        <!-- WriteText Example -End ######################## -->
+        
+        <hr>
+            
+        <h4 class="mt-5">Resources</h4>
+        <p class="mb-5"> 
+            <a class="mb-3" href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API#interfaces">Clipboard API </a> 
+            (MDN docs),  
+            <br>
+
+            <a class="" href="https://www.w3schools.com/jsref/obj_clipboardevent.asp">Clipboard Events</a> (W3Schools examples)
+        </p>
+
+    </div>
+
+
+    
+
+
+    <script src="./../bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+</html>

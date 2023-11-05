@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./../bootstrap.css">
+    <!-- HighlightJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../custom.css">
+</head>
+
+<body>
+
+
+    <!-- Section 1 Start ########################### -->
+    <div class="container-fluid">
+
+        <h1 class="text-center my-4">OOPs (Object Oriented Programming in Js)</h1>
+
+        <p class="mb-5 fs-4 text-center border rounded p-4 w-75 mx-auto">
+            JavaScript is a Prototype-based programming paradigm. It is not an OOP language. But it has support for it. It has the class keyword, which is just a syntactic sugar over prototypes. We actually create prototypes in javascript, and not classes. The class keyword is there to make javascript look like an OOP language.
+        </p>
+        
+    </div>
+    <!-- Section 1 End --------------------------- -->
+    
+
+
+    <!-- Section 2 Start ########################### -->
+    <div class="container-fluid">
+
+<pre>
+        There are two types of OOP languages:
+
+1. Class-Based languages like JAVA, C++.
+2. Prototype-Based languages like JavaScript.
+
+But what makes a language an OOP-based programming language?
+
+There are four primary pillars of Object-Oriented Programming. Any piece of code following the OOP paradigm must adhere to these basic rules of Object-orientation.
+
+Features of an Object oriented language
+Object-Oriented Programming (OOP) languages follow four main principles. Firstly, objects encapsulate data variables and methods, representing real-world entities. Classes act as blueprints for objects, defining their characteristics and actions. Encapsulation groups data and methods together, ensuring data security. Inheritance allows the classes to inherit all (based on type of inheritance) properties and methods from parent classes, promoting code reuse. Additionally, inheritance enables method overriding, where child classes can redefine inherited methods. OOP languages, like JavaScript, use constructor functions and prototypes instead of traditional classes. Understanding these principles facilitates the creation of organized, reusable, and secure code structures. For more explanation read our dedicated article here on Object Oriented Programming (OOP)
+
+Is JavaScript Object-Oriented?
+We need to understand the difference between OOP and Prototype-based programming, before finding the answer to this common question - ' Is JavaScript Object-oriented?'.
+
+Object-Oriented Programming (OOP) The object-oriented paradigm keeps data and actions grouped together inside classes. In OOP, we create classes and then create their instances called objects.
+
+Prototype-based Programming In Prototype-based programming, we derive objects from other already existing objects.
+
+
+Note: Prototypes are the mechanism by which JavaScript objects inherit features from one another. --MDN Docs
+
+JavaScript is a Prototype-based programming paradigm. It is not an OOP language. But it has support for it. It has the class keyword, which is just a syntactic sugar over prototypes. We actually create prototypes in javascript, and not classes. The class keyword is there to make javascript look like an OOP language.
+
+<hr>
+
+There are three ways to create one. We'll be discussing each one of them in detail.
+
+Using an Object Literal
+
+const student = {
+    first_name: 'Mary',
+    last_name: 'Green',
+    display_full_name: function(){
+        return `${this.first_name} ${this.last_name}`
+    }
+}
+
+console.log(student.display_full_name());
+
+<hr>
+This way of creating an object is hard-coded. What if we want to create objects for 100 users having the same three data members - first_name, last_name, and display_full_name? We'll have to write the whole object 100 times. So, what's better?
+<hr>
+
+Using an Object Constructor
+We can create an object prototype and then create 100 instances for the same. Using Object Constructor is one way of doing this.
+<hr>
+
+//Creating a constructor function
+function student(first_name, last_name){
+    this.first_name = first_name,
+    this.last_name = last_name,
+    this.display_full_name = function(){
+            return `${first_name} ${last_name}`;
+        }
+}
+
+//Creating instances for the constructor function
+const student1 = new student("Mary", "Green");
+const student2 = new student("Lary", "Smith");
+
+console.log(student2.display_full_name());
+<hr>
+
+
+Using Object.create() Method
+This is another method for creating objects. Simply create an object and create instances using the Object.create() method.
+
+//Creating an object
+const student = {
+    first_name: 'Mary',
+    last_name: 'Green',
+    display_full_name: function(){
+        return `${student.first_name} ${student.last_name}`
+    }
+}
+
+//Creating an instance for the student object
+const student1 = Object.create(student);
+
+//Updating the last name
+student1.last_name = "Smith";
+
+console.log(student1.display_full_name());
+<hr>
+<hr>
+
+
+No Classes in JavaScript
+JavaScript is a prototype-based language, and it doesn't have classes in it. We define the templates for objects using constructor functions or prototypes.
+
+But JavaScript does have support for the class keyword. How can we say that classes cannot be created in JavaScript?
+
+The keyword class in JavaScript is actually a syntactic sugar over the prototype-based inheritance, which is already present and supported in JavaScript. JS provides it so that the object creation aligns with other object-oriented languages where the creation of classes is supported.
+<hr>
+
+ES6 Classes
+Let's look at the ES6 way of defining classes, using the class keyword and then we'll see how classes were defined traditionally.
+
+//Defining the class
+class Student{
+    constructor(first_name, last_name){
+        this.first_name = first_name,
+        this.last_name = last_name
+    }
+    display_full_name = function(){
+        return `${first_name} ${last_name}`
+    }
+}
+
+//Creating instances using the `new` keyword
+const student1 = new Student("Mary", "Green");
+const student2 = new Student("Lary", "Smith");
+<hr>
+
+Traditional Way of Class Simulation
+This is how classes were defined before JavaScript started supporting the class keyword. That is before ES6 came up.
+
+function Student(first_name, last_name){
+    this.first_name = first_name
+    this.last_name = last_name
+}
+Student.prototype.display_full_name = function(){
+    return `${this.first_name} ${this.last_name}`
+}
+const student1 = new Student("Mary", "Green");
+const student2 = new Student("Lary", "Smith");
+
+console.log(student1.display_full_name());
+<hr>
+
+
+JavaScript Encapsulation
+Encapsulation puts the data variables and the data functions together inside a box. Encapsulation ensures that data can only be accessed using the data functions defined inside the class, and abstraction ensures not anyone outside this encapsulated box can access it.
+
+But, we already saw that there is no actual concept of classes in JavaScript. So, JavaScript implements encapsulation using two ways: Function Scope and Closures.
+
+Let's discuss both of them with examples.
+
+Function Scope
+When we define a variable or a function inside the function, we can only access it from inside and not from outside the function. This can be one way of implementing abstraction. Look at the example below.
+
+function messageFunc(){
+    const message= "Hey there!"
+    console.log("Message from  inside: ",message);
+}
+
+// Calling the function which internally defines the message
+messageFunc(); 
+
+// Trying to access message from outside the function which defines it
+console.log("Message from  outside: ",message);
+
+
+The output for this code snippet says the right message when accessed from inside but throws an error when accessed from outside. Hence, the message is encapsulated.
+<hr>
+
+
+Closures
+We can create a function inside a function, and the inner function will be able to access the local variable defined inside the outer function. This is called closure.
+
+Note: A closure is created every time a function is declared.
+
+function messageFunc(){
+    const message = "Hey there!"
+    const displayMessage = function(){
+        console.log(message);
+    }
+    displayMessage();
+}
+
+// Calling the function which internally defines the message
+messageFunc();
+
+// Trying to access message from outside the function which defines it
+console.log("Message from outside: ",message);
+
+
+Again, the output says that creating a closure helps encapsulate and restrict the data access only to inside the function.
+
+<hr>
+
+
+
+JavaScript Inheritance
+JavaScript lets objects inherit properties from parent objects or any other objects. It uses the concept of prototypal inheritance.
+
+Prototype
+JavaScript is a prototype-based language. The objects created here can inherit the properties and methods from other objects or their parent ones.
+
+Let's create an object and console it.
+
+{message: "Hey there"}
+
+
+We only defined the property message to the messageObject, but we can see a lot of other methods. We didn't define them!
+
+These methods are inherited from the parent object, i.e., the prototype for the object data structure. When we create the object messageObject, we basically inherit all the properties object data structure has and add a new one, i.e. message.
+<hr>
+
+
+What is Polymorphism?
+Polymorphism is a concept used in the object-oriented paradigm that enables us to use the same function in different forms. This reduces repetition and makes the code snippet useful in many different cases. Polymorphism is implemented in JavaScript by generic, overloading, and structural sub-typing. Let us see them all in detail.
+
+Generics (Parametric Polymorphism)
+Parametric Polymorphism is implemented to make our code more generic. More precisely, it makes our code independent of defining data types. A more generic code doesn't care about the types while still maintaining types-safety.
+
+Let us see an example:
+
+Let's create a function to concat two data structures. Now, applying parametric Polymorphism, this code should run for two lists, two strings, or any two types. This is the idea behind this type of Polymorphism.
+
+const concatData = (x,y) => {
+    return y.concat(x);
+}
+console.log(concatData([1,2],[3,4]));
+console.log(concatData("John","Smith"));
+
+
+This code runs for both arrays and strings. Hence, Polymorphism is implemented.
+
+
+<hr>
+
+Overloading (ad-hoc polymorphism)
+Overloading in JavaScript is achieved using ad-hoc Polymorphism. Functions created using ad-hoc polymorphism exhibit different behaviors based on different types of input values. For example:
+
++ when used on integers and floats, exhibit the property of addition.
++ when used with strings and array does concatenation.
+
+
+console.log(4 + 5)
+console.log("My name is: "+"John Smith")
+
+<hr>
+
+console.log(4 + 5)
+console.log("My name is: "+"John Smith")
+
+<hr>
+
+Structural Subtyping (Structural Polymorphism)
+Consider Person and Student.
+
+
+const Person = {
+    legs: 2,
+    arms: 2,
+}
+const Student = {
+    uniform: true,
+}
+
+
+Clearly, Student is a sub-type of Person, and Person is a super-type of Student. All the operations that can be performed on the Person can also be applied to the Student, but the reverse is not valid. Structural subtyping is about defining relationships. A sub-type will always have all the properties of another type, plus some additional features.
+
+<br>
+
+JavaScript and OOP
+A fundamental feature of OOPS in javascript is its capability to model a problem using real-life objects. To achieve that, we should be able to define real objects and define relationships among them using three principles:
+
+Association
+Aggregation
+Composition
+Let's elaborate on these three principles:
+<br>
+
+JavaScript objects support Association, Aggregation and Composition
+
+Association
+When two objects are unrelated and independent of each other, we define a relationship between them independent of any hierarchy. This means none of the objects is the child or parent of the other object, and the relation is called an association.
+
+For example: In the case of a patient visiting a doctor, there is an independent relation. That doctor might be seeing multiple patients, and that patient can also be visiting multiple doctors simultaneously. None of them is a parent or a child. Hence, the relation is built through association.
+
+Aggregation
+There is an ownership in this type of relationship. It holds a parent/child relation. An essential property of this type of relationship is that the parent can live without the child object and vice versa. The child can also exist independently.
+
+For example If an employee works for more than one department in a company, and anyone department gets deleted, the child, i.e., the employee, can still exist inside the company. Hence, this relationship exhibits aggregation.
+
+Composition
+Composition is a special type of aggregation. If the parent object dies, the child object also ceases to exist. To be more precise, the parent can exist without the child object, but vice versa is not true. The child cannot exist without its parent object.
+
+<hr>
+
+
+How is JavaScript an OOP Language without Classes?
+As already discussed, we do not create classes in JavaScript. Although we have the class keyword, it is just syntactic sugar over the prototype-based inheritance. Then how is OOPS in javascript implemented?
+
+OOPS is not about creating classes! OOPS in javascript has its four main pillars explained above, and these four principle should be implemented using objects. In this prototype-based language, we use objects to implement encapsulation:
+
+
+const student = {
+    name: "Mary Green,"
+    isStudying: () => console.log(`${student.name} is studying`)
+}
+
+
+Hence, we simply create JavaScript objects and achieve the object-oriented programming paradigm principles. We do not need classes for implementing OOPS.
+<hr>
+
+
+
+
+Conclusion
+
+JavaScript is a prototype-based language. It has support for both Object-oriented and functional programming paradigm. It is not a complete OOP or FP.
+
+We cannot create classes in javascript. We have the class keyword, but it is just syntactic sugar for the prototype-based inheritance.
+
+Oops in JavaScript is based on four main pillars:
+    Objects
+    Classes
+    Encapsulation
+    Inheritance
+
+Classes are blueprints for real objects, and objects are the instances of the classes/prototypes.
+
+Encapsulation is binding data and actions together, and inheritance says we can inherit some properties from the parent objects and define new properties and actions inside the child object.
+
+Polymorphism is a concept used in the oops in javascript that enables us to use the same function in different forms.
+
+</pre>
+
+
+    </div>
+    <!-- Section 2 End --------------------------- -->
+
+
+
+
+
+    <!-- Bootstrap JS ########################### -->
+    <script src="./../bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+</html>

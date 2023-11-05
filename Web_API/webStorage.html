@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./../bootstrap.css">
+    <!-- HighlightJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../custom.css">
+</head>
+
+<body>
+
+
+    <!-- Section 1 Start ########################### -->
+    <div class="container-fluid">
+
+        <h1 class="text-center my-4">Web Storage API</h1>
+
+        <p class="mb-5 fs-4 text-center border rounded p-4 w-75 mx-auto">
+            The Web Storage API provides mechanisms by which <strong>browsers can store key/value pairs</strong>, in a much more intuitive fashion than using <a href="https://developer.mozilla.org/en-US/docs/Glossary/Cookie"></a>cookies.
+
+            <small class="d-block mt-3 fs-6" title="Once this limit is reached, browsers throw a QuotaExceededError exception which should be handled by using a try...catch block.">
+                (Overall limited to 10 MiB per origin)
+            </small>
+        </p>
+        
+        <hr>
+    </div>
+    <!-- Section 1 End --------------------------- -->
+    
+
+
+    <!-- Section 2 Start ########################### -->
+    <div class="container-fluid">
+        <p>The two mechanisms within Web Storage are as follows:</p>
+        <ul class="fs-4">
+            <li>localStorage</li>
+            <li>sessionStorage</li>
+        </ul>
+        <hr>
+    </div>
+    <!-- Section 2 End --------------------------- -->
+    
+
+
+    <!-- Section 3 Start ########################### -->
+    <div class="container-fluid">
+        
+        <div class="d-sm-flex">
+            <!-- Local Storage Start #################### -->
+            <div class="col-sm-6 border">
+                <div class="p-3" title="Local Storage - Not Expires">
+                    <h2 class="text-center mb-3">Local Storage</h2>
+
+                    <p>local storage same as session storage for a particular Web Site allows you to store, read, add, modify, and delete data items for that domain.</p>
+
+                    <p>But data is stored with no expiration date, and will not be deleted when the browser is closed. The data will be available for days, weeks, and years.</p> 
+                    
+                
+                    <ul class="fs-5 list-group">
+                        <li class="list-group-item">
+                            <p>Stores data with <strong>no expiration</strong> date, and <strong>gets cleared only through JavaScript</strong>, or by <strong>clearing the Browser cache / Locally Stored Data</strong>.</p>
+                            
+                            <p>(It clears in a "private browsing" or "incognito",  <strong>when the last "private" tab is closed</strong>.)</p>
+                        </li>
+                        <li class="list-group-item">Storage limit is the maximum amongst the two. <strong>(5 MiB)</strong> per origin.
+                        </li>
+                    </ul>
+                </div> 
+                <hr>
+
+                <div class="p-3">
+                    <h3 class="text-decoration-underline">
+                        Syntax
+                    </h3>
+
+                    <p class="mb-1">This code accesses the current domain's local Storage object and <strong>adds</strong> a data item to it using Storage.setItem().</p>
+<!-- JS Snippet start -->
+<pre><code class="language-javascript fs-5">localStorage.setItem("myCat", "Tom");
+</code></pre>
+<!-- JS Snippet end -->
+
+                    <p class="mb-1">Syntax for <strong>reading</strong> the localStorage item:</p>
+<!-- JS Snippet start -->
+<pre><code class="language-javascript fs-5">const cat = localStorage.getItem("myCat");
+console.log(cat);
+</code></pre>
+<!-- JS Snippet end -->
+
+                    <p class="mb-1">The syntax for <strong>removing</strong> the localStorage item:</p>
+<!-- JS Snippet start -->
+<pre><code class="language-javascript fs-5">localStorage.removeItem("myCat");
+</code></pre>
+<!-- JS Snippet end -->
+
+                    <p class="mb-1">The syntax for <strong>removing all</strong> the localStorage items:</p>
+<!-- JS Snippet start -->
+<pre><code class="language-javascript fs-5">localStorage.clear();
+</code></pre>
+<!-- JS Snippet end -->
+
+                    <hr>
+
+                    <h4 class="text-decoration-underline mt-5">Other Examples:</h4>
+<!-- JS Snippet start -->
+<pre><code class="language-javascript fs-5">const person = { name: "Alex" };
+localStorage.setItem("user", person);
+console.log(localStorage.getItem("user")); // "[object Object]"; not useful!
+localStorage.setItem("user", JSON.stringify(person));
+console.log(JSON.parse(localStorage.getItem("user"))); // { name: "Alex" }
+</code></pre>
+<!-- JS Snippet end -->
+
+
+                </div>
+            </div>      
+            <!-- Local Storage End ---------------------- -->
+
+            
+            <!-- Session Storage Start #################### -->
+            <div class="col-sm-6 border" >
+                <div class="p-3" title="Session Storage - Expires">
+                    <h2 class="text-center mb-3">Session Storage</h2>
+
+                    <p>sessionStorage maintains a separate storage area <strong>for each given origin</strong> that's available <strong>for the duration</strong> of the page session (as long as the browser is open, including page reloads and restores).</p>
+                    <br>
+
+                    <ul class="fs-5 list-group">
+                        <li class="list-group-item"><strong>Stores data only for a session</strong>, meaning that the data is stored <strong>until the browser (or tab) is closed</strong>.
+                        </li>
+                        <li class="list-group-item">Data is <strong>never transferred to the server</strong>.
+                        </li>
+                        <li class="list-group-item">Storage limit is larger than a <span title="cookie has (4096 Byte) that is (0.032768 MB)">(4096 Byte Cookie) </span> (at most <strong>5 MiB</strong>) per origin.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-3">  
+                    
+                    <h3 class="text-decoration-underline">
+                        Syntax
+                    </h3>
+
+                    <p class="mb-1"><strong>Save</strong> data to sessionStorage</p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">sessionStorage.setItem("key", "value");
+</code></pre>
+<!-- JS code end -->
+
+                    <p class="mb-1"><strong>Get</strong> saved data from sessionStorage</p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">let data = sessionStorage.getItem("key");
+</code></pre>
+<!-- JS code end -->
+
+                    <p class="mb-1"><strong>Remove</strong> saved data from sessionStorage</p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">sessionStorage.removeItem("key");
+</code></pre>
+<!-- JS code end -->
+
+                    <p class="mb-1"><strong>Remove all</strong> saved data from sessionStorage</p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">sessionStorage.clear();
+</code></pre>
+<!-- JS code end -->
+
+                    <hr>
+                                      
+                    <h4 class="text-decoration-underline">Other Example:</h4>
+
+                    <h5>Saving text between refreshes</h5>
+                    <p class="mb-1">The following example autosaves the contents of a text field, and if the browser is refreshed, restores the text field content so that no writing is lost.</p>
+
+                    <input type="text" id="field" />
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">// Get the text field that we're going to track
+let field = document.getElementById("field");
+
+// See if we have an autosave value
+// (this will only happen if the page is accidentally refreshed)
+if (sessionStorage.getItem("autosave")) {
+    // Restore the contents of the text field
+    field.value = sessionStorage.getItem("autosave");
+}
+
+// Listen for changes in the text field
+field.addEventListener("change", () => {
+    // And save the results into the session storage object
+    sessionStorage.setItem("autosave", field.value);
+});
+</code></pre>
+<!-- JS code end -->
+
+                    <script>
+                        // Get the text field that we're going to track
+                        let field = document.getElementById("field");
+
+                        // See if we have an autosave value
+                        // (this will only happen if the page is accidentally refreshed)
+                        if (sessionStorage.getItem("autosave")) {
+                            // Restore the contents of the text field
+                            field.value = sessionStorage.getItem("autosave");
+                        }
+
+                        // Listen for changes in the text field
+                        field.addEventListener("change", () => {
+                            // And save the results into the session storage object
+                            sessionStorage.setItem("autosave", field.value);
+                        });
+                    </script>
+
+                </div>
+            </div>  
+            <!-- Session Storage End ---------------------- -->
+        </div>
+
+
+    </div>
+    <!-- Section 3 End --------------------------- -->
+    <hr>
+
+
+
+
+    <!-- Bootstrap JS ########################### -->
+    <script src="./../bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+</html>

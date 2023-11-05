@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./../bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+
+    <link rel="stylesheet" href="./../custom.css">
+</head>
+<body>
+    <div class="container-fluid fs-5">
+        <h1 class="text-center my-4">Geolocation API</h1>
+
+        <p class="mb-5 fs-4 text-center border rounded p-4 w-75 mx-auto">The HTML Geolocation API is used to get the geographical position of a user. (if they approves)</p>
+
+        <!-- Display long and lat here -->
+        <p id="demo" class="border-4 border-info py-2 mb-5 mx-auto w-25 fs-4 text-center border" style="min-height:86px"></p>
+        
+        <p>
+            The <strong>getCurrentPosition()</strong> method is used to return the user's position.
+            <span class="d-block mt-1">
+                It can be accessed from the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator">navigator</a> object
+            </span>
+        </p>
+    </div>
+
+    <div class="container-fluid">
+        <h2 class="">Example</h2>
+        
+        <p>The example below returns the latitude and longitude of the user's position:</p>
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const myElement = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+    } else {
+        myElement.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+getLocation();
+
+//show position in HTML
+function showPosition(position) {
+
+    myElement.innerHTML = `Latitude: ${position.coords.latitude} 
+        <br>Longitude: ${position.coords.longitude}`;
+
+}
+</code></pre>
+<!-- JS code end -->
+
+        <h3>Example explained:</h3>
+        <ol class="list-group fs-5 list-group-numbered">
+            <li class="list-group-item">Check if Geolocation is supported</li>
+            <li class="list-group-item">If supported, run the getCurrentPosition() method. If not, display a message to the user</li>
+            <li class="list-group-item">If the getCurrentPosition() method is successful, it returns a coordinates object to the function specified in the parameter (showPosition)</li>
+            <li class="list-group-item">The showPosition() function outputs the Latitude and Longitude</li>
+        </ol>
+       <p class="my-5"> 
+            The example above is a very basic Geolocation script, with no error handling.
+            <a class="d-block" href="https://www.w3schools.com/js/js_api_geolocation.asp">Other examples in W3Schools</a>
+       </p> 
+
+    </div>
+
+
+    <script>
+
+        const myElement = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+
+            } else {
+                myElement.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+        getLocation();
+
+        //show position in HTML
+        function showPosition(position) {
+
+            myElement.innerHTML = `Latitude: ${position.coords.latitude} 
+                <br>Longitude: ${position.coords.longitude}`;
+
+        }
+
+    </script>
+
+
+    
+    <script src="./../bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+</html>

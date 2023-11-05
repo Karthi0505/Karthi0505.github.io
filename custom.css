@@ -1,0 +1,6 @@
+[title] {
+    cursor: default;
+}
+[title]:hover {
+    background-color: rgb(0 188 212 / 10%);
+}

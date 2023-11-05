@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./../bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+
+    <link rel="stylesheet" href="./../custom.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center my-4">Web API</h1>
+
+        <p class="mb-5 fs-4 text-center">
+            Mostly used for <strong>providing</strong> information or <strong>data from the server.</strong> 
+            <br>
+            <a class="fs-6" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API">Link to List of all web API's:</a>
+        </p>
+
+        <div class="accordion mb-5" id="accordionExample">
+            <!-- Accordion Item Start -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed  fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#apiIntro" aria-expanded="false" aria-controls="apiIntro">
+                  Intro
+                </button>
+              </h2>
+              <div id="apiIntro" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>Reference: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction">Client-side_web_APIs Introduction</a></p>
+
+                  <p>Client-side JavaScript, in particular, has many APIs available to it — these are not part of the JavaScript language itself, rather they are built on top of the core JavaScript language. They generally fall into two categories:</p>
+
+                  <p><strong>Browser APIs</strong> are built into your web browser and are able to expose data from the browser and surrounding computer environment. 
+                    For example, the Web Audio API provides JavaScript constructs for manipulating audio in the browser — taking an audio track, altering its volume, applying effects to it, etc. In the background, the browser is actually using some complex lower-level code (e.g. C++ or Rust) to do the actual audio processing. But again, this complexity is abstracted away from you by the API.
+                </p>
+
+                  <p><strong>Third-party APIs</strong>  are not built into the browser by default, and you generally have to retrieve their code and information from somewhere on the Web. For example, the Twitter API allows you to do things like displaying your latest tweets on your website.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Accordion Item End -->
+            <!-- Accordion Item Start -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed  fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#commonBrowserApi" aria-expanded="false" aria-controls="commonBrowserApi">
+                    The most common categories of browser APIs you'll use are:
+                  </button>
+                </h2>
+                <div id="commonBrowserApi" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul  class="list-group">
+                        <li class="list-group-item">
+                            <strong>APIs for manipulating documents</strong> loaded into the browser. Example: DOM (Document Object Model) API. Find out more about these types of API in <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents">Manipulating documents.</a>.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>APIs that fetch data from the server</strong> to update small sections of a webpage are commonly used. The main API used for this is the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a>, although older code might still use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHttpRequest API</a>. Find out more about such APIs in <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data">Fetching data from the server</a>.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>APIs for drawing and manipulating graphics</strong> are widely supported in browsers — the most popular ones are Canvas and WebGL, which allow you to programmatically update the pixel data contained in an HTML <code>&lt;canvas&gt;</code> element to create 2D and 3D scenes.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Audio and Video APIs</strong> like HTMLMediaElement, the Web Audio API, and WebRTC 
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Device APIs</strong> enable you to interact with device hardware: for example, accessing the device GPS to find the user's position using the Geolocation API.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Client-side storage APIs</strong> enable you to store data on the client-side, so you can create an app that will save its state between page loads, and perhaps even work when the device is offline. There are several options available, e.g. simple name/value storage with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">Web Storage API</a>, and more complex database storage with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB API</a>.
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Accordion Item End -->
+        </div>
+
+
+        <ul>
+            <li>A Browser API can extend the functionality of a web browser.</li>
+            <li>A Server API can extend the functionality of a web server.
+            </li>
+        </ul>
+    </div>
+
+    <!-- Browser API's -->
+    <div class="container-fluid">
+        <h2>Browser API's</h2>
+        <p>
+            All browsers have a set of built-in Web APIs to support complex operations, and to help accessing data.
+            <br>
+            For example, the Geolocation API can return the coordinates of where the browser is located.
+        </p>
+
+        <h3 class="fs-5">Some of the Browser APIs</h3>
+        <ul>
+            <li title="allows the user to provide their location to web applications if they so desire. It accepts an HTTPS request with the cell tower and WiFi access points that a mobile client can detect. It returns latitude/longitude coordinates and a radius indicating the accuracy">
+                <a href="./geolocationAPI.html">Geolocation API</a>
+            </li>
+            <li title="provides an interface for fetching resources. It is a more powerful and flexible replacement for XMLHttpRequest">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/fetch#examples">Fetch API</a>
+            </li>
+            <li title="used to draw graphics using JavaScript and HTML. It is widely used in fields such as photo manipulation, video processing, data visualization, and game development. (Eg: a freehand digital signatures on a user agreement web page)">
+                Canvas API
+            </li>
+            <li title="lets users make online payments in lesser time.">
+                Payment Request API
+            </li>
+            <li title="allows a specific DOM element to go fullscreen">
+                Fullscreen API
+            </li>
+            <li title="Used for copying/pasting to/from the clipboard on the click of an icon/button.">
+                <a href="./clipboard.html">Clipboard API</a>
+            </li>
+            <li title="Used for form Validation">
+                Webforms API
+            </li>
+            <li title="provides easy methods to access the windows.history object. The window.history object contains the URLs (Web Sites) visited by the user.">
+                <a href="https://www.w3schools.com/js/js_api_history.asp" target="_blank">Web History API</a>
+            </li>
+            <li title="The Web Storage API provides mechanisms by which browsers can store key/value pairs, in a much more intuitive fashion than using cookies.">
+                <a href="./webStorage.html">Web Storage API</a>
+            </li>
+            <li title="A web worker is a JavaScript running in the background, without affecting the performance of the page.">
+                <a href="https://www.w3schools.com/js/js_api_web_workers.asp" target="_blank">Web Workers API</a>
+            </li>
+
+        </ul>
+        
+    </div>
+
+    
+    <div class="container-fluid mt-4">
+        <h2>Third Party API's</h2>
+        <p class="fs-5">Third party APIs are not built into your browser.</p>
+        <p>To use these APIs, you will have to download the code from the Web.</p>
+
+        <h3 class="fs-5">Examples:</h3>
+        <ul>
+            <li>YouTube API - Allows you to display videos on a web site.</li>
+            <li>Twitter API - Allows you to display Tweets on a web site.</li>
+            <li>Facebook API - Allows you to display Facebook info on a web site.</li>
+        </ul>
+
+
+
+    </div>
+
+
+    <script src="./../bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+</html>
