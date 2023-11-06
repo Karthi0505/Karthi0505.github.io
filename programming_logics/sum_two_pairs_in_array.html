@@ -14,13 +14,12 @@
 
         <h1 class="my-5">
             <div class="f2-4 mb-2">Question:</div>
-            <small class="d-block fs-4">Sum continuous two pairs in an array</small>
+            <small class="d-block fs-4">Find the continues pair largest sum in array</small>
         </h1>
 
         <p class="my-5 h1">
-            The sum of continuous Pair is
-            <span id="total"> </span>
-            
+            Largest Sum:
+            <span id="answer"></span>
         </p>
     </div>
 
@@ -88,7 +87,16 @@
     </div>
 
     <script>
-        
+        const arr = [2,3,5,9,1,7,2]
+        let sum = 0,max=0;
+        for(let i=0;i<arr.length-1;i++)
+        {
+            sum = arr[i]+arr[i+1]
+            if(max<sum){
+                max=sum;
+            }
+        }
+        document.getElementById("answer").innerHTML = max;
     </script>
 
     <!-- <script src="./puzzle_program.js"></script> -->
