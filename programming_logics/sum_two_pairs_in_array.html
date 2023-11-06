@@ -7,6 +7,10 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="./../bootstrap.css">
+    <!-- HighlightJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../custom.css">
 </head>
 
 <body>
@@ -21,6 +25,26 @@
             Largest Sum:
             <span id="answer"></span>
         </p>
+
+
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const arr = [2,3,5,9,1,7,2];
+let sum = 0, max=0;
+
+for(let i=0; i < arr.length-1;i++) {
+    sum = arr[i]+arr[i+1]
+    if(max < sum){
+        max=sum;
+    }
+}
+
+document.getElementById("answer").innerHTML = max;
+</code></pre>
+<!-- JS code end -->
+            
+      
+        
     </div>
 
     <div class="container-fluid">
@@ -100,6 +124,20 @@
     </script>
 
     <!-- <script src="./puzzle_program.js"></script> -->
+
+
+
+
+    
+    <!-- Bootstrap JS ########################### -->
+    <script src="./../bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
 </body>
 
 </html>
