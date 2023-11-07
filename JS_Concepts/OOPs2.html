@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./../bootstrap.css">
+    <!-- HighlightJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../custom.css">
+</head>
+
+<body>
+
+
+    <!-- Section 1 Start ########################### -->
+    <div class="container-fluid">
+
+        <h1 class="text-center my-4">OOPs (Object Oriented Programming in Js)</h1>
+
+        <p class="mb-5 fs-4 text-center border rounded p-4 w-75 mx-auto">
+            JavaScript is a Prototype-based programming paradigm. It is not an OOP language. But it has support for it. It has the class keyword, which is just a syntactic sugar over prototypes. We actually create prototypes in javascript, and not classes. The class keyword is there to make javascript look like an OOP language.
+        </p>
+
+    </div>
+    <!-- Section 1 End --------------------------- -->
+
+
+    <!-- Section 2 Start ########################### -->
+    <div class="container-fluid">
+                    
+        <h2 class="h3">Normal Objects</h2>
+        <p>Here we are repeating objects</p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const athlet1 = {
+    name: "Muruga",
+    weapon: "Vel",
+    attack : function() {
+        return `attack with: ${athlet1.weapon}`
+    }
+}        
+const athlet2 = {
+    name: "Thor",
+    weapon: "Hammer",
+    attack : function() {
+        return `attack with: ${athlet2.weapon}`
+    }
+}
+//Above Code is repeating
+
+console.log( athlet1.attack() )
+console.log( athlet2.attack() )
+</code></pre>
+<!-- JS code end -->
+    
+
+            
+    <h2 class="h3">FACTORY FUNCTION - (function that create objects)</h2>
+    <p>Instead of copy pasting above code, we can reuse in factory function. We avoid repeated code.</p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">function createAthlet(name, weapon) {
+    return {
+        name : name,
+        weapon : weapon,
+        attack : function(){
+            return `attack with: ${weapon}`
+        }
+    }
+}
+const muruga = createAthlet("Muruga", "Vel");
+console.log( muruga.attack() )
+
+const thor = createAthlet("Thor", "Hammer");
+console.log( muruga.attack() ) 
+</code></pre>
+<!-- JS code end -->
+
+            
+    <h2 class="h3">Taking the generic method object outside of the function (seperately)</h2>
+    <p>In Above code the methods like attack will be same (Generic) to all. But this is going to copy on each  createAthlet() function call.</p>
+    <p><strong>For this luckly in Javascript, we can use "Prototypal inheritance"</strong></p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">//Now this is not generic
+const genericFn = {
+    attack : function(){
+        return `attack with: ${this.weapon}`
+    }
+}
+
+function createAthlet(name, weapon) {
+    return {
+        name : name,
+        weapon : weapon,
+    }
+}
+
+const muruga = createAthlet("Muruga", "Vel");
+muruga.attack = genericFn.attack; //It places the method function, inside muruga object
+console.log( muruga.attack() );
+
+const thor = createAthlet("Thor", "Hammer");  
+thor.attack = genericFn.attack;
+console.log( thor.attack() );
+</code></pre>
+<!-- JS code end -->
+
+            
+    <h2 class="h3">Object.create()</h2>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const genericFn = {
+    attack : function(){
+        return `attack with: ${this.weapon}`
+    }
+}
+//Object.create() - will create a link between these two blocks of code (It creates a prototype chain __proto__)
+
+function createAthlet(name, weapon) {
+
+    let newGenericFn = Object.create( genericFn ); //Creating a copy of the genericFn Object.
+    // Object.create() creates "prototypal inheritance"
+
+    //Adding properties inside the newly copied Object.
+    newGenericFn.name = name;
+    newGenericFn.weapon = weapon;
+
+    return newGenericFn;
+
+}
+
+const muruga = createAthlet("Muruga", "Vel");
+console.log( muruga.attack() );
+
+const thor = createAthlet("Thor", "Hammer");
+console.log( thor.attack() );
+</code></pre>
+<!-- JS code end -->
+
+            
+    <h2 class="h3">CONSTRUCTOR FUNCTION</h2>
+    <p>However you wont see the Object.create() in most code bases.</p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">function CreateAthlet(name, weapon) {
+    this.name  = name;
+    this.weapon = weapon;
+}
+
+const muruga = new CreateAthlet("Muruga", "Vel"); 
+console.log( muruga ); //prints object
+
+const thor = new CreateAthlet("Thor", "Hammer");
+console.log( thor );
+*/
+/* Note: As a rule, all constructor functions should start with a capital letter to let other programmers know that you need to call the function with new keyword. */
+</code></pre>
+<!-- JS code end -->
+
+            
+    <h2 class="h3">FUNCTION CONSTRUCTOR</h2>
+    
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const CreateAthlet = new Function(
+        'name', 
+        'weapon',
+        `this.name = name; this.weapon = weapon`,    
+    )
+
+    const keerthi_k = new CreateAthlet("K Keerthi", 'Badminton Bat');
+    
+    const shinChan = new CreateAthlet("Shin Chan", 'Speech and Activity');
+
+    console.log(keerthi_k);
+    console.log(shinChan);
+</code></pre>
+<!-- JS code end -->
+
+</div>
+    <!-- Section 2 End --------------------------- -->
+
+
+
+
+
+    <script>
+        /*
+        //Normal Objects
+        const athlet1 = {
+            name: "Muruga",
+            weapon: "Vel",
+            attack : function() {
+                return `attack with: ${athlet1.weapon}`
+            }
+        }        
+        const athlet2 = {
+            name: "Thor",
+            weapon: "Hammer",
+            attack : function() {
+                return `attack with: ${athlet2.weapon}`
+            }
+        }
+        //Above Code is repeating
+
+        console.log( athlet1.attack() )
+        console.log( athlet2.attack() )
+        */
+    </script>
+
+    <script>
+        //Instead of copy pasting above code, we can reuse in factory function. We avoid repeated code.
+
+        //FACTORY FUNCTION - (function that create objects)
+        /*
+        function createAthlet(name, weapon) {
+            return {
+                name : name,
+                weapon : weapon,
+                attack : function(){
+                    return `attack with: ${weapon}`
+                }
+            }
+        }
+        const muruga = createAthlet("Muruga", "Vel");
+        console.log( muruga.attack() )
+
+        const thor = createAthlet("Thor", "Hammer");
+        console.log( muruga.attack() ) 
+        */       
+    </script>
+
+    <script>
+        //In Above code the methods like attack will be same (Generic) to all. But this is going to copy on each  createAthlet() function call.
+
+        //<strong class="d-block">For this luckly in Javascript, we can use "Prototypal inheritance"</strong>
+
+        //Taking the 'attack(){...}' method object out of the function (seperately)
+        /*
+        //Now this is not generic
+        const genericFn = {
+            attack : function(){
+                return `attack with: ${this.weapon}`
+            }
+        }
+
+        function createAthlet(name, weapon) {
+            return {
+                name : name,
+                weapon : weapon,
+            }
+        }
+
+        const muruga = createAthlet("Muruga", "Vel");
+        muruga.attack = genericFn.attack; //It places the method function, inside muruga object
+        console.log( muruga.attack() );
+
+        const thor = createAthlet("Thor", "Hammer");  
+        thor.attack = genericFn.attack;
+        console.log( thor.attack() );
+        */
+    </script>
+
+    <script>
+        /*
+        const genericFn = {
+            attack : function(){
+                return `attack with: ${this.weapon}`
+            }
+        }
+        //Object.create() - will create a link between these two blocks of code (It creates a prototype chain __proto__)
+
+        function createAthlet(name, weapon) {
+
+            let newGenericFn = Object.create( genericFn ); //Creating a copy of the genericFn Object.
+            // Object.create() creates "prototypal inheritance"
+
+            //Adding properties inside the newly copied Object.
+            newGenericFn.name = name;
+            newGenericFn.weapon = weapon;
+
+            return newGenericFn;
+
+        }
+
+        const muruga = createAthlet("Muruga", "Vel");
+        console.log( muruga.attack() );
+
+        const thor = createAthlet("Thor", "Hammer");
+        console.log( thor.attack() );
+        */
+    </script>
+
+    <script>
+        //However you wont see the Object.create() in most code bases.
+
+        // CONSTRUCTOR FUNCTION
+        /*
+        function CreateAthlet(name, weapon) {
+            this.name  = name;
+            this.weapon = weapon;
+        }
+
+        const muruga = new CreateAthlet("Muruga", "Vel"); 
+        console.log( muruga ); //prints object
+
+        const thor = new CreateAthlet("Thor", "Hammer");
+        console.log( thor );
+        */
+        /* Note: As a rule, all constructor functions should start with a capital letter to let other programmers know that you need to call the function with new keyword. */
+    </script>
+
+    <script>
+        //FUNCTION CONSTRUCTOR
+        const CreateAthlet = new Function(
+            'name', 
+            'weapon',
+            `this.name = name; this.weapon = weapon`,    
+        )
+
+        const keerthi_k = new CreateAthlet("K Keerthi", 'Badminton Bat');
+        
+        const shinChan = new CreateAthlet("Shin Chan", 'Speech and Activity');
+
+        console.log(keerthi_k);
+        console.log(shinChan);
+
+    </script>   
+
+
+
+
+    <!-- Bootstrap JS ########################### -->
+    <script src="./../bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+</html>
