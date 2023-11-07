@@ -74,7 +74,7 @@ const muruga = createAthlet("Muruga", "Vel");
 console.log( muruga.attack() )
 
 const thor = createAthlet("Thor", "Hammer");
-console.log( muruga.attack() ) 
+console.log( thor.attack() ) 
 </code></pre>
 <!-- JS code end -->
 
@@ -109,6 +109,7 @@ console.log( thor.attack() );
 
             
     <h2 class="h3">Object.create()</h2>
+    <p>The Object.create() static method creates a new object, <strong>using an existing object as the prototype of the newly created object</strong>.</p>
 <!-- JS code start -->
 <pre><code class="language-javascript fs-5">const genericFn = {
     attack : function(){
@@ -141,6 +142,7 @@ console.log( thor.attack() );
             
     <h2 class="h3">CONSTRUCTOR FUNCTION</h2>
     <p>However you wont see the Object.create() in most code bases.</p>
+    <p><strong>'this' in Constructor function</strong> - Executes the constructor function with the given arguments, binding newInstance as the this context</p>
 <!-- JS code start -->
 <pre><code class="language-javascript fs-5">function CreateAthlet(name, weapon) {
     this.name  = name;
@@ -162,17 +164,17 @@ console.log( thor );
     
 <!-- JS code start -->
 <pre><code class="language-javascript fs-5">const CreateAthlet = new Function(
-        'name', 
-        'weapon',
-        `this.name = name; this.weapon = weapon`,    
-    )
+    'name', 
+    'weapon',
+    `this.name = name; this.weapon = weapon`,    
+)
 
-    const keerthi_k = new CreateAthlet("K Keerthi", 'Badminton Bat');
-    
-    const shinChan = new CreateAthlet("Shin Chan", 'Speech and Activity');
+const keerthi_k = new CreateAthlet("K Keerthi", 'Badminton Bat');
 
-    console.log(keerthi_k);
-    console.log(shinChan);
+const shinChan = new CreateAthlet("Shin Chan", 'Speech and Activity');
+
+console.log(keerthi_k);
+console.log(shinChan);
 </code></pre>
 <!-- JS code end -->
 
