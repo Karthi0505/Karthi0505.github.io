@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./../bootstrap.css">
+    <!-- HighlightJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../custom.css">
+</head>
+
+<body>
+
+
+    <!-- Section 1 Start ########################### -->
+    <div class="container-fluid">
+
+        <h1 class="text-center my-4">Finding middle value</h1>
+
+        <p class="mb-5 fs-4 text-center border rounded p-4 w-75 mx-auto">
+            Its a logic to find out the middle element in an array
+        </p>
+
+        <p>The middle element is <span id="middle" class="fs-3">7,11</span></p>
+
+        
+    </div>
+    <!-- Section 1 End --------------------------- -->
+
+
+    <!-- Section 2 Start ########################### -->
+    <div class="container-fluid">
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">
+// Question : Given Values for X,Y and an array A of size N, Print the values that are in between X and Y.
+//solution:
+let arr = [4, 3, 7, 11, 50, 1];
+let x = 4;
+let y = 20;
+
+if (x < y) {
+    let i = 0;//1,2,3
+    while (i < arr.length) {
+        if (arr[i] > x && arr[i] < y) {
+            console.log(arr[i]);
+        }
+        i++;
+    }
+} else {
+    console.log("condition mismatch");
+}
+</code></pre>
+<!-- JS code end -->
+
+    </div>
+<!-- Section 2 End --------------------------- -->
+
+
+
+<script>
+    let arr = [4, 3, 7, 11, 50, 1];
+    let x = 4;
+    let y = 20;
+
+    if (x < y) {
+        let i = 0;//1,2,3
+        while (i < arr.length) {
+            if (arr[i] > x && arr[i] < y) {
+                console.log(arr[i]);
+                
+        document.getElementById("middle").appendChild = arr[i]
+            }
+            i++;
+        }
+    } else {
+        console.log("condition mismatch");
+        
+        document.getElementById("middle").innerHTML = "condition mismatch"
+    }
+</script>
+
+
+
+    <!-- Bootstrap JS ########################### -->
+    <script src="./../bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+</html>
