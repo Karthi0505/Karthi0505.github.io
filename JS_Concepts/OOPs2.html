@@ -178,8 +178,66 @@ console.log(shinChan);
 </code></pre>
 <!-- JS code end -->
 
+
+    <h2 class="h3">Using the "prototype" Property</h2>
+
+    <p>Sometimes you want to add new properties (or methods) to all existing objects of a given type.</p>
+
+    <p>Sometimes you want to add new properties (or methods) to an object constructor.</p>
+
+    <strong>The JavaScript <code>prototype</code> property allows you to add new properties to object constructors:
+    </strong>
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">&lt;p&gt; id="demo"&gt; &lt;/p&gt;
+-----------------------------------------
+function Person(first, last, age, eye) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.eyeColor = eye;
+}
+
+Person.prototype.nationality = "English";
+
+const myFather = new Person("John", "Doe", 50, "blue");
+document.getElementById("demo").innerHTML =
+"The nationality of my father is " + myFather.nationality; 
+</code></pre>
+<!-- JS code end -->
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">
+    function Elf(name, weapon) {
+        this.name = name;
+        this.weapon = weapon;
+        console.log('this', this)
+    }
+
+    Elf.prototype.attack = function() {
+        return 'attack with' + this.weapon
+    }
+
+    const peter = new Elf('Peter', 'stones');
+    console.log(peter.attack());
+
+    const sam = new Elf('Sam', 'fire');
+    console.log(sam.attack());
+    
+    console.log(peter.__proto__); //the prototype of peter constructor function
+</code></pre>
+<!-- JS code end -->
+
+
+
+
+
+
+
+
+
 </div>
-    <!-- Section 2 End --------------------------- -->
+<!-- Section 2 End --------------------------- -->
 
 
 
@@ -313,6 +371,7 @@ console.log(shinChan);
 
     <script>
         //FUNCTION CONSTRUCTOR
+        /*
         const CreateAthlet = new Function(
             'name', 
             'weapon',
@@ -325,8 +384,34 @@ console.log(shinChan);
 
         console.log(keerthi_k);
         console.log(shinChan);
-
+        */
     </script>   
+
+
+    <script>
+        //Constructor functions
+        /*
+        function Elf(name, weapon) {
+            this.name = name;
+            this.weapon = weapon;
+            console.log('this', this)
+        }
+
+        Elf.prototype.attack = function() {
+            return 'attack with' + this.weapon
+        }
+
+        const peter = new Elf('Peter', 'stones');
+        console.log(peter.attack());
+
+        const sam = new Elf('Sam', 'fire');
+        console.log(sam.attack());
+        
+        console.log(peter.__proto__); //the prototype of peter constructor function
+        */
+    </script> 
+
+
 
 
 
