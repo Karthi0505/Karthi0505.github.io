@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./../css/bootstrap.css">
+    <!-- HighlightJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../css/custom.css">
+</head>
+
+<body>
+
+
+    <!-- Section 1 Start ########################### -->
+    <div class="container-fluid">
+
+        <h1 class="text-center my-4">Array Methods Practice</h1>
+
+        <div class="mb-5 border rounded p-4 w-75 mx-auto">
+            <p class="fs-4 text-center">We will be practicing the Array methods</p>
+
+            <!-- Student's Practice Start ################################# -->
+            <!-- Button with data-bs-target -->
+            <div class="text-center">
+                <button class="btn btn-primary mx-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                    Student's Practice
+                </button>
+            </div>
+              
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+                        Student's Array Practice page's
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <!-- Student List start -->
+                    <ul class="nav flex-column linkHoverStyle-1" id="student-ul">
+                        
+                    </ul>
+                    <!-- Student List end -->                    
+                </div>
+            </div>
+            <!-- Student's Practice End ------------------------------------ -->
+        </div>
+
+
+        
+    </div>
+    <!-- Section 1 End --------------------------- -->
+    
+
+
+    <!-- Section 2 Start ########################### -->
+    <div class="container-fluid">
+        
+        <!-- Accordion Start -->
+        <div class="accordion style-1" id="accordionExample">
+
+            <!-- Array.push()   -Start------------>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#practice_1" aria-expanded="false" aria-controls="practice_1">
+                        <span>
+                            <strong>condition with .indexOf()</strong>
+                            <small class="d-block mt-1">
+                                Find if first item is banana or not?
+                            </small>
+                        </span>
+                    </button>
+                </h2>
+                <div id="practice_1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const groceries = ['banana', 'apple', 'peanuts'];
+
+if (groceries.indexOf('banana')) {
+    console.log('We have to buy bananas!');
+} else {
+    console.log(`We don't have to buy bananas!`);
+}
+// groceries.indexOf('banana') // 0
+</code></pre>
+<!-- JS code end -->
+                        <p>
+                            groceries.indexOf("banana") returns 0, which is a falsy value.
+                            <br>
+                            Since the condition in the if-statement is falsy, the code in the else block runs, and We don't have to buy bananas! gets logged.
+                        </p>
+
+                        <script>
+                            const groceries = ['banana', 'apple', 'peanuts'];
+                            //console.log(groceries.indexOf('banana')); // 0
+                            if (groceries.indexOf('banana')) {
+                                console.log('We have to buy bananas!');
+                            } else {
+                                console.log(`We don't have to buy bananas!`);
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <!-- Array.push()   -End------------>
+
+    </div>
+
+
+    <!-- Section 2 End --------------------------- -->
+
+
+
+
+
+    <!-- Bootstrap JS ########################### -->
+    <script src="./../js/bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+
+    <script src="./../students/js/students.js"></script>
+
+    <script>
+        //Sorting with Object name - Start --------------------
+        const student_sorted = [...students].sort( (a,b) => {
+            let x = a.name.toLowerCase();
+            let y = b.name.toLowerCase();
+            if (x < y) {return -1;} 
+            if (x > y) {return 1;} //Swap to next element
+        } );
+       //Sorting with Object name - End -----------------------
+
+        student_sorted.map( el => {
+            
+            const li = document.createElement("li") //create an <li>
+            li.classList.add('nav-item'); //adding class to <li>
+
+            const a = document.createElement("a"); //create an <a>
+            a.classList.add('nav-link'); //adding class
+            a.setAttribute('href',`./../students/${el.pages[0].url}`); //set url
+            a.textContent = el.name; //adding text content
+
+            li.append(a) //adding <a> html inside <li>
+
+            document.getElementById('student-ul').append(li); // appending new <li> in <ul>
+
+        } )
+
+
+
+        // https://bobbyhadz.com/blog/javascript-create-element-with-class
+    </script>
+</body>
+</html>

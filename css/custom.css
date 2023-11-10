@@ -4,3 +4,7 @@
 [title]:hover {
     background-color: rgb(0 188 212 / 10%);
 }
+
+.linkHoverStyle-1 a:hover {
+    background-color: rgb(255 235 59 / 50%);
+}

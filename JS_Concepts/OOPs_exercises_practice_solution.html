@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./../bootstrap.css">
+    <!-- HighlightJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../custom.css">
+</head>
+
+<body>
+    <!-- Ref: https://www.w3resource.com/javascript-exercises/oop/index.php -->
+
+    <!-- lydiahallie: -->
+    <!-- Interview questions:  https://github.com/lydiahallie/javascript-questions/#answer-a-2 -->
+    <!-- Advanced Web Dev Quiz: https://github.com/lydiahallie/advanced-web-dev-quiz -->
+    <!-- Javascript Patterns: https://javascriptpatterns.vercel.app/patterns -->
+    <!-- https://frontendmasters.com/courses/tour-js-patterns/introduction/ -->
+
+    <!-- Section 1 Start ########################### -->
+    <div class="container-fluid">
+
+        <h1 class="text-center my-4">OOP exercises, practice, solution.</h1>
+
+        <p class="mb-5 fs-4 text-center border rounded p-4 w-75 mx-auto">
+            Click Below questions to see solutions
+        </p>
+
+    </div>
+    <!-- Section 1 End --------------------------- -->
+    
+
+    <!-- Section 2 Start ########################### -->
+    <div class="container-fluid">
+        
+        <!-- Accordion Start -->
+        <div class="accordion style-1" id="accordionExample">
+
+            <!-- question 1   -Start---------- -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#question-1" aria-expanded="false" aria-controls="question-1">
+                        <span>
+                            Write a JavaScript program to create a class called "Person" <strong>with properties for name, age and country</strong>. Include a <strong title="Prototype">method to display the person's details</strong>. Create three instances of the 'Person' class and display their details.
+                        </span>
+                        <span class="position-absolute top-0 end-0 translate-middle badge rounded-pill bg-danger">
+                            Easy
+                            <span class="visually-hidden">Difficulty Level: Easy</span>
+                          </span>
+                    </button>
+                </h2>
+                <div id="question-1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+
+                        <div class="row">
+                            <!-- Prototype based #################### -->
+                            <div class="col-sm-6 border py-3">
+                                <h3 class="text-center mb-3">Prototype based</h3>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">function Person(name, age, country){
+    this.name = name;
+    this.age = age;
+    this.country = country;
+}
+
+//Adding prototype to the Person function
+Person.prototype.displayDetails = function() {
+    console.log(`Name: ${this.name}, Age: ${this.age}, Country: ${this.country}`);
+}
+
+// Create instances of the Person function
+const person1 = new Person('Bruce Lee', 32, 'Hong Kong-American');
+const person2 = new Person('James Allen', 47, 'England');
+const person3 = new Person('Mortimer J. Adler', 98, 'American');
+
+//calling the method in (Person constructor function) prototype 
+person1.displayDetails();
+person2.displayDetails();
+person3.displayDetails();
+</code></pre>
+<!-- JS code end -->
+
+<script>
+    /*
+    function Person(name, age, country){
+        this.name = name;
+        this.age = age;
+        this.country = country;
+    }
+
+    //Adding prototype to the Person function
+    Person.prototype.displayDetails = function() {
+        console.log(`Name: ${this.name}, Age: ${this.age}, Country: ${this.country}`);
+    }
+
+    // Create instances of the Person function
+    const person1 = new Person('Bruce Lee', 32, 'Hong Kong-American');
+    const person2 = new Person('James Allen', 47, 'England');
+    const person3 = new Person('Mortimer J. Adler', 98, 'American');
+
+    //calling the method in (Person constructor function) prototype 
+    person1.displayDetails();
+    person2.displayDetails();
+    person3.displayDetails();
+    */
+</script>
+
+                            </div>
+
+                            <!-- Class based #################### -->
+                            <div class="col-sm-6 border py-3">
+                                <h2 class="text-center mb-3">Class based</h2>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">class Person {
+    constructor(name, age, country) {
+        this.name = name;
+        this.age = age;
+        this.country = country;
+    }
+
+    displayDetails() {
+        console.log(`Name: ${this.name}, Age: ${this.age}, Country: ${this.country}`);
+    }
+}
+
+// Create instances of the Person class
+const person1 = new Person('Bruce Lee', 32, 'Hong Kong-American');
+const person2 = new Person('James Allen', 47, 'England');
+const person3 = new Person('Mortimer J. Adler', 98, 'American');
+
+person1.displayDetails();
+person2.displayDetails();
+person3.displayDetails();
+</code></pre>
+<!-- JS code end -->
+
+<script>
+    /*
+    class Person {
+        constructor(name, age, country) {
+            this.name = name;
+            this.age = age;
+            this.country = country;
+        }
+
+        displayDetails() {
+            console.log(`Name: ${this.name}, Age: ${this.age}, Country: ${this.country}`);
+        }
+    }
+
+    // Create instances of the Person class
+    const person1 = new Person('Bruce Lee', 32, 'Hong Kong-American');
+    const person2 = new Person('James Allen', 47, 'England');
+    const person3 = new Person('Mortimer J. Adler', 98, 'American');
+
+    person1.displayDetails();
+    person2.displayDetails();
+    person3.displayDetails();
+    */
+</script>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- question 1   -End---------- -->
+
+
+
+        </div>
+        <!-- Accordion End -->
+
+    </div>
+    <!-- Section 2 End --------------------------- -->
+
+
+
+
+
+    <!-- Bootstrap JS ########################### -->
+    <script src="./../bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+</html>
