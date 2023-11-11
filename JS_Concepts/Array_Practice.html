@@ -50,8 +50,6 @@
             <!-- Student's Practice End ------------------------------------ -->
         </div>
 
-
-        
     </div>
     <!-- Section 1 End --------------------------- -->
     
@@ -63,7 +61,95 @@
         <!-- Accordion Start -->
         <div class="accordion style-1" id="accordionExample">
 
-            <!-- Array.push()   -Start------------>
+            
+
+            
+            <!-- Practice 2   -Start------------>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#practice_2" aria-expanded="false" aria-controls="practice_2">
+                        <span>
+                            <strong>check if a variable is an array?</strong>
+                            <small class="d-block mt-1">
+                                using toString.call()
+                            </small>
+                        </span>
+                    </button>
+                </h2>
+                <div id="practice_2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+
+                        <h3 class="h5">
+                            Using Array.isArray() method.
+                        </h3>
+                        <p class="d-block">returns: <span class="badge text-bg-primary">Boolean</span></p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">let checkArray = (val) => {
+    return Array.isArray(val);
+}
+console.log( checkArray([1, 2, 4, 0]) ); //true
+console.log( checkArray("This is a text") ); //true
+</code></pre>
+<!-- JS code end -->
+
+<hr>
+
+<h3 class="h5">Using instanceof operator</h3>
+<p class="d-block">returns: <span class="badge text-bg-primary">Boolean</span></p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">let checkArray2 = (val) => val instanceof Array;
+
+console.log( checkArray2([1,2,3]) ); //true
+console.log( checkArray2("These are text") ); //false
+</code></pre>
+<!-- JS code end -->
+
+<hr>
+
+                        <h3 class="h5">Using checking the "Object.prototype.constructor" type</h3>
+                        <p class="d-block">returns: <span class="badge text-bg-primary">A reference to the constructor function</span></p>
+                        
+                        <p>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor">MDN - Object.prototype.constructor</a></p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">let checkArray3 = (val) => {
+    //return "These are text".constructor; //function String() { [native code] }
+    //return [1,2,3].constructor; //function Array() { [native code] }
+    return val.constructor === Array
+}
+
+console.log( checkArray3([1,2,3]) ); //true
+console.log( checkArray3("These are text") ); //false
+</code></pre>
+<!-- JS code end -->
+
+<hr>
+
+                        <h3 class="h5">Using toString and .call()</h3>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">let isarray = (val) => {
+    //console.log( toString ); //function toString() { [native code] }
+    //console.log( toString.call() ); //"[object Undefined]"
+    //console.log( toString.call(val) ); //"[object Array]"
+    console.log( toString.call(val) === "[object Array]"); //true
+}
+isarray( [1, 2, 4, 0] ); //true
+isarray( "This is a text" ); //false
+</code></pre>
+<!-- JS code end -->
+                        <p>
+                            Reference: <a href="https://stackoverflow.com/questions/45489249/object-prototype-tostring-call-javascript">Stackoverflow</a>
+                        </p>
+                        <p>The toString function for Object (the built-in type for objects) happens to return what type of object it is as a string with the format [object Type].</p>
+                        <p>.call() is a function that lets you change the context of another function. </p>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Practice -End------------>
+
+
+            <!-- Practice 1   -Start------------>
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -98,7 +184,7 @@ if (groceries.indexOf('banana')) {
                         <script>
                             const groceries = ['banana', 'apple', 'peanuts'];
                             //console.log(groceries.indexOf('banana')); // 0
-                            if (groceries.indexOf('banana')) {
+                            if ( groceries.indexOf('banana') ) {
                                 console.log('We have to buy bananas!');
                             } else {
                                 console.log(`We don't have to buy bananas!`);
@@ -107,7 +193,7 @@ if (groceries.indexOf('banana')) {
                     </div>
                 </div>
             </div>
-            <!-- Array.push()   -End------------>
+            <!-- Practice -End------------>
 
     </div>
 
