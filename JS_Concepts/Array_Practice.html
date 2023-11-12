@@ -64,6 +64,155 @@
             
 
             
+            <!-- Practice 3   -Start------------>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#practice_3" aria-expanded="false" aria-controls="practice_3">
+                        <span>
+                            <strong>Search string from an array</strong>
+                            <small class="d-block mt-1">
+                                using String.indexOf() | Array.filter()
+                            </small>
+                        </span>
+                    </button>
+                </h2>
+                <div id="practice_3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <small class="d-block mb-3">
+                            Output in JsBin: <a href="https://jsbin.com/xutobuv/edit?html,output">Search string</a>
+                        </small>
+
+                        <hr class="mb-4">
+                        <h3 class="h5">
+                            Using String.indexOf().
+                        </h3>
+                        <p class="d-block">
+                            returns: 
+                            <span class="badge text-bg-primary">index of first occurrence</span> 
+                            (or) 
+                            <span class="badge text-bg-danger">-1</span> if not found
+                        </p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">/*
+String.prototype.indexOf() SYNTAX
+-----------------------------------
+indexOf(searchString)
+indexOf(searchString, position)
+----------------------------------*/
+
+//PRACTICE 1
+console.log(
+  "Mango".indexOf("n")
+)
+console.log(
+  "Mango".indexOf("g")
+)
+console.log(
+  "Mango".indexOf("ng")
+)
+console.log(
+  "Mango".indexOf("ngo")
+)
+console.log(
+  "Mango".indexOf("M")
+)
+console.log(
+  "Mango".indexOf("Ma")
+)
+console.log(
+  "Mango".indexOf("Maa") //-1
+)
+console.log(
+  "Mango".indexOf("z")  //-1
+)
+console.log(
+  "Mango".indexOf("Maz")  //-1
+)
+</code></pre>
+<!-- JS code end -->
+
+<hr>
+
+<p class="fs-4">Get the search text from input field.</p>
+<h4 class="h5">Using addEventListener()</h4>
+<span class="text-decoration-underline fs-6">SYNTAX:</span>
+<pre>addEventListener(eventType, listenerCallbackFn)
+addEventListener(eventType, listenerCallbackFn, options)
+addEventListener(eventType, listenerCallbackFn, useCapture)
+</pre>
+<p class="d-block">returns: None <span class="badge text-bg-warning">Undefined</span></p>
+
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">//PRACTICE 2
+&lt;input id="searchInput"&gt;
+-------------------------
+document.getElementById('searchInput')
+  .addEventListener( "change", (event) => {
+    console.log( 
+      "Mango".indexOf( event.target.value )
+    );
+  });
+</code></pre>
+<!-- JS code end -->
+<p>
+    Note: 'event' refers to the element event object (here it's &lt;input&gt;)
+    <span class="d-block">'<strong>event.target.value</strong>' gets the value inside the input object</span>
+</p>
+
+<hr>
+
+<p class="fs-4">
+    <span class="d-block">Get the search text from input field.</span>
+    <span class="d-block">And filter for each String in the Array</span>
+    <span class="d-block">And output the filtered elements in HTML</span>
+</p>
+<h4 class="h5">Using Array.prototype.filter()</h4>
+
+<span class="text-decoration-underline fs-6">SYNTAX:</span>
+<pre>filter(callbackFn)
+filter(callbackFn, thisArg)
+
+<span class="text-decoration-underline fs-6">callbackFn arguments</span>
+(element, index, array) => {}
+</pre>
+
+<p class="d-block">returns:  <span class="badge text-bg-warning">array</span> containing just the elements that pass the test.</p>
+  
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">//PRACTICE 3
+const arr = ["Banana", "Apple", "Mango", "Sapota"];
+
+document.getElementById('outputDiv')
+  .innerHTML = arr;
+    
+  document.getElementById('searchInput')
+    .addEventListener( "change", (event) => {
+    
+      const filteredElm = arr.filter( (elm) => {
+        return elm.indexOf(event.target.value) !== -1
+        //indexOf returns -1 if string not found
+        //if -1 comes, make it to return false, so the filter will skip that element.
+      })
+    
+      document.getElementById('outputDiv')
+        .innerHTML = filteredElm;
+    });
+</code></pre>
+<!-- JS code end -->
+
+                                                
+                        <small class="d-block mb-3">
+                            Output in JsBin: <a href="https://jsbin.com/xutobuv/edit?html,output">Search string</a>
+                        </small>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- Practice -End------------>
+
+
             <!-- Practice 2   -Start------------>
             <div class="accordion-item">
                 <h2 class="accordion-header">
