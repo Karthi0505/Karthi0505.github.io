@@ -509,7 +509,7 @@ document.getElementById("demo").addEventListener("click", myFunction);
                                 <span>
                                     <strong>Using ... spread operator</strong>
                                     <small class=" d-block">
-                                        aaaaaaa
+                                        Copies elements of array or object into another array or object.
                                     </small>
                                 </span>
                             </button>
@@ -518,26 +518,187 @@ document.getElementById("demo").addEventListener("click", myFunction);
                             <div class="accordion-body">
 
                                 <p class="fs-5">
-                                    ppppppppppp
+                                    Spread syntax can be used when all elements from an object or array need to be included in a new array or object, or should be applied one-by-one in a function call's arguments list.
                                 </p>
+
+                                <p>
+                                    There are three distinct places that accept the spread syntax:
+                                </p>
+                                <ul>
+                                    <li>Function arguments list (myFunction(a, ...iterableObj, b))</li>
+                                    <li>Array literals ([1, ...iterableObj, '4', 'five', 6])</li>
+                                    <li>Object literals ({ ...obj, key: 'value' })</li>
+                                </ul>
 
                                 <h3 class="h4">Syntax:</h3>
 <!-- JS code start -->
-<pre><code class="language-javascript fs-5">
+<pre><code class="language-javascript fs-5">(...)
 </code></pre>
 <!-- JS code end -->
                                 <hr>
-                                <h4 class="h5">Example 1:</h4>
+                                
+
+                                <h3 class="h4">Example 1: Quickly copies all or part of an existing array/object into another array/object.</h3>
 <!-- JS code start -->
-<pre><code class="language-javascript fs-5">
+<pre><code class="language-javascript fs-5">const numbersOne = [1, 2, 3];
+const numbersTwo = [4, 5, 6];
+const numbersCombined = [...numbersOne, ...numbersTwo];
+</code></pre>
+<!-- JS code end -->
+
+                                <hr>
+                                <h4 class="h5">Example 2: We can use the spread operator with objects too:</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const myVehicle = {
+    brand: 'Ford',
+    model: 'Mustang',
+    color: 'red'
+  }
+  
+  const updateMyVehicle = {
+    type: 'car',
+    year: 2021, 
+    color: 'yellow'
+  }
+  
+  const myUpdatedVehicle = {...myVehicle, ...updateMyVehicle}
+
+  console.log(myUpdatedVehicle);
+  //{brand: 'Ford', model: 'Mustang', color: 'yellow', type: 'car', year: 2021}
 </code></pre>
 <!-- JS code end -->
                                 <hr>
-                                <h4 class="h5">Example 2: HHHHHH</h4>
+
+                                <h4 class="h5">Example 3: The spread operator is often used in combination with destructuring.</h4>
 <!-- JS code start -->
-<pre><code class="language-javascript fs-5">
+<pre><code class="language-javascript fs-5">const numbers = [1, 2, 3, 4, 5, 6];
+
+const [one, two, ...rest] = numbers;
+
+console.log(one); //1
+console.log(two); //2
+console.log(rest); //[3, 4, 5, 6]
 </code></pre>
 <!-- JS code end -->
+
+                                <hr>
+                                                                
+                                <h4 class="h5">Example 4: Spreading array into object</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const array = [1, 2, 3];
+const obj = { ...array }; // { 0: 1, 1: 2, 2: 3 }
+</code></pre>
+<!-- JS code end -->
+                                <p class="mb-1">
+                                    <strong>Note:</strong> Only iterable values, like Array and String, can be spread in array literals and argument lists. Many objects are not iterable, including all plain objects that lack a Symbol.iterator method:
+                                </p>
+
+<pre class="bg-danger-subtle px-3 py-2">const obj = { key1: "value1" };
+const array = [...obj]; 
+// TypeError: obj is not iterable
+</pre>
+
+
+                                <hr>
+                                                                                                
+                                <h4 class="h5">Example 5: Spreading String</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">let st = "Text";
+let ar = [...st];
+console.log(ar); //['T', 'e', 'x', 't'];
+
+let ob = {...st}
+console.log(ob); //{0: 'T', 1: 'e', 2: 'x', 3: 't'}
+</code></pre>
+<!-- JS code end -->
+                                <p class="mb-1">
+                                    <strong>Note:</strong> All primitives can be spread in objects. Only strings have enumerable own properties, and spreading anything else doesn't create properties on the new object.
+                                </p>
+
+                                <hr>
+                                                              
+                                <h4 class="h5">Example 6: Spread in function calls</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">function myFunction(x, y, z) {}
+const args = [0, 1, 2];
+
+myFunction(...args);
+//-----------------------------------
+
+function myFunction(a, b, c, d, e) {}
+const args = [0, 1];
+
+myFunction(-1, ...args, 2, ...[3]);
+</code></pre>
+<!-- JS code end -->
+
+                                <hr>
+                                                                                            
+                                <h4 class="h5">Example 7: Apply for new operator</h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const dateFields = [1970, 0, 1]; // 1 Jan 1970
+const da = new Date(...dateFields);   
+//Thu Jan 01 1970 00:00:00 GMT+0530 (IST) 
+</code></pre>
+<!-- JS code end -->
+
+                                <hr>
+        
+                                <h4 class="h5">Example 8: Conditionally adding values to an array</h4>
+                                
+                                <p>You can make an element present or absent in an array literal, depending on a condition, using a conditional operator.</p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const isSummer = false;
+const fruits = ["apple", "banana", ...(isSummer ? ["watermelon"] : [])];
+// ['apple', 'banana']
+</code></pre>
+<!-- JS code end -->
+
+                                <hr>
+                                        
+                                <h4 class="h5">Example 9: </h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const obj1 = { foo: "bar", x: 42 };
+const obj2 = { foo: "baz", y: 13 };
+
+const mergedObj = { x: 41, ...obj1, ...obj2, y: 9 }; 
+// { x: 42, foo: "baz", y: 9 } 
+</code></pre>
+<!-- JS code end -->
+
+                                <hr>
+                                                                        
+                                <h4 class="h5">Example 10: Conditionally adding properties to an object
+                                </h4>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const isSummer = false;
+const fruits = {
+    apple: 10,
+    banana: 5,
+    ...(isSummer ? { watermelon: 30 } : {}),
+};
+// { apple: 10, banana: 5 }
+</code></pre>
+<!-- JS code end -->
+
+                                <p>all falsy values do not have enumerable properties, you can simply use a <strong>logical AND</strong> operator:</p>
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const isSummer = false;
+const fruits = {
+    apple: 10,
+    banana: 5,
+    ...(isSummer && { watermelon: 30 }),
+};
+</code></pre>
+<!-- JS code end -->
+
+<hr>
+                                                                        
+<p>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#description">MDN</a></p>
+<!-- JS code end -->
+
+
 
                             </div>
                         </div>
@@ -861,7 +1022,7 @@ document.getElementById("demo").addEventListener("click", myFunction);
                                 <span>
                                     <strong>String.split()</strong>
                                     <small class="d-block">
-                                        aaaaaaa
+                                        Splits String into Array of substrings
                                     </small>
                                 </span>
                             </button>
