@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./../../css/bootstrap.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <h1 class="my-3">List of AJAX Task</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="list-group">
+
+            <a href="./fetch_example1.html" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Fetch API - Example-1</h5>
+                    <small>26/Oct/2023</small>
+                </div>
+                <p class="mb-1">Fetching HTML content from other page (within same domain)</p>
+                <small class="text-body-secondary">
+                    Used fetch() .then() .text()
+                </small>
+            </a>
+
+            <a href="./ajax_with_fetch.html" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Using Ajax with Fetch API</h5>
+                    <small>26/Oct/2023</small>
+                </div>
+                <p class="mb-1">Fetching HTML content from other page (within same domain)</p>
+                <small class="text-body-secondary">
+                    Used e.preventDefault(), window.btoa() for base64 encoding, |
+                    Creating Ajax Headers |
+                    fetch() .then() .catch()
+                </small>
+            </a>
+
+            <a href="./ajax_with_fetch.html" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Storing and retriving data from DB (Using Python)</h5>
+                    <small>27/Oct/2023</small>
+                </div>
+                <p class="mb-1">
+                    <span class="d-block mb-1"></span>Fetching HTML content from other page (within same domain)
+                    <span class="d-block mb-1 text-danger">Note: This is <strong>not Ajax</strong> (Although we can do). Just a demo for how data goes from Browser to DB, and how it comes from DB to Browser</span>
+                </p>
+                <small class="text-body-secondary">
+                    Used MySQL, and Python
+                </small>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

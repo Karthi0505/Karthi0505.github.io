@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./../../../css/bootstrap.css">
+    <!-- HighlightJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../../../css/custom.css">
+</head>
+
+<body>
+
+
+    <!-- Section 1 Start ########################### -->
+    <div class="container-fluid">
+
+        <h1 class="text-center my-4">Storing and retriving data from DB (Using Python)</h1>
+
+        <p class="mb-5 fs-4 text-center border rounded p-4 w-75 mx-auto">
+            <span class="d-block mb-1">1) Get data from Html form and Store it in Mysql DB.</span>
+            <span class="d-block mb-1">2) Get data from Mysql DB and show it in HTML</span>
+        </p>
+
+        <p class="text-danger border p-3">
+            <span class="d-block mb-1">Note: This code will work only in server</span>
+            <span class="d-block mb-1">Setup and configure your python and mysql environments.</span>
+            <span class="d-block mb-1">(I have used xampp. You can use any server setup)</span>
+        </p>
+
+        
+    </div>
+    <!-- Section 1 End --------------------------- -->
+    
+
+
+
+    <!-- Section 2 Start ########################### -->
+    <div class="container-fluid">
+
+        <!-- Accordion Start -->
+        <div class="accordion style-1" id="accordionExample">
+
+            <!-- HTML Form Content  -Start------------>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#html_form" aria-expanded="false" aria-controls="html_form">
+                        <span>
+                            <strong>HTML Form Content</strong>
+                            <small class=" d-block">
+                                index.php
+                            </small>
+                        </span>
+                    </button>
+                </h2>
+                <div id="html_form" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <!-- Body content Start -->
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">&#x3C;form action=&#x22;pythonweb.py&#x22; method=&#x22;post&#x22;&#x3E;
+
+    &#x3C;div&#x3E;
+        &#x3C;label&#x3E;Enter ID:&#x3C;/label&#x3E;
+        &#x3C;input type=&#x22;text&#x22; name=&#x22;id&#x22;&#x3E;
+    &#x3C;/div&#x3E;
+    &#x3C;div&#x3E;
+        &#x3C;label&#x3E;Enter Name:&#x3C;/label&#x3E;
+        &#x3C;input type=&#x22;text&#x22; name=&#x22;username&#x22;&#x3E;
+    &#x3C;/div&#x3E;
+    &#x3C;div&#x3E;
+        &#x3C;label&#x3E;Enter Address:&#x3C;/label&#x3E;
+        &#x3C;input type=&#x22;text&#x22; name=&#x22;address&#x22;&#x3E;
+    &#x3C;/div&#x3E;
+    &#x3C;div&#x3E;
+        &#x3C;strong&#x3E;Select Gender:&#x3C;/strong&#x3E;
+        &#x3C;div&#x3E;
+            &#x3C;input type=&#x22;radio&#x22; name=&#x22;gender&#x22; value=&#x22;male&#x22;&#x3E;
+            &#x3C;label&#x3E;Male&#x3C;/label&#x3E;
+        &#x3C;/div&#x3E;
+        &#x3C;div&#x3E;
+            &#x3C;input type=&#x22;radio&#x22; name=&#x22;gender&#x22; value=&#x22;female&#x22;&#x3E;
+            &#x3C;label&#x3E;Female&#x3C;/label&#x3E;
+        &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+    &#x3C;div&#x3E;
+        &#x3C;strong&#x3E;Select Language:&#x3C;/strong&#x3E;
+        &#x3C;div&#x3E;
+            &#x3C;input type=&#x22;checkbox&#x22; name=&#x22;english&#x22; value=&#x22;english&#x22;&#x3E;
+            &#x3C;label&#x3E;English:&#x3C;/label&#x3E;
+        &#x3C;/div&#x3E; 
+        &#x3C;div&#x3E;
+            &#x3C;input type=&#x22;checkbox&#x22; name=&#x22;tamil&#x22; value=&#x22;tamil&#x22;&#x3E;
+            &#x3C;label&#x3E;Tamil:&#x3C;/label&#x3E;
+        &#x3C;/div&#x3E; 
+        &#x3C;div&#x3E;
+            &#x3C;input type=&#x22;checkbox&#x22; name=&#x22;telugu&#x22; value=&#x22;telugu&#x22;&#x3E;
+            &#x3C;label&#x3E;Telugu:&#x3C;/label&#x3E;
+        &#x3C;/div&#x3E; 
+    &#x3C;/div&#x3E;    
+    &#x3C;div&#x3E;
+        &#x3C;label&#x3E;Select Course:&#x3C;/label&#x3E;
+        &#x3C;select name=&#x22;select&#x22;&#x3E;
+            &#x3C;option value=&#x22;BA&#x22;&#x3E;BA&#x3C;/option&#x3E;
+            &#x3C;option value=&#x22;BSc&#x22;&#x3E;B.Sc&#x3C;/option&#x3E;
+            &#x3C;option value=&#x22;B.COM&#x22;&#x3E;B.COM&#x3C;/option&#x3E;
+        &#x3C;/select&#x3E;
+    &#x3C;/div&#x3E;
+
+    &#x3C;!-- &#x3C;button type=&#x22;submit&#x22;&#x3E;Submit&#x3C;/button&#x3E; --&#x3E;
+    &#x3C;input type=&#x22;submit&#x22; value=&#x22;SUBMIT&#x22;&#x3E;
+    
+&#x3C;/form&#x3E;
+</code></pre>
+<!-- JS code end -->
+
+                        <!-- Body content End -->
+                    </div>
+                </div>
+            </div>
+            <!-- HTML Form Content  -End------------>
+
+            <!-- Get Form Values and Store it in DB  -Start------------>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#store_to_mysql" aria-expanded="false" aria-controls="store_to_mysql">
+                        <span>
+                            <strong>Python code (Get Form Values and Store it in DB)</strong>
+                            <small class=" d-block">
+                                pythonweb.py
+                            </small>
+                        </span>
+                    </button>
+                </h2>
+                <div id="store_to_mysql" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <!-- Body content Start -->
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">#! C:/Users/KARTHIK/AppData/Local/Programs/Python/Python312/python.exe
+print("Content-Type:text/html\n")
+print()
+import cgi
+
+print("&#x3C;h1&#x3E;Welcome to Python&#x3C;/h1&#x3E;")
+print("&#x3C;hr/&#x3E;")
+print("&#x3C;h2&#x3E;Using input tag&#x3C;/h2&#x3E;")
+print("&#x3C;body style=&#x27;background:teal&#x27;&#x3E;")
+
+form=cgi.FieldStorage()
+
+id=form.getvalue("id")
+username=form.getvalue("username")
+address=form.getvalue("address")
+gender=form.getvalue("gender")
+english=form.getvalue("english")
+tamil=form.getvalue("tamil")
+telugu=form.getvalue("telugu")
+select1=form.getvalue("select")
+
+print(username)
+
+import mysql.connector
+
+con=mysql.connector.connect(user='root', password='', host='localhost', database='webpython')
+cur=con.cursor()
+
+cur.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s)",(id,username,address,gender,english,tamil,telugu,select1))
+# mysqlcursor.execute("insert into studentrecord(rollno,name,marks) values(2, 'Raju', 88)")
+
+con.commit()
+print("Record inserted into the table")
+
+cur.close()
+con.close()
+print("&#x3C;h3&#x3E;record inserted successfully&#x3C;/h3&#x3E;")
+print("&#x3C;a href=&#x27;http://localhost/mango/index.php&#x27;&#x3E;click here to go back&#x3C;/a&#x3E;")
+</code></pre>
+<!-- JS code end -->
+
+                        <!-- Body content End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Get Form Values and Store it in DB  -End------------>
+            
+
+            <!-- Retrive data from DB  -Start------------>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#get_data_from_db" aria-expanded="false" aria-controls="get_data_from_db">
+                        <span>
+                            <strong>Python code (Get data from DB)</strong>
+                            <small class=" d-block">
+                                showdata.py
+                            </small>
+                        </span>
+                    </button>
+                </h2>
+                <div id="get_data_from_db" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <!-- Body content Start -->
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">#! C:/Users/KARTHIK/AppData/Local/Programs/Python/Python312/python.exe
+print("Content-Type:text/html\n")
+print()
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="webpython"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT * FROM student")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+    print(x)
+</code></pre>
+<!-- JS code end -->
+
+                        <!-- Body content End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Retrive data from DB  -End------------>
+            
+
+            <!-- Retrive data from DB and Show in HTML  -Start------------>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#get_n_show_data_in_html" aria-expanded="false" aria-controls="get_n_show_data_in_html">
+                        <span>
+                            <strong>Python code (Get data from DB and show in html)</strong>
+                            <small class=" d-block">
+                                showDataInHtml.py
+                            </small>
+                        </span>
+                    </button>
+                </h2>
+                <div id="get_n_show_data_in_html" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <!-- Body content Start -->
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">#! C:/Users/KARTHIK/AppData/Local/Programs/Python/Python312/python.exe
+print("Content-Type:text/html\n")
+print()
+
+import mysql.connector
+import webbrowser
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="webpython"
+)
+
+if mydb:
+    print ("Connected Successfully")
+else:
+    print ("Connection Not Established")
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT * FROM student")
+
+myresult = mycursor.fetchall()
+
+print("&#x3C;body&#x3E;")
+print("&#x3C;div style=&#x27;background:#fff9cd; padding: 50px; font-size: 18px;&#x27;&#x3E;")
+
+for x in myresult:
+    data = "&#x3C;p style=&#x27;border-bottom: 2px solid #CCC; padding:15px 0;&#x27;&#x3E;Id: &#x3C;strong&#x3E;%s&#x3C;/strong&#x3E;,"%x[0] + " Name: &#x3C;strong&#x3E;%s&#x3C;/strong&#x3E;,"%x[1] + " Gender: &#x3C;strong&#x3E;%s&#x3C;/strong&#x3E;,"%x[3] + " Languages: &#x3C;strong&#x3E;%s&#x3C;/strong&#x3E;,"%x[4] + " &#x3C;strong&#x3E;%s&#x3C;/strong&#x3E;,"%x[5] + " &#x3C;strong&#x3E;%s&#x3C;/strong&#x3E;,"%x[6] + " Degree: &#x3C;strong&#x3E;%s&#x3C;/strong&#x3E;</p>"%x[7] 
+    
+    print(data)
+
+print("&#x3C;/div&#x3E;")
+print("&#x3C;/body&#x3E;")  
+</code></pre>
+<!-- JS code end -->
+
+                        <!-- Body content End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Retrive data from DB and Show in HTML  -End------------>
+
+        </div>
+        <!-- Accordion Start -->
+
+
+
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">
+</code></pre>
+<!-- JS code end -->
+
+
+
+    </div>
+    <!-- Section 2 End --------------------------- -->
+
+
+
+
+
+    <!-- Bootstrap JS ########################### -->
+    <script src="./../../../js/bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+</html>

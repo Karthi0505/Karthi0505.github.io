@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./../../css/bootstrap.css">
+    <!-- HighlightJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../../css/custom.css">
+</head>
+
+<body>
+    <h1>Fetch Example1</h1>
+    <h2 id="one"></h2>
+    <h2 id="two"></h2>
+    <h2 id="three"></h2>
+    <h2 id="four"></h2>
+
+    
+    <!-- Section 2 Start ########################### -->
+    <div class="container-fluid">
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">
+let f = fetch("./protected/data.txt")
+console.log(f);
+
+f.then(
+        function(x){
+            console.log(x);
+            //console.log("this is text: ", x.text())
+
+            return x.text()
+        }
+    )
+    .then(
+        function(a){
+            document.getElementById("one").innerHTML = a;
+            console.log(a)
+        }
+    )
+</code></pre>
+<!-- JS code end -->
+    
+
+
+
+    </div>
+    <!-- Section 2 End --------------------------- -->
+
+    <script>
+        
+        let f = fetch("./protected/data.txt")
+        console.log(f);
+
+        f.then(
+                function(x){
+                    console.log(x);
+                    //console.log("this is text: ", x.text())
+
+                    return x.text()
+                }
+            )
+            .then(
+                function(a){
+                    document.getElementById("one").innerHTML = a;
+                    console.log(a)
+                }
+            )
+        
+    </script>
+
+
+
+    
+
+    <!-- Bootstrap JS ########################### -->
+    <script src="./../../js/bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+</html>

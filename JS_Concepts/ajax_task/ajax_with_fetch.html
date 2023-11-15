@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./../../css/bootstrap.css">
+    <!-- HighlightJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../../css/custom.css">
+</head>
+<body>
+
+    <!-- Section 1 Start ########################### -->
+    <div class="container-fluid">
+        <h1 class="text-center my-4">Fetch with setting AJAX Headers in Request</h1>
+            
+        <p class="m2-5 fs-4 text-center border rounded p-4 w-75 mx-auto">
+             Below steps are done in this example
+        </p>
+        <ul class="border-top border-bottom py-2">
+            <li>Creating an Auth Token -> </li>
+            <li>Create a new Ajax Header and keep the token inside this header -> </li>
+            <li>Create a new AJAX Request and keep the Header inside this request. -> </li>
+            <li>Call the fetch API method and keep the Request object inside this fetch() argument. -></li>
+            <li>Process the response using .then() method or using Async Await</li>
+            <li>
+                <span class="d-block mb-1">Optionally use .catch() method with then() method</span>
+                <span class="d-block mb-1">(or) use a "try {} catch (e) {}" block with Async Await.</span>
+                <span class="d-block mb-1">to catch if error comes.</span>
+            </li>
+        </ul>
+
+        <h2 class="h5">Input for creating base64 token</h2>
+        <form id="myForm" >
+            <div>
+                <label>Username</label>
+                <input type="text" id="username">
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" id="password">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="demo"></div>
+
+        <hr>
+
+
+        <p class="text-danger border p-3">
+            <span class="d-block mb-1">(Note: This works only in server)</span>
+            Inspect and check in Network -> All -> select &lt;filename> (secret.html) -> Headers -> Request Headers -> Here you can see the property "Authorization:
+            Basic S2FydGhpOkthcnRoaSgp" &lt;&lt;Base64 token>> which you setted up, by geting from user input & password and ket it as Authorization value.
+        </p>
+        
+    </div>
+    <!-- Section 1 End --------------------------- -->
+    
+
+
+
+    <!-- Section 2 Start ########################### -->
+    <div class="container-fluid">
+
+        
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">document.getElementById("myForm")
+    .addEventListener("submit", loadSecret);
+
+function loadSecret(e){
+
+    e.preventDefault(); //Preventing Default form submission
+    
+    console.log(e); //has the event object
+
+    let username_val = document.getElementById('username').value;
+    let password_val = document.getElementById('password').value;
+
+    //console.log(password_val)
+
+
+    //create our own Base64 token
+    let encodedData = window.btoa(username_val + ':' + password_val)
+    //console.log(window.btoa('Karthi'))
+    //console.log(encodedData)
+
+    let authToken = `Basic ${encodedData}`;
+    console.log(authToken)
+
+    //Setup our Ajax ##############################
+    let h = new Headers();
+    h.append('Authorization', authToken);
+
+    let url = './protected/secret.html';
+
+    let req = new Request(url, {method: "GET", headers: h});
+
+    fetch(req)
+        .then(data => data.text())
+        //.then(message => console.log(message))
+        .then(message => document.getElementById('demo').innerHTML = message)
+        .catch(err => {console.log(err);})
+
+}
+</code></pre>
+<!-- JS code end -->
+
+
+
+    </div>
+    <!-- Section 2 End --------------------------- -->
+
+    
+    
+
+    <script>
+        document.getElementById("myForm")
+            .addEventListener("submit", loadSecret);
+
+        function loadSecret(e){
+
+            e.preventDefault();
+            
+            console.log(e); //has the event object
+
+            let username_val = document.getElementById('username').value;
+            let password_val = document.getElementById('password').value;
+
+            //console.log(password_val)
+
+
+            //create our own Base64 token
+            let encodedData = window.btoa(username_val + ':' + password_val)
+            //console.log(window.btoa('Karthi'))
+            //console.log(encodedData)
+
+            let authToken = `Basic ${encodedData}`;
+            console.log(authToken)
+
+            //Setup our Ajax ##############################
+            let h = new Headers();
+            h.append('Authorization', authToken);
+
+            let url = './protected/secret.html';
+
+            let req = new Request(url, {method: "GET", headers: h});
+
+            fetch(req)
+                .then(data => data.text())
+                //.then(message => console.log(message))
+                .then(message => document.getElementById('demo').innerHTML = message)
+                .catch(err => {console.log(err);})
+
+        }
+    </script>
+
+
+
+    <!-- Bootstrap JS ########################### -->
+    <script src="./../../js/bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+</html>
