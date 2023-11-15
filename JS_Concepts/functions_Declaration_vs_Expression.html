@@ -18,25 +18,25 @@
             <table class="table table-bordered">
                 <thead class="h2">
                 <tr>
-                    <th>
+                    <th class="h4">
                         Function Declaration:
                     </th>
-                    <th>Function Expression:</th>
+                    <th class="h4">Function Expression:</th>
                 </tr>
                 </thead>
-                <tbody class="fs-4">
+                <tbody class="fs-6">
                 <tr>
                     <td>
                         <ul>
-                            <li class="pb-3">A function created with function keyword and a function name.</li>
-                            <li>Function Declarations are "Hoisted".</li>
+                            <li class="pb-3">A function created <strong>with</strong> function keyword and a <strong>function name</strong>.</li>
+                            <li>Function Declarations are <strong>"Hoisted"</strong>.</li>
                         </ul>
                     </td>
                     <td>
                         <ul>
-                            <li class="pb-3">A function created annonymously, without name
+                            <li class="pb-3">A function created annonymously, <strong>without name</strong>
                             </li>
-                            <li class="pb-3">Function Expression are "Not-hoisted".</li>
+                            <li class="pb-3">Function Expression are <strong>"Not-hoisted"</strong>.</li>
                             <li>
                                 <p>It can be assigned to a variable and we can call the function using that variable.</p>
                                 (or)
@@ -50,48 +50,45 @@
                 </tbody>
             </table>
         </div>
-    
-    <pre>
-        <code class="language-javascript fs-5" >            
-        let param1 = "Name";
-        let param2 = "Name2";
+
+<pre><code class="language-javascript fs-6">let param1 = "Name";
+let param2 = "Name2";
 
 
-        // FUNCTION DECLARATION -Start ######################
-        dd(param1)
+// FUNCTION DECLARATION -Start ######################
+dd(param1)
 
-        function dd(p1) {
-            console.log('This is normal function declaration', param1);
-            return p1
-        }
-        // FUNCTION DECLARATION -End ######################
+function dd(p1) {
+    console.log('This is normal function declaration', param1);
+    return p1
+}
+// FUNCTION DECLARATION -End ######################
 
-    
-        // FUNCTION EXPRESSION -Start #####################
-        //Normal function expression
-        let ee = function (p1) {
-            console.log('This is normal function expression', param1);
-            return p1
-        }
-        ee(param1)
 
-        // Arrow Function Expression
-        let ee2 = (p1) => {
-            console.log('This is normal function expression', param1);
-            return p1
-        }
-        ee2(param1)
+// FUNCTION EXPRESSION -Start #####################
+//Normal function expression
+let ee = function (p1) {
+    console.log('This is normal function expression', param1);
+    return p1
+}
+ee(param1)
 
-        // IIFE (Immediately Invoked Function Expression)
-        (function () {
+// Arrow Function Expression
+let ee2 = (p1) => {
+    console.log('This is normal function expression', param1);
+    return p1
+}
+ee2(param1)
 
-            console.log('This is normal function expression', param1);
-            //...
-        })()
-        
-        // FUNCTION EXPRESSION -End ######################
-            </code>
-        </pre>
+// IIFE (Immediately Invoked Function Expression)
+(function () {
+
+    console.log('This is normal function expression', param1);
+    //...
+})()
+
+// FUNCTION EXPRESSION -End ######################
+</code></pre>
 
     </div>
 

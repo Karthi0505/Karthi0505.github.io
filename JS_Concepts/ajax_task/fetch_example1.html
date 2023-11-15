@@ -14,12 +14,13 @@
 </head>
 
 <body>
-    <h1>Fetch Example1</h1>
-    <h2 id="one"></h2>
-    <h2 id="two"></h2>
-    <h2 id="three"></h2>
-    <h2 id="four"></h2>
-
+    <div class="container-fluid py-3">
+        <h1>Fetch Example1</h1>
+        <h2 id="one"></h2>
+        <h2 id="two"></h2>
+        <h2 id="three"></h2>
+        <h2 id="four"></h2>
+    </div>
     
     <!-- Section 2 Start ########################### -->
     <div class="container-fluid">
@@ -30,19 +31,19 @@ let f = fetch("./protected/data.txt")
 console.log(f);
 
 f.then(
-        function(x){
-            console.log(x);
-            //console.log("this is text: ", x.text())
+  function(x){
+    console.log(x);
+    //console.log("this is text: ", x.text())
 
-            return x.text()
-        }
-    )
-    .then(
-        function(a){
-            document.getElementById("one").innerHTML = a;
-            console.log(a)
-        }
-    )
+    return x.text()
+  }
+)
+.then(
+  function(a){
+    document.getElementById("one").innerHTML = a;
+    console.log(a)
+  }
+)
 </code></pre>
 <!-- JS code end -->
     

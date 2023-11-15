@@ -43,99 +43,95 @@
                 within their body and cannot be created as generator functions.</li>
         </ul>
 
-        <pre>
-            <code class="language-javascript" >
+<pre><code class="language-javascript" >// Arrow function Script Start-----------------------------------
+let param1 = "Name";
+let param2 = "Name2";
 
-            // Arrow function Script Start-----------------------------------
-            let param1 = "Name";
-            let param2 = "Name2";
+//With single parameter, parenthesis () is not necessary
+let d = p1 => console.log('This is Arrow function expression ', param1);
+d(param1);
 
-            //With single parameter, parenthesis () is not necessary
-            let d = p1 => console.log('This is Arrow function expression ', param1);
-            d(param1);
+//With single statement {} is not necessary and return keyword is not necesary
+//With multiple parameter must be included inside ()
+let c = (param1, param2) => console.log('This is Arrow function expression ' + param1, param2);
+c(param1, param2);
 
-            //With single statement {} is not necessary and return keyword is not necesary
-            //With multiple parameter must be included inside ()
-            let c = (param1, param2) => console.log('This is Arrow function expression ' + param1, param2);
-            c(param1, param2);
+//With multiple statements must include {}
+let b = (param1, param2) => {
+    console.log('This is Arrow function expression ' + param1);
+    console.log('This is Arrow function expression ' + param2);
+};
+b(param1, param1);
 
-            //With multiple statements must include {}
-            let b = (param1, param2) => {
-                console.log('This is Arrow function expression ' + param1);
-                console.log('This is Arrow function expression ' + param2);
-            };
-            b(param1, param1);
+//WHEN WE WANT TO RETURN SOMTHING
+//If function {}curly brace is omitted, 'return' keyword is not needed.
+let a = () => "Hello world"
+console.log("a return value: ", a());
 
-            //WHEN WE WANT TO RETURN SOMTHING
-            //If function {}curly brace is omitted, 'return' keyword is not needed.
-            let a = () => "Hello world"
-            console.log("a return value: ", a());
+//If function {}curly brace is present, 'return' keyword is needed.
+let a2 = () => { "Hello world" }
+console.log("a2 return value: ", a2()); 
+//undefined
 
-            //If function {}curly brace is present, 'return' keyword is needed.
-            let a2 = () => { "Hello world" }
-            console.log("a2 return value: ", a2()); //undefined
+let a3 = () => { return "Hello world" }
+console.log("a3 return value is: ", a3()); 
+//undefined
+//----------------------------------------
 
-            let a3 = () => { return "Hello world" }
-            console.log("a3 return value is: ", a3()); //undefined
+// function expression
+let aa = function (p1) {
+    console.log('This is normal function expression', param1);
+    return p1
+}
+aa(param1)
 
+// function declaration
+function bb(p1) {
+    console.log('This is normal function declaration', param1);
+    return p1
+}
+bb(param1)
+//--------------------------------------------------
 
-            //----------------------------------------------
-
-            // function expression
-            let aa = function (p1) {
-                console.log('This is normal function expression', param1);
-                return p1
-            }
-            aa(param1)
-
-            // function declaration
-            function bb(p1) {
-                console.log('This is normal function declaration', param1);
-                return p1
-            }
-            bb(param1)
-            //--------------------------------------------------
-
-            // 'this' binding in normal function
-            const obj = {
-                name: 'Karthi',
-                num: '0505',
-                print: function () {
-                    console.log('this keyword in normal function inside object (method) : ', this)
-                }
-            }
-            obj.print();
+// 'this' binding in normal function
+const obj = {
+    name: 'Karthi',
+    num: '0505',
+    print: function () {
+        console.log('this keyword in normal function inside object (method) : ', this)
+    }
+}
+obj.print();
 
 
 
-            // Arrow functions do not create their own this binding. 
-            //So the 'this' will point its parent object (here parent object is global object window)
-            const obj2 = {
-                name: 'Karthi',
-                num: '0505',
-                print: () => {
-                    console.log('this keyword in arrow function inside object (method) : ', this)
-                }
-            }
-            obj2.print();
+// Arrow functions do not create their own this binding. 
+//So the 'this' will point its parent object (here parent object is global object window)
+const obj2 = {
+    name: 'Karthi',
+    num: '0505',
+    print: () => {
+        console.log('this keyword in arrow function inside object (method) : ', this)
+    }
+}
+obj2.print();
 
-            // Arrow functions do not create their own this binding. 
-            //So the 'this' will point its parent object (here parent object is obj3)
-            const obj3 = {
-                name: 'Karthi',
-                num: '0505',
-                print: function () {
-                    const print2 = () => {
-                        console.log('this keyword in arrow function inside object and inside normal function method (method) : ', this)
-                    }
-                    print2();
-                }
+// Arrow functions do not create their own this binding. 
+//So the 'this' will point its parent object (here parent object is obj3)
+const obj3 = {
+    name: 'Karthi',
+    num: '0505',
+    print: function () {
+        const print2 = () => {
+            console.log('this keyword in arrow function inside object and inside normal function method (method) : ', this)
+        }
+        print2();
+    }
 
-            }
-            obj3.print();
-            // Arrow function Script End-----------------------------------
-            </code>
-        </pre>
+}
+obj3.print();
+// Arrow function Script End-----------------------------------
+</code></pre>
     
     </div>
     
