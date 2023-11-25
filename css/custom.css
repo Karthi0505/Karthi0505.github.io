@@ -8,3 +8,14 @@
 .linkHoverStyle-1 a:hover {
     background-color: rgb(255 235 59 / 50%);
 }
+
+/* Footer CSS Start */
+footer .dp-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+footer .dp-image img {
+    max-width: 309px; left: -56px; top: -24px; position: relative;
+}

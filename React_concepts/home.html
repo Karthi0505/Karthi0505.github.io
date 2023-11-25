@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Concepts</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./../css/bootstrap.css">
+    <!-- HighlightJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../css/custom.css">
+
+    
+
+</head>
+
+<body>
+
+    
+<div  id="element-to-print">
+
+
+
+    <!-- Footer Start -->
+    <footer class="bg-secondary text-white py-5">
+        <div class="container">
+
+            <div class="d-md-flex align-items-md-center">
+                <div class="float-md-end">
+                    <div class="dp-image">
+                        <!-- <img src="IMG_2414.jpg" alt="Karthi DP" class="img-fluid" style="max-width: 309px; left: -56px; top: -24px; position: relative;"> -->
+                        
+                        <img src="IMG_2414.jpg">
+
+
+
+
+
+                    </div>
+                </div>
+                <div class="col-md p-md-4">
+                    <h3>
+                        Karthi
+                        <small class="d-block fs-6">UI Developer</small>
+                    </h3>
+                    <address>
+                        <span class="d-block">8428881664</span>
+                        <span class="d-block">karthi.uideveloper@gmail.com</span>
+                    </address>
+                </div>
+        
+            </div>
+
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    
+
+
+    <!-- jsPDF library -->
+    <button id="exportButton" onclick="fn()">Export to PDF</button>
+</div>
+
+
+    <!-- Bootstrap JS ########################### -->
+    <script src="./../js/bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+
+
+</body>
+
+
+
+<script src="https://raw.githack.com/ekoopmans/html2pdf/master/dist/html2pdf.bundle.js" ></script>
+<script>  
+    function fn(){
+        var element = document.getElementById('element-to-print');
+        var opt = {
+            margin:       1,
+            filename:     'myfile.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2 },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+        
+        // New Promise-based usage:
+        html2pdf().set(opt).from(element).save();
+    }      
+    //document.getElementById('exportButton').addEventListener('click', fn)
+
+</script>
+</html>
