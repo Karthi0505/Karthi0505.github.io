@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Concepts</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./../../css/bootstrap.css">
+  <!-- HighlightJS CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./../../css/custom.css">
+</head>
+
+<body id="body">
+
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./../home.html">React main page</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li> -->
+          </ul>
+                
+          <!-- jsPDF library -->
+          <button id="export_to_pdf_Button" class="btn btn-danger">Export to PDF</button>
+          
+          <!-- <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form> -->
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div id="element-to-print">
+
+    
+    <!-- jsPDF library -->
+    <!-- <button id="exportButton" onclick="fn()">Export to PDF</button> -->
+
+
+    <div class="container-fluid"> <!-- Container -->
+
+      <h1 class="mt-5 mb-2 pt-5 text-center">
+        JSX <small>and React Elements and DOM Elements</small>
+      </h1>
+      <p class="mb-5 text-center">(JavaScript XML | React.createElement | DOM)</p>
+
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="fs-3 text-center">React Element (JS Object)</th>
+              <th class="fs-3 text-center">JSX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>
+                  <strong>React.createElement produces a JS object</strong> with all the necessary configurations
+                  <strong>to render it to the real DOM</strong>
+                </p>
+                <p>
+                  Click for <a href="https://codesandbox.io/p/sandbox/jsx-in-react-gsdv7l?file=%2Fsrc%2FApp.js%3A37%2C79"
+                  target="_blank">Demo in code sandbox</a>
+                </p>
+              </td>
+              <td>
+                <p>JSX is an Extension Syntax that allows writing HTML and Javascript together easily in React.</p>                
+                <p>Each JSX element is a <strong>syntactic sugar</strong> for <strong>calling React.createElement()</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+<!-- JS code start -->
+<pre class="mb-0"><code class="language-javascript fs-5">return  React.createElement('h1', null, 'Welcome dude!')
+</code></pre>
+<!-- JS code end -->
+              </td>
+              <td class="pb-5">
+<!-- JS code start -->
+<pre class="mb-0"><code class="language-javascript fs-5">return &lt;h1&gt;Welcome dude!&lt;/h1&gt;
+</code></pre>
+<!-- JS code end -->
+              </td>
+            </tr>
+            <tr>
+              <td class="pb-5">                
+                <h3 class="text-decoration-underline h4 mt-3">Syntax <small class="fs-6">for React.createElement</small></h3>
+
+                <p class="text-bg-light p-3 border fs-5">
+                  React.createElement( 
+                    <strong class="text-primary">component</strong>, 
+                    <strong class="text-danger">props</strong>, ...children )
+                </p>
+
+                <p class="text-bg-light p-3 border fs-5">
+                  React.createElement( 
+                    <strong class="text-primary">elementName</strong>, <strong class="text-danger">attribute</strong>, ...children )
+                </p>
+
+                <ol>
+                  <li>
+                    <strong>First parameter:</strong> The HTML <strong class="text-success">element</strong> we want to
+                    create.
+                  </li>
+                  <li>
+                    <strong>Second parameter:</strong> HTML <strong class="text-success">attributes</strong> or
+                    arbitrary inputs that are passed as parameters.
+                  </li>
+                  <li>
+                    <strong>Third parameter:</strong> <strong class="text-success">Child Element</strong>
+                  </li>
+                </ol>
+              </td>
+              <td>
+                <h3 class="text-decoration-underline h4 mt-3">Syntax <small class="fs-6">for JSX</small></h3>
+                <p class="text-bg-light p-3 border fs-5">
+                  
+                    &lt;<strong class="text-primary">Component</strong>
+                    <strong class="text-danger">props </strong>/&gt;
+                  
+                </p>               
+                <p class="text-bg-light p-3 border fs-5">
+                  &lt;<strong class="text-primary">element </strong>
+                  <strong class="text-danger">attribute</strong>&gt;
+                     <span class="d-block pl-3">...children</span>
+                  &lt;/element&gt;
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <h3 class="mt-3">From React Element to DOM tag</h3>
+
+                <h3 class="fs-5 text-decoration-underline">HTML Tag</h3>
+                <p>
+                  If you provide a <strong>string</strong>, it <strong>will turn it into a DOM tag</strong> with that string as the value. 
+                  Eg: We utilized the tags h1 and div, which are output to the DOM.
+                </p>
+
+                <h3 class="fs-5 text-decoration-underline">React Component</h3>
+                <p><strong>Function</strong> React.createElement <strong>creates a single instance of a component</strong>.</p>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4 class="text-decoration-underline h5 mt-3">Elements</h4>
+            
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">return React.createElement(
+  "div",
+  null,
+  React.createElement(
+    "h1",
+    { className: "green" },
+    `Welcome dude!`,
+  ),
+);
+</code></pre>
+<!-- JS code end -->
+
+                <p class="fw-bold">React.createElement inside React.createElement</p>
+              </td>
+
+              <td>
+                <h4 class="text-decoration-underline h5 mt-3">Elements</h4>
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">return (
+  &lt;div&gt;
+    &lt;h1 className="green"&gt;
+        Welcome dude!
+    &lt;/h1&gt;
+  &lt;/div&gt;
+)
+</code></pre>
+<!-- JS code end -->
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4 class="text-decoration-underline h5 mt-3">Component</h4>
+
+                <p class="fs-5">React.createElement works with both HTML elements and custom components</p>
+                <p>Below code <span class="fw-bold">Creates an instance of the Component</span></p>
+
+                <p class="mb-0 fw-bold">App.js</p>
+                <img src="./../images/component_instance_react_createElement.PNG" alt="component instance in react createElement" class="img-fluid">
+
+                <p class="mb-0 mt-2 fw-bold">MyComponent.js</p>
+                <img src="./../images/component_react_createElement.PNG" 
+                  alt="component in react createElement" 
+                  class="img-fluid"
+                  
+                />
+                <!-- style="max-width: 541px" -->
+              </td>
+
+              <td>
+                <h4 class="text-decoration-underline h5 mt-3">Component</h4>
+
+                <p class="fs-5">JSX also works with both HTML elements and custom components</p>
+                <p>Below code <span class="fw-bold">Creates an instance of the Component</span></p>
+
+                <p class="mb-0 fw-bold">App.js</p>
+                <img src="./../images/component_instance_jsx.PNG" alt="component instance in react createElement" class="img-fluid">
+
+                <p class="mb-0 mt-2 fw-bold">MyComponent.js</p>
+                <img src="./../images/component_jsx.PNG" 
+                  alt="component in react createElement" 
+                  class="img-fluid"
+                  
+                />
+                <!-- style="max-width: 541px" -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      
+      <hr>
+
+      <h4>className attribute</h4>
+      <p>Because class is a reserved keyword in JS, className is essential</p>
+
+
+      <h3>What about props?</h3>
+
+      <p>Also, we can pass our props to our components.</p>
+
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="fs-3">React Element (JS Object)</th>
+              <th class="fs-3">JSX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">React.createElement(Tag, { name: 'Jhon', age: 31 }, null)
+</code></pre>
+<!-- JS code end -->
+              </td>
+              <td>
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">&lt;Tag name="Jhon" age={31} /&gt;
+</code></pre>
+<!-- JS code end -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      
+                
+      <p class="pb-5 mb-5">Same vanilla JS has a createElement method, too:
+        <span class="d-block text-secondary">
+          //document.createElement('div')
+        </span>
+      </p>
+
+
+      <!-- Upto this is enough for beginers - Start -->
+      <p class="border-top border-bottom mb-5 text-center text-danger-emphasis">
+        ----------- Note: If you are a beginner - upto this is enough for now -----------
+      </p>
+      <!-- Upto this is enough for beginers - End -->
+      <br>
+
+      <hr class="mt-5">
+      <p class="fs-5 mt-4">So, we've got these React elements that we made using React.createElement. But <strong>how does it rendered in the DOM?</strong></p>
+      <hr>
+
+      <ul>
+        <li>
+          <h4>CreateRoot</h4>
+          <p>
+            createRoot lets you create a root <strong>to display React components inside a browser DOM</strong> node.
+          </p>
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const root = ReactDOM.createRoot(document.getElementById('root'));
+</code></pre>
+<!-- JS code end -->
+          
+          <h5 class="text-decoration-underline mb-0">Returns</h5>
+          
+          <p class="fw-bold border-bottom pb-5 mb-4">createRoot returns <span class="text-danger">an <span class="fs-5">object</span> with two methods:</span> <span class="text-success fs-5">render</span> and <span class="text-success fs-5">unmount</span>.</p>
+        </li>
+
+        <li>
+          <h4><small class="fw-light">createRoot</small>.render()</h4>
+          <p>
+            After you’ve created a root, you need to call <strong>.render()</strong> to display a React component inside of it:
+          </p>
+
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>React Element (JS Object)</th>
+                <th>JSX</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <!-- JS code start -->
+                  <pre><code class="language-javascript fs-5">root.render( React.createElement(App, null, null) )
+                  </code></pre>
+                  <!-- JS code end -->
+                </td>
+                <td>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">root.render(&lt;App /&gt;);
+</code></pre>
+<!-- JS code end -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+          <p>
+            <code>render</code> renders a piece of JSX (“React node”) into a browser DOM node.
+          </p>
+
+          <p><strong>To render out, we'll need an instance of App</strong>. The app is a component Object, and we only need to render one instance of it. JSX -> <strong>React.createElement accomplishes exactly that: it creates an Object instance</strong>.</p>
+
+          <p class="fs-5">
+            Below example - Displays your React Component inside the HTML element containing the appropriate id
+          </p>
+          <img src="./../images/indexHtml_indexJs.PNG" alt="index.js and index.html" class="img-fluid">
+
+          <p class="border-bottom pt-3 pb-5 mb-4">
+            <strong>takes our rendered App component</strong> (present in './index.js') and places it in the DOM (in our example, the root element - present in './public/index.html').
+          </p>
+        </li>
+
+        <li>
+          <h4><small class="fw-light">CreateRoot</small>.unmount()</h4>
+
+          <p>Call <code>root.unmount</code> to destroy a rendered tree inside a React root.</p>
+
+          <!-- JS code start -->
+<pre><code class="language-javascript fs-5">root.unmount();
+</code></pre>
+<!-- JS code end -->
+
+          <p>Calling <code>root.unmount</code> will <strong>unmount all the components in the root and “detach” React from the root DOM node</strong>, including removing any event handlers or state in the tree.</p>
+
+        </li>
+      </ul>
+
+<hr>
+          
+      <!-- Caveats Start -->
+      <div class="mt-5">
+        <h3 class="text-danger-emphasis">Warnings:</h3>
+
+        <h4>createRoot Caveats</h4>
+        <ul>
+          <li>
+            If your app is server-rendered, using <code>createRoot()</code> is not supported. Use <code>hydrateRoot()</code> instead.
+          </li>
+          <li>
+            You’ll likely have only one createRoot call in your app. If you use a framework, it might do this call for you.
+          </li>
+          <li>
+            When you want to render a piece of JSX in a different part of the DOM tree that isn’t a child of your component (for example, a modal or a tooltip), use createPortal instead of createRoot.
+          </li>
+        </ul>
+
+        <h4>root.render(<span class="fs-6">reactNode</span>) Caveats</h4>
+        <ul>
+          <li>
+            The first time you call <code>root.render</code>, React will clear all the existing HTML content inside the React root before rendering the React component into it.
+          </li>
+          <li>
+            If your root’s DOM node contains HTML generated by React on the server or during the build, use <a href="https://react.dev/reference/react-dom/client/hydrateRoot"><code>hydrateRoot()</code></a> instead, which attaches the event handlers to the existing HTML.
+          </li>
+          <li>If you call <code>render</code> on the same root more than once, React will update the DOM as necessary to reflect the latest JSX you passed. React will decide which parts of the DOM can be reused and which need to be recreated by “matching it up” with the previously rendered tree. Calling <code>render</code> on the same root again is similar to calling the set function on the root component: React avoids unnecessary DOM updates.</li>
+        </ul>
+
+        <h4>root.unmount() Caveats</h4>
+        <ul>
+          <li>
+            Calling <code>root.unmount</code> will unmount all the components in the tree and “detach” React from the root DOM node.
+          </li>
+          <li>
+            Once you call root.unmount you cannot call root.render again on the same root. Attempting to call root.render on an unmounted root will throw a “Cannot update an unmounted root” error. However, you can create a new root for the same DOM node after the previous root for that node has been unmounted.
+          </li>
+        </ul>
+      </div>
+      <!-- Caveats End -->
+
+
+
+
+      <p>
+        For more information <a href="https://react.dev/reference/react-dom/client/createRoot">Refer createRoot in React Docs</a>
+      </p>
+
+    </div> <!-- Container End -->
+
+    <hr>
+
+
+    <!-- Footer Start -->
+    <footer class="bg-secondary text-white py-5">
+      <div class="container">
+
+        <div class="d-md-flex align-items-md-center">
+          <div class="float-md-end">
+            <div class="dp-image">
+              <img src="./../../images/IMG_2414.JPG" alt="Karthi DP" class="img-fluid"
+                style="max-width: 309px; left: -56px; top: -24px; position: relative;">
+
+            </div>
+          </div>
+          <div class="col-md p-md-4">
+            <h3>
+              Karthi
+              <small class="d-block fs-6">UI Developer</small>
+            </h3>
+            <address>
+              <span class="d-block">8428881664</span>
+              <span class="d-block">karthi.uideveloper@gmail.com</span>
+            </address>
+          </div>
+
+        </div>
+
+      </div>
+    </footer>
+    <!-- Footer End -->
+
+
+
+
+  </div>
+
+
+  <!-- Bootstrap JS ########################### -->
+  <script src="./../../js/bootstrap.bundle.js"></script>
+
+
+  <!-- Syntax highlight JS Start -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  <!-- Syntax highlight JS End -->
+
+
+  <!-- html2pdf Start -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- html2pdf End -->
+
+  <!-- Custom Script Start -->
+  <script src="./../../js/custom.js"></script>
+  <!-- Custom Script End -->
+</body>
+
+<!-- 
+<script>
+  function fn_save_pdf() {
+    var element = document.getElementById('element-to-print');
+    var opt = {
+      margin: 0,
+      filename: 'myfile.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    // New Promise-based usage:
+    html2pdf().set(opt).from(element).save();
+  }
+  document.getElementById('export_to_pdf_Button').addEventListener('click', fn_save_pdf)
+
+</script> -->
+
+</html>
