@@ -16,9 +16,9 @@ footer .dp-image {
     border-radius: 50%;
     overflow: hidden;
 }
-footer .dp-image img {
+/* footer .dp-image img {
     max-width: 309px; left: -56px; top: -24px; position: relative;
-}
+} */
 
 
 /* Print Media Start  */
@@ -27,14 +27,26 @@ footer .dp-image img {
 }
 /* Print Media End  */
 
-
-.print #element-to-print pre code {
-    font-size: inherit !important;
+/* print html2pdf Start */
+/* .print class will be added at the start of Html2Pdf conversion and removes at end of conversion, from <body> element */
+.print #element-to-print {
+    margin-left: auto;
+    margin-right: auto;
+}
+.print #element-to-print pre code.hljs.fs-5 {
+    font-size: 1.15rem !important
+}
+.print #element-to-print .table-bordered th,
+.print #element-to-print .table-bordered td {
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
 }
 .print #element-to-print pre code.hljs {
-    white-space: initial;
+    /* white-space: initial; */
 }
 .print #element-to-print .container {
     width: auto;
     margin: 0;
 }
+/* print html2pdf End */
+

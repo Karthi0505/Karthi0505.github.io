@@ -98,13 +98,17 @@
             <tr>
               <td>
 <!-- JS code start -->
-<pre class="mb-0"><code class="language-javascript fs-5">return  React.createElement('h1', null, 'Welcome dude!')
+<pre class="mb-0"><code class="language-javascript fs-5">return  React.createElement(
+  'h1', null, 'Welcome dude!'
+)
 </code></pre>
 <!-- JS code end -->
               </td>
               <td class="pb-5">
 <!-- JS code start -->
 <pre class="mb-0"><code class="language-javascript fs-5">return &lt;h1&gt;Welcome dude!&lt;/h1&gt;
+
+
 </code></pre>
 <!-- JS code end -->
               </td>
@@ -113,16 +117,19 @@
               <td class="pb-5">                
                 <h3 class="text-decoration-underline h4 mt-3">Syntax <small class="fs-6">for React.createElement</small></h3>
 
-                <p class="text-bg-light p-3 border fs-5">
-                  React.createElement( 
-                    <strong class="text-primary">component</strong>, 
-                    <strong class="text-danger">props</strong>, ...children )
-                </p>
+<pre class="text-bg-light p-3 border fs-5">
+React.createElement( 
+  <strong class="text-primary">component</strong>, <strong class="text-danger">props</strong>, ...children 
+)
+</pre>
 
-                <p class="text-bg-light p-3 border fs-5">
-                  React.createElement( 
-                    <strong class="text-primary">elementName</strong>, <strong class="text-danger">attribute</strong>, ...children )
-                </p>
+<pre class="text-bg-light p-3 border fs-5">
+React.createElement( 
+  <strong class="text-primary">elementName</strong>, 
+  <strong class="text-danger">attribute</strong>, 
+  ...children
+)
+</pre>
 
                 <ol>
                   <li>
@@ -140,18 +147,17 @@
               </td>
               <td>
                 <h3 class="text-decoration-underline h4 mt-3">Syntax <small class="fs-6">for JSX</small></h3>
-                <p class="text-bg-light p-3 border fs-5">
-                  
-                    &lt;<strong class="text-primary">Component</strong>
-                    <strong class="text-danger">props </strong>/&gt;
-                  
-                </p>               
-                <p class="text-bg-light p-3 border fs-5">
-                  &lt;<strong class="text-primary">element </strong>
-                  <strong class="text-danger">attribute</strong>&gt;
-                     <span class="d-block pl-3">...children</span>
-                  &lt;/element&gt;
-                </p>
+<pre class="text-bg-light p-3 border fs-5">&lt;<strong class="text-primary">Component</strong> <strong class="text-danger">props </strong>/&gt;
+
+
+</pre>  
+                            
+<pre class="text-bg-light p-3 border fs-5">&lt;<strong class="text-primary">element</strong> <strong class="text-danger">attribute</strong>&gt;
+  ...children
+&lt;/element&gt;
+
+
+</pre>
               </td>
             </tr>
             <tr>
@@ -200,6 +206,8 @@
     &lt;/h1&gt;
   &lt;/div&gt;
 )
+
+
 </code></pre>
 <!-- JS code end -->
               </td>
@@ -210,17 +218,6 @@
 
                 <p class="fs-5">React.createElement works with both HTML elements and custom components</p>
                 <p>Below code <span class="fw-bold">Creates an instance of the Component</span></p>
-
-                <p class="mb-0 fw-bold">App.js</p>
-                <img src="./../images/component_instance_react_createElement.png" alt="component instance in react createElement" class="img-fluid">
-
-                <p class="mb-0 mt-2 fw-bold">MyComponent.js</p>
-                <img src="./../images/component_react_createElement.png" 
-                  alt="component in react createElement" 
-                  class="img-fluid"
-                  
-                />
-                <!-- style="max-width: 541px" -->
               </td>
 
               <td>
@@ -229,14 +226,32 @@
                 <p class="fs-5">JSX also works with both HTML elements and custom components</p>
                 <p>Below code <span class="fw-bold">Creates an instance of the Component</span></p>
 
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="mb-0 fw-bold">App.js</p>
+                <img src="./../images/component_instance_react_createElement.png" alt="component instance in react createElement" class="img-fluid">
+              </td>
+              <td>
                 <p class="mb-0 fw-bold">App.js</p>
                 <img src="./../images/component_instance_jsx.png" alt="component instance in react createElement" class="img-fluid">
-
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="mb-0 mt-2 fw-bold">MyComponent.js</p>
+                <img src="./../images/component_react_createElement.png" 
+                  alt="component in react createElement" 
+                  class="img-fluid"
+                />
+                <!-- style="max-width: 541px" -->
+              </td>
+              <td>
                 <p class="mb-0 mt-2 fw-bold">MyComponent.js</p>
                 <img src="./../images/component_jsx.png" 
                   alt="component in react createElement" 
                   class="img-fluid"
-                  
                 />
                 <!-- style="max-width: 541px" -->
               </td>
@@ -269,7 +284,11 @@
             <tr>
               <td>
 <!-- JS code start -->
-<pre><code class="language-javascript fs-5">React.createElement(Tag, { name: 'Jhon', age: 31 }, null)
+<pre><code class="language-javascript fs-5">React.createElement(
+  Tag, 
+  { name: 'Jhon', age: 31 }, 
+  null
+)
 </code></pre>
 <!-- JS code end -->
               </td>
@@ -277,6 +296,10 @@
 
 <!-- JS code start -->
 <pre><code class="language-javascript fs-5">&lt;Tag name="Jhon" age={31} /&gt;
+
+
+
+
 </code></pre>
 <!-- JS code end -->
               </td>
@@ -340,14 +363,18 @@
             <tbody>
               <tr>
                 <td>
-                  <!-- JS code start -->
-                  <pre><code class="language-javascript fs-5">root.render( React.createElement(App, null, null) )
-                  </code></pre>
-                  <!-- JS code end -->
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">root.render( 
+  React.createElement(App, null, null) 
+)
+</code></pre>
+<!-- JS code end -->
                 </td>
                 <td>
 <!-- JS code start -->
 <pre><code class="language-javascript fs-5">root.render(&lt;App /&gt;);
+
+
 </code></pre>
 <!-- JS code end -->
                 </td>
@@ -433,7 +460,7 @@
 
 
       <p>
-        For more information <a href="https://react.dev/reference/react-dom/client/createRoot">Refer createRoot in React Docs</a>
+        For more information <a href="https://react.dev/reference/react-dom/client/createRoot" target="_blank">Refer createRoot in React Docs</a>
       </p>
 
     </div> <!-- Container End -->
@@ -442,16 +469,14 @@
 
 
     <!-- Footer Start -->
-    <footer class="bg-secondary text-white py-5">
-      <div class="container">
+    <footer class="bg-secondary text-white py-5 position-relative">
+      <div class="container-fluid">
 
         <div class="d-md-flex align-items-md-center">
-          <div class="float-md-end">
-            <div class="dp-image">
-              <img src="./../../images/IMG_2414.JPG" alt="Karthi DP" class="img-fluid"
-                style="max-width: 309px; left: -56px; top: -24px; position: relative;">
+          <div class="dp-image">
+            <img src="./../../images/IMG_2414.JPG" alt="Karthi DP" class="img-fluid" style="max-width: 309px; left: -56px; top: -24px; position: relative;">
 
-            </div>
+            <!-- style="max-width: 309px; left: -56px; top: -24px; position: relative;" -->
           </div>
           <div class="col-md p-md-4">
             <h3>
