@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>React Concepts</title>
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="./../../css/bootstrap.css">
+   <!-- HighlightJS CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="./../../css/custom.css">
+</head>
+
+<body id="body">
+
+   <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+         <div class="container-fluid">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+               aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="./../react_home.html">React main page</a>
+                  </li>
+                  <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li> -->
+               </ul>
+
+               <!-- jsPDF library -->
+               <button id="export_to_pdf_Button" class="btn btn-danger">Export to PDF</button>
+
+               <!-- <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form> -->
+            </div>
+         </div>
+      </nav>
+   </header>
+
+   <div id="element-to-print">
+
+
+      <!-- jsPDF library -->
+      <!-- <button id="exportButton" onclick="fn()">Export to PDF</button> -->
+
+
+      <div class="container-fluid"> <!-- Container -->
+
+         <h1 class="mt-2 mb-2 pt-5 text-center">
+            Context <small>API</small>
+         </h1>
+         <p class="mb-5 text-center">To pass data through the component tree</p>
+         
+         <p>
+            In React, data is passed from top-down (parent to child) via props by drilling/passing the props at each direct child level.
+
+            <span class="fs-5 d-block border-top border-bottom bg-light">
+               Context provides a way to <strong>pass data through multi-level</strong> child component tree without having to passing the props at each direct child level.
+            </span>
+         </p>
+
+         <h2>data flow in Context</h2>
+         <p>
+            The React Context API is designed to share data:
+            <span class="d-block my-2 fw-bold fs-5"><span class="text-warning bg-dark">- between a provider component and its descendants,</span></span>
+            <span class="d-block my-2">- not between a provider and its ancestor.</span>
+         </p>
+
+         <hr>
+         <h2>Syntax</h2>
+         <div>
+            <h3 class="h5 text-primary">createContext()</h3>
+            <p><strong>returns:</strong> createContext returns a <strong>context object</strong>.</p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">const someContextObj = createContext(defaultValue)
+</code></pre>
+<!-- JS code end -->
+
+            <h3 class="h5 text-primary">SomeContext.Provider</h3>
+            <p>Wrap your components into a context provider to specify the value of this context for all components inside:</p>
+<!-- Html code start -->
+<pre class="fs-6 bg-body-secondary p-3"><span class="fw-bold text-danger-emphasis">&lt;someContextObj.Provider <span class="text-primary-emphasis">value={someData}&gt;</span></span>
+   &lt;Page /&gt;
+&lt;/someContextObj.Provider&gt;
+</pre>
+<!-- Html code end -->
+
+            <h3 class="h5 text-secondary">SomeContext.Consumer</h3>
+            <p>Before useContext existed, there was an older way to read context:</p>
+<!-- Html code start -->
+<pre class="fs-6 bg-body-secondary p-3"><span class="fw-bold text-danger-emphasis">&lt;someContextObj.Consumer&gt;</span>
+   &lt;h1&gt;<span class="text-primary-emphasis fw-bold">{someData}</span>&lt;/h1&gt;
+&lt;/someContextObj.Consumer&gt;
+</pre>
+<!-- Html code end -->
+            <p>Although this older way still works, but <strong>newly written code should read context with <code>useContext()</code> instead:</strong></p>
+
+            <h3 class="h5 text-primary">useContext() Hook</h3>
+            <p><code>useContext</code> is a React Hook that lets you read and subscribe to context from your component.</p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">//In Consumer component
+const someData = useContext(someContextObj)
+</code></pre>
+<!-- JS code end -->
+
+            <p><strong>returns:</strong> <code>useContext</code> returns the <strong>context value</strong> for the calling component.</p>
+
+         </div>
+
+         <hr>
+
+         <div>
+            <h2>Usage</h2>
+            
+            <p class="fw-bold fs-5 mb-1">Example 1:</p>
+            <!-- Example 1 Start ------------------------------- -->
+            <div class="bg-light-subtle border border-danger-subtle p-3">
+               <h3 class="h5">Creating context</h3>
+               <p>Context lets components pass information deep down without explicitly passing props.</p>
+               <p>
+                  Call <code>createContext</code> outside any components to create one or more contexts.
+               </p>
+               <p class="mb-0"><span class="bg-secondary px-2 py-1 text-white">myContext.js</span></p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">import { createContext } from "react";
+
+//createContext returns a context object. 
+const myNewContext_1 = createContext("Karthi");
+const myNewContext_2 = createContext("Monisha");
+
+export { myNewContext_1, myNewContext_2 };  
+</code></pre>
+<!-- JS code end -->
+               
+               <h3 class="h5">Using context</h3>
+               <p class="mb-0"><span class="bg-secondary px-2 py-1 text-white">A.js</span></p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">import { myNewContext_1, myNewContext_2 } from "./myContext";
+import { useContext } from "react";
+
+function A() {
+   //Components can read context by passing it to useContext()
+   const data1 = useContext(myNewContext_1);
+   const data2 = useContext(myNewContext_2);
+
+   return (
+      &lt;div&gt;
+         &lt;h1&gt;{data1}&lt;/h1&gt; //Karthi
+         &lt;p&gt;{data2}&lt;/p&gt; //Monisha
+      &lt;/div&gt;
+   );
+}
+
+export default A; 
+</code></pre>
+<!-- JS code end -->
+
+            </div>
+            <!-- Example 1 End ------------------------------- -->
+
+
+            <p class="fw-bold fs-5 mb-1 mt-5 ">Example 2:</p>
+            <!-- Example 2 Start ------------------------------- -->
+            <div class="bg-light-subtle border border-danger-subtle p-3">
+               <p>Let' say there are components A,B,C. Iam going to <strong>pass data from A to C component directly</strong></p>
+
+               <h3 class="h5">Creating context</h3>
+               <p>Context lets components pass information deep down without explicitly passing props.</p>
+               <p>
+                  Call <code>createContext</code> outside any components to create one or more contexts.
+               </p>
+               <p class="mb-0"><span class="bg-secondary px-2 py-1 text-white">MyContext.js</span></p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">import { createContext } from "react";
+
+   const ThemeContext = createContext();
+   const AuthContext = createContext();
+   
+   export { ThemeContext, AuthContext };
+</code></pre>
+<!-- JS code end -->
+
+               <h3 class="h5">Provider component</h3>
+               <p class="mb-0"><span class="bg-secondary px-2 py-1 text-white">A.js</span></p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">import { useState } from "react";
+import { ThemeContext, AuthContext } from "./MyContext";
+import B from "./B.js";
+import "./A.css";
+
+function A2() {
+   const [theme, setTheme] = useState("light");
+   const [user, setUser] = useState({ name: "karthi" });
+
+   return (
+   &lt;ThemeContext.Provider value={{ theme, setTheme }}&gt;
+      &lt;AuthContext.Provider value={user}&gt;
+         &lt;B /&gt;
+      &lt;/AuthContext.Provider&gt;
+   &lt;/ThemeContext.Provider&gt;
+   );
+}
+
+export default A;   
+</code></pre>
+<!-- JS code end -->
+
+               <h3 class="h5">Middle Components</h3>
+               <p class="mb-0"><span class="bg-secondary px-2 py-1 text-white">B.js</span></p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">import C from "./C";
+
+function B() {
+   return (
+      &lt;div&gt;
+         This is B componenet
+         &lt;C /&gt;
+      &lt;/div&gt;
+   );
+}
+
+export default B;
+</code></pre>
+<!-- JS code end -->
+
+               <h3 class="h5">Consumer Component</h3>
+               <p class="mb-0"><span class="bg-secondary px-2 py-1 text-white">C.js</span></p>
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">import { useContext } from "react";
+import { ThemeContext, AuthContext } from "./MyContext";
+
+function C() {
+   const { theme, setTheme } = useContext(ThemeContext);
+   const user = useContext(AuthContext);
+
+   return (
+      &lt;div class={theme}&gt;
+         This is C componenet
+         &lt;p&gt;{user.name}&lt;/p&gt;
+         &lt;button 
+            onClick={() => 
+               setTheme(theme === "light" ? "dark" : "light")
+            }
+         &gt;
+            Change Theme
+         &lt;/button&gt;
+      &lt;/div&gt;
+   );
+}
+
+export default C;
+</code></pre>
+<!-- JS code end -->
+
+            </div>
+            <!-- Example 2 End ------------------------------- -->
+
+
+
+            
+            
+         </div>
+
+         <section class="mt-5">
+            <h3>data flow - other options</h3>
+            <h4 class="fs-5 my-3">
+               If you need to pass data <span class="text-info bg-dark"><span class="fw-bold">from a child to a parent</span></span> or between siblings, you generally have a few options:
+            </h4>
+            <ol>
+               <li>
+                  <strong class="text-success">Passing Callback Functions as props</strong>
+                  <p>
+                     You can pass callback functions from the parent to the child components as props. The child components can then call these functions to communicate with the parent
+                     <span class="d-block">
+                        <strong>(Pass data in the function call parameter)</strong>.
+                        eg: <code>func1(data)</code>
+                     </span>
+                  </p>
+               </li>
+               <li>
+                  <strong class="text-success">Redux or other State Management Libraries</strong>
+                  <p>
+                     If your application is complex and you need to manage global state, you might consider using state management libraries like Redux. These libraries allow you to manage application state in a centralized store that can be accessed by any component.
+                  </p>
+               </li>
+               <li>
+                  <strong class="text-success">Event Bus</strong>
+                  <p>
+                     You could use an event bus or a pub/sub pattern to create a simple mechanism for components to communicate indirectly. However, this approach can lead to some challenges and is generally not recommended for complex applications.
+                  </p>
+               </li>
+            </ol>
+         </section>
+
+      </div> <!-- Container End -->
+
+      <hr>
+
+
+      <!-- Footer Start -->
+      <footer class="bg-secondary text-white py-5 position-relative">
+         <div class="container-fluid">
+
+            <div class="d-md-flex align-items-md-center">
+               <div class="dp-image">
+                  <img src="./../../images/IMG_2414.JPG" alt="Karthi DP" class="img-fluid"
+                     style="max-width: 309px; left: -56px; top: -24px; position: relative;">
+
+                  <!-- style="max-width: 309px; left: -56px; top: -24px; position: relative;" -->
+               </div>
+               <div class="col-md p-md-4">
+                  <h3>
+                     Karthi
+                     <small class="d-block fs-6">UI Developer</small>
+                  </h3>
+                  <address>
+                     <span class="d-block">8428881664</span>
+                     <span class="d-block">karthi.uideveloper@gmail.com</span>
+                  </address>
+               </div>
+
+            </div>
+
+         </div>
+      </footer>
+      <!-- Footer End -->
+
+
+
+
+   </div>
+
+
+   
+  <!-- Bootstrap JS ########################### -->
+  <script src="./../../js/bootstrap.bundle.js"></script>
+
+
+  <!-- Syntax highlight JS Start -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  <!-- Syntax highlight JS End -->
+
+
+  <!-- html2pdf Start -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- html2pdf End -->
+
+  <!-- Custom Script Start -->
+  <script src="./../../js/custom.js"></script>
+  <!-- Custom Script End -->
+</body>
+
+</html>
