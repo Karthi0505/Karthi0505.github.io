@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>React Concepts</title>
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="./../../css/bootstrap.css">
+   <!-- HighlightJS CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="./../../css/custom.css">
+</head>
+
+<body id="body">
+
+   <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+         <div class="container-fluid">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+               aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="./../react_home.html">React main page</a>
+                  </li>
+                  <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li> -->
+               </ul>
+
+               <!-- jsPDF library -->
+               <button id="export_to_pdf_Button" class="btn btn-danger">Export to PDF</button>
+
+               <!-- <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form> -->
+            </div>
+         </div>
+      </nav>
+   </header>
+
+   <div id="element-to-print">
+
+
+      <div class="container-fluid"> <!-- Container -->
+
+         <h1 class="mt-2 mb-2 pt-5 text-center text-primary-emphasis">
+            React <small>Design Patterns</small>
+         </h1>
+         <p class="mb-5 text-center">In React, design patterns are general reusable solutions to common problems </p>
+         
+         <h2 class="h4 mb-4 text-secondary">
+            Here are some common design patterns used in React:
+         </h2>
+
+         <ol>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Container and Presentational Components:</h3>
+                <p>
+                    This pattern involves separating components into two types -
+                </p>
+                <ul>
+                    <li>
+                        <strong class="text-danger bg-body-secondary">containers</strong> that manage <strong class="text-danger bg-body-secondary">state and logic</strong>
+                    </li>
+                    <li>
+                        and <strong class="text-primary bg-body-secondary">presentational</strong> components that are concerned with <strong class="text-primary bg-body-secondary">rendering the UI</strong>.
+                    </li>
+                </ul>
+                <p class="mt-3">
+                    <strong>Benifits:</strong>
+                    Improves code organization and maintainability.
+                </p>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Higher-Order Components (HOC):</h3>
+                <p>
+                    HOCs are functions that take a component and return a new enhanced component, often used for code reuse, logic abstraction, and cross-cutting concerns.
+                </p>
+                <p class="mt-3">
+                    <strong>Benifits:</strong>
+                    Benefits: Reusability and separation of concerns.
+                </p>
+                <h4 class="h6">Example:</h4>
+                <p>
+                    Higher-Order Components with Hooks
+                </p>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Render Props:</h3>
+                <p>
+                    A component that takes a function as a prop, and calls it to render its output, allowing the sharing of code between components. 
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    Component composition and code sharing.
+                </p>
+
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="https://codesandbox.io/p/sandbox/render-props-ppvksp" target="_blank">
+                    https://codesandbox.io/p/sandbox/render-props-ppvksp
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Provider Pattern:</h3>
+                <p>
+                    Uses the Context API to provide data or functionality to deeply nested components without passing props through each level.
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    Avoids prop drilling and makes state management more straightforward.
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="https://codesandbox.io/p/sandbox/context-api-in-react-hzd7gg" target="_blank">
+                    https://codesandbox.io/p/sandbox/context-api-in-react-hzd7gg
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Redux for State Management:</h3>
+                <p>
+                    Uses the Redux library for managing state in larger applications with complex state logic.
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    <span class="d-block">i) Centralized state management,</span> 
+                    <span class="d-block">ii) time-travel debugging,</span>
+                    <span class="d-block">iii) and predictable state changes.</span>
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="" target="_blank">
+                    
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Compound Components:</h3>
+                <p>
+                    Involves <strong>breaking down a component into smaller</strong>, more manageable components <strong>that work together</strong>.
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    <span class="d-block">i) Encapsulation of logic,</span>
+                    <span class="d-block">ii) improved readability, and maintainability.</span>
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="" target="_blank">
+                    
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Error Boundaries:</h3>
+                <p>
+                    Uses React error boundaries to catch JavaScript errors anywhere in a component tree and log those errors or display a fallback UI.
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    Prevents the entire application from crashing due to a single component error.
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="" target="_blank">
+                    
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Immutable State:</h3>
+                <p>
+                    Immutability is a principle where state cannot be directly modified; instead, a new copy is created with the desired changes.
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    <span class="d-block">i) Predictable state changes,</span>
+                    <span class="d-block">ii) improved performance in certain scenarios, </span>
+                    <span class="d-block">iii) and simpler debugging</span>
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="" target="_blank">
+                    
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Conditional Rendering:</h3>
+                <p>
+                    Involves rendering different content based on certain conditions.
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    Allows for dynamic UI based on state or other factors.
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="" target="_blank">
+                    
+                </a>
+            </li>
+
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">State Hoisting:</h3>
+                <p>
+                    Involves <strong>lifting the state up</strong> to a common ancestor when multiple components need to share the same state.
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    Centralizes state management and reduces the complexity of passing state through props.
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="" target="_blank">
+                    
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Controlled Components:</h3>
+                <p>
+                    Refers to components where the <strong>value of form elements is controlled by React state</strong>.
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    Enables dynamic and interactive forms in React.
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="" target="_blank">
+                    
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Uncontrolled Components:</h3>
+                <p>
+                    Refers to form elements whose state is not controlled by React but by the DOM itself.
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    Can be simpler in some cases, especially with certain form interactions.
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="" target="_blank">
+                    
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Async Patterns (e.g., Promises, async/await):</h3>
+                <p>
+                    Handles asynchronous operations in React components, often in combination with useEffect and useState.
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    Enables handling data fetching and other asynchronous tasks in a declarative manner.
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="" target="_blank">
+                    
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">State Machines:</h3>
+                <p>
+                    Represents component state and transitions as a finite state machine, often implemented with libraries like XState.
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    Improves the clarity and predictability of state transitions in complex components.
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="" target="_blank">
+                    
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Render Callbacks:</h3>
+                <p>
+                    Similar to Render Props but involves passing a callback function as a prop to handle rendering logic.
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    Provides flexibility in rendering logic, especially useful for custom rendering scenarios.
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="" target="_blank">
+                    
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Atomic Design in Component Structure:</h3>
+                <p>
+                    Organizes components into a hierarchy based on atomic design principles (atoms, molecules, organisms, etc.).
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    Improves scalability and maintainability by encouraging a consistent and modular component structure.
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="" target="_blank">
+                    
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">Immutable Data and Pure Components:</h3>
+                <p>
+                    Encourages the use of immutable data structures and writing pure components that <strong>do not modify their props or state directly</strong>.
+                </p>
+                <p>
+                    <strong>Benifits:</strong>
+                    Enhances predictability and performance by leveraging React's PureComponent and memoization.
+                </p>
+                
+                <h4 class="h6 d-inline">Example:</h4>
+                <a href="" target="_blank">
+                    
+                </a>
+            </li>
+            <li class="mb-5 border-bottom">
+                <h3 class="h5">lifecycle-like methods in functional components:</h3>
+                <p>
+                    functional components can now use lifecycle-like methods through the useEffect Hook. 
+                </p>
+                <p>                    
+                    The useEffect Hook provides a flexible way to manage side effects, handle asynchronous operations, and mimic the behavior of lifecycle methods in class components.
+                </p>
+
+                <h4 class="h6 d-inline">Example:</h4>
+                <p>
+                    Here's an overview of how functional components handle lifecycle events using Hooks:
+                </p>
+                <ol>
+                    <li>
+                        <h4 class="h6">`useEffect`, for Mounting</h4>
+                        <p>The equivalent to componentDidMount in functional components is achieved by using useEffect with an empty dependency array. Code inside this effect runs once when the component mounts.</p>
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">import React, { useEffect } from 'react';
+
+function MyComponent() {
+  useEffect(() => {
+    // Code to run on mount
+    console.log('Component mounted');
+    
+    // Clean-up function (equivalent to componentWillUnmount)
+    return () => {
+      console.log('Component unmounted');
+    };
+  }, []); // Empty dependency array means run only once on mount
+
+  // Rest of the component logic
+  return <div>My Component</div>;
+}
+</code></pre>
+<!-- JS code end -->
+                    </li>
+                    <li>
+                        <h4 class="h6">`useEffect`, for Updating</h4>
+                        <p>The equivalent to componentDidUpdate in functional components is achieved by using useEffect with a dependency array. The code inside the effect runs when the specified dependencies change.</p>
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">import React, { useState, useEffect } from 'react';
+
+function MyComponent() {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+    // Code to run on every update
+    console.log('Component updated');
+    }, [count]); // Run the effect when 'count' changes
+
+    // Rest of the component logic
+    return (
+        &lt;div&gt;
+            &lt;p&gt;Count: {count}&lt;/p&gt;
+            &lt;button onClick={() => setCount(count + 1)}&gt;Increment&lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+<!-- JS code end -->
+                    </li>
+                    <li>
+                        <h4 class="h6">`useEffect`, Cleanup</h4>
+                        <p>The equivalent to componentWillUnmount is achieved by returning a cleanup function from the useEffect. This function runs when the component is unmounted.</p>
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">import React, { useEffect } from 'react';
+
+function MyComponent() {
+    useEffect(() => {
+    // Code to run on mount
+    console.log('Component mounted');
+    
+    // Clean-up function (equivalent to componentWillUnmount)
+    return () => {
+        console.log('Component unmounted');
+    };
+    }, []); // Empty dependency array means run only once on mount
+
+    // Rest of the component logic
+    return &lt;div&gt;My Component&lt;/div&gt;;
+}
+</code></pre>
+<!-- JS code end -->
+                    </li>
+                </ol>
+                <p>
+                    <strong>Benifits:</strong>
+                    Fine-grained control over component lifecycle for specific use cases.
+                </p>                
+            </li>
+         </ol>
+
+         <h2>Conclusion:</h2>
+         <p>
+            When discussing design patterns in a React interview, it's essential to provide concrete examples from your experience and explain how these patterns helped in solving specific problems or improving the overall structure and maintainability of your code.
+         </p>
+         <p>
+            I suggest, practice one design pattern in different ways and in different scenarios
+         </p>
+      </div> <!-- Container End -->
+
+      <hr>
+
+
+      <!-- Footer Start -->
+      <footer class="bg-secondary text-white py-5 position-relative">
+         <div class="container-fluid">
+
+            <div class="d-md-flex align-items-md-center">
+               <div class="dp-image">
+                  <img src="./../../images/IMG_2414.JPG" alt="Karthi DP" class="img-fluid"
+                     style="max-width: 309px; left: -56px; top: -24px; position: relative;">
+
+                  <!-- style="max-width: 309px; left: -56px; top: -24px; position: relative;" -->
+               </div>
+               <div class="col-md p-md-4">
+                  <h3>
+                     Karthi
+                     <small class="d-block fs-6">UI Developer</small>
+                  </h3>
+                  <address>
+                     <span class="d-block">8428881664</span>
+                     <span class="d-block">karthi.uideveloper@gmail.com</span>
+                  </address>
+               </div>
+
+            </div>
+
+         </div>
+      </footer>
+      <!-- Footer End -->
+
+
+
+
+   </div>
+
+
+   
+  <!-- Bootstrap JS ########################### -->
+  <script src="./../../js/bootstrap.bundle.js"></script>
+
+
+  <!-- Syntax highlight JS Start -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  <!-- Syntax highlight JS End -->
+
+
+  <!-- html2pdf Start -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- html2pdf End -->
+
+  <!-- Custom Script Start -->
+  <script src="./../../js/custom.js"></script>
+  <!-- Custom Script End -->
+</body>
+
+</html>
