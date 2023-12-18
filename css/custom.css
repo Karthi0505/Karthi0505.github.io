@@ -1,3 +1,6 @@
+body {
+    font-size: 16px;
+}
 [title] {
     cursor: default;
 }
@@ -7,6 +10,11 @@
 
 .linkHoverStyle-1 a:hover {
     background-color: rgb(255 235 59 / 50%);
+}
+
+.questions > li {
+    font-size: 1.1em;
+    margin-bottom: 0.8em;
 }
 
 /* Footer CSS Start */
@@ -21,13 +29,24 @@ footer .dp-image {
 } */
 
 
+/* PDF save CSS Start  */
+.print .sidebar {
+    display: none;
+}
+.print .sidebar ~ main {
+    width: 100%;
+}
+/* PDF save CSS End  */
+
+/*--------------------------------------- */
+
 /* Print Media Start  */
 @media print {
     
 }
 /* Print Media End  */
 
-/* print html2pdf Start */
+/* print html2pdf -------------Test ----------------------Start */
 /* .print class will be added at the start of Html2Pdf conversion and removes at end of conversion, from <body> element */
 .print #element-to-print {
     margin-left: auto;
@@ -40,9 +59,6 @@ footer .dp-image {
 .print #element-to-print .table-bordered td {
     border-top: 1px solid #dee2e6;
     border-bottom: 1px solid #dee2e6;
-}
-.print #element-to-print pre code.hljs {
-    /* white-space: initial; */
 }
 .print #element-to-print .container {
     width: auto;
