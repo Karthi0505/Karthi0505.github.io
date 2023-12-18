@@ -7,8 +7,6 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./../css/bootstrap.css">
-    <!-- HighlightJS CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./../css/custom.css">
 
@@ -18,8 +16,27 @@
 
 <body>
 
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./react_home.html">React main page</a>
+            </li>
+            </ul>
+                
+        </div>
+        </div>
+    </nav>
+</header>
     
-<div  id="element-to-print">
+    
+<div id="element-to-print">
 
     <h1 class="my-5 text-center">Documenting React Concepts</h1>
 
@@ -54,6 +71,16 @@
             <p class="mb-1">general reusable solutions to common problems</p>
         </a>
         <!-- Task List End -->
+
+        <!-- Task List Start -->
+        <!-- <a href="./redux/Redux_in_JavaScript.html" class="list-group-item list-group-item-action border-bottom-0" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Redux</h5>
+                <small>16/Dec/2023</small>
+            </div>
+            <p class="mb-1">Centralised State Management</p>
+        </a> -->
+        <!-- Task List End -->
         
     </div>
 
@@ -62,7 +89,7 @@
 
     <!-- Footer Start -->
     <footer class="bg-secondary text-white py-5">
-        <div class="container">
+        <div class="container-fluid">
 
             <div class="d-md-flex align-items-md-center">
                 <div class="float-md-end">
@@ -89,45 +116,12 @@
     <!-- Footer End -->
 
     
-
-
-    <!-- jsPDF library -->
-    <button id="exportButton" onclick="fn()">Export to PDF</button>
 </div>
 
 
     <!-- Bootstrap JS ########################### -->
     <script src="./../js/bootstrap.bundle.js"></script>
 
-    <!-- Syntax highlight JS Start -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script>
-        hljs.highlightAll();
-    </script>
-    <!-- Syntax highlight JS End -->
-
-
 </body>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- <script src="https://raw.githack.com/ekoopmans/html2pdf/master/dist/html2pdf.bundle.js" ></script> -->
-<script>  
-    function fn(){
-        var element = document.getElementById('element-to-print');
-        var opt = {
-            margin:       0,
-            filename:     'myfile.pdf',
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2 },
-            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-        };
-        
-        // New Promise-based usage:
-        html2pdf().set(opt).from(element).save();
-    }      
-    //document.getElementById('exportButton').addEventListener('click', fn)
-
-</script>
 </html>

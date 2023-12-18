@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Concepts</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./../../css/bootstrap.css">
+  <!-- HighlightJS CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./../../css/custom.css">
+</head>
+
+<body id="body">
+
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item border-start border-end">
+                  <a class="nav-link" href="./../react_home.html">React main page</a>
+                </li>
+            </ul>
+    
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item border-end">
+                    <a class="nav-link" href="./Redux_in_JavaScript.html">Redux in JavaScript</a>
+                </li>
+                <li class="nav-item border-end">
+                    <a class="nav-link active" aria-current="page" href="./Redux_in_React.html">Redux in React</a>
+                </li>
+                <li class="nav-item border-end">
+                    <a class="nav-link" href="./Redux_Toolkit_in_React.html">Redux-Toolkit in React</a>
+                </li>
+                <li class="nav-item ms-md-2">
+                    <!-- jsPDF library -->
+                    <button id="export_to_pdf_Button" class="btn btn-danger">Export to PDF</button>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div id="element-to-print">
+
+    
+    <!-- jsPDF library -->
+    <!-- <button id="exportButton" onclick="fn()">Export to PDF</button> -->
+
+
+    <div class="container-fluid"> <!-- Container -->
+
+        <h1 class="mt-5 mb-2 pt-5 text-center">
+            Redux <small>in React</small>
+        </h1>
+        <p class="mb-5 text-center">(Redux is a JavaScript library for managing and centralizing application state.)</p>
+
+
+    </div> <!-- Container End -->
+
+    <hr>
+
+
+    <!-- Footer Start -->
+    <footer class="bg-secondary text-white py-5 position-relative">
+      <div class="container-fluid">
+
+        <div class="d-md-flex align-items-md-center">
+          <div class="dp-image">
+            <img src="./../../images/IMG_2414.JPG" alt="Karthi DP" class="img-fluid" style="max-width: 309px; left: -56px; top: -24px; position: relative;">
+
+            <!-- style="max-width: 309px; left: -56px; top: -24px; position: relative;" -->
+          </div>
+          <div class="col-md p-md-4">
+            <h3>
+              Karthi
+              <small class="d-block fs-6">UI Developer</small>
+            </h3>
+            <address>
+              <span class="d-block">8428881664</span>
+              <span class="d-block">karthi.uideveloper@gmail.com</span>
+            </address>
+          </div>
+
+        </div>
+
+      </div>
+    </footer>
+    <!-- Footer End -->
+
+
+
+
+  </div>
+
+
+  <!-- Bootstrap JS ########################### -->
+  <script src="./../../js/bootstrap.bundle.js"></script>
+
+
+  <!-- Syntax highlight JS Start -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  <!-- Syntax highlight JS End -->
+
+
+  <!-- html2pdf Start -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- html2pdf End -->
+
+  <!-- Custom Script Start -->
+  <script src="./../../js/custom.js"></script>
+  <!-- Custom Script End -->
+</body>
+
+</html>
