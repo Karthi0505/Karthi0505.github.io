@@ -42,19 +42,134 @@
     <div id="element-to-print">
 
         <!-- Section 1 Start ########################### -->
-        <div class="container-fluid">
+        <section class="container-fluid">
             <h1 class="text-center my-4">Closure in JS</h1>
 
             <p class="mb-5 fs-4 text-center border rounded p-4 w-75 mx-auto">
-                Closures are functions that refer to independent (free) variables. In other words, the function defined in the closure ‘remembers’ the environment in which it was created.
+                Closures are functions that refer to independent 
+                <span title="Note: Free variables are variables that are neither locally declared nor passed as parameter.">
+                    (free) variables
+                </span>. 
+                In other words, the function defined in the closure ‘remembers’ the environment in which it was created.
+					 <span class="d-block">(or)</span>
+					 Inner function "closes over" the variables it references, preserving their values.
             </p>
-        </div>
+        </section>
         <!-- Section 1 End --------------------------- -->
         
 
-        <!-- Section 2 Start ########################### -->
-        <div class="container-fluid">
-            <h2 id="loop_n_setTimeout" class="h5 border-bottom border-danger">Example 1</h2>
+        <!-- Section Start ########################### -->
+        <section class="container-fluid pt-5">
+            <h2 id="closure_easy_reference" class="h5 border-bottom border-danger">Example 1</h2>
+
+            <div class="border-bottom border-danger mb-5">
+
+                <h3 class="d-inline h4">Inner function accessing outer function's scope</h3>
+                <p class="d-inline">You can easily guess this code</p>
+
+                <div class="row">
+                    <div class="col-lg-8">
+            
+    <!-- JS code start -->
+<pre><code class="language-javascript fs-6">function outerFunction() {
+   let a = 10;
+
+   function innerFunction() {
+      console.log('a is: ', a);
+   }
+   innerFunction() // 2nd innerFunction Calls
+}
+outerFunction(); // 1st outerFunction Calls
+</code></pre>
+        <!-- JS code end -->
+
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                Console
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-0 fw-bold text-secondary">
+                                    a is:  10
+                                </p>
+                            </div>
+                        </div> <!--Card End-->
+                    </div> <!--Column End-->
+               </div> <!--row End-->
+
+					<p class="h5 text-decoration-underline">Modified code for explaining the Closure</p>
+					<h3 class="h4">
+							Accessing the values in outerFn, even after its execution finished 
+							<span class="text-secondary">- Because of "Closure"</span>
+					</h3>
+               <p class="d-inline">You can easily guess this code</p>
+
+               <div class="row">
+                    <div class="col-lg-8">
+            
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">function outerFn() {
+   let a = 20;
+
+   return function innerFn() {
+      console.log('a is: ', a);
+   }
+}
+
+const returnedVal = outerFn(); 
+//outerFn returns innerFn
+//And the assignment operator stores the returned function in a variable. 
+
+returnedVal(); //Call the returned function using that variable name.
+</code></pre>
+        <!-- JS code end -->
+
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                Console
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-0 fw-bold text-secondary">
+                                    a is:  20
+                                </p>
+                            </div>
+                        </div> <!--Card End-->
+
+								<h4 class="h5 mt-3">Explanation:</h4>
+								<p>
+									After the outerFn() execution finished, it will be removed from the Callstack memory.
+								</p>
+								<p>
+									The returned function is execution start after the outerFn() execution finished only.
+								</p>
+								<p class="fs-5">
+									Now how did the returned function got the value of a, which present in the finished outerFn ?
+								</p>
+								<p>
+									Well, <span class="fw-bold">In JavaScript, when a function is defined within another function, it forms a closure.</span></p>
+								<p>
+									A closure allows the inner function to access the variables of the outer function, even after the outer function has finished executing.
+								</p>
+								<p>
+									This is because the <strong class="fs-5">inner function <span class="text-danger">"closes over" the variables it references</span>, <span class="text-success">preserving their values</span></strong>.
+								</p>
+                    </div> <!--Column End-->
+                </div> <!--row End-->
+
+                
+                
+            </div>
+            
+        </section> <!-- Container End -->
+        <!-- Section End --------------------------- -->
+        
+
+        <!-- Section Start ########################### -->
+        <div class="container-fluid pt-5">
+            <h2 id="loop_n_setTimeout" class="h5 border-bottom border-danger">Example 2</h2>
 
             <section class="border-bottom border-danger mb-5">
                 <h3 class="d-inline h4">See how this code runs</h3> 
@@ -72,7 +187,7 @@
 
                     <h4>Now put below consoles, <small>(just to see the execution order in output)</small></h4>
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-lg-8">
             
     <!-- JS code start -->
 <pre><code class="language-javascript fs-6">console.log('Script Started');
@@ -90,7 +205,7 @@ console.log('Script Ended');
         <!-- JS code end -->
 
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4">
                             <div class="card">
                                 <div class="card-header">
                                   Console
@@ -131,10 +246,10 @@ console.log('Script Ended');
             </div> <!-- Container End -->
 
         </div>
-        <!-- Section 2 End --------------------------- -->
+        <!-- Section End --------------------------- -->
 
         
-        <!-- Section 2 Start ########################### -->
+        <!-- Section Start ########################### -->
         <section class="container-fluid">
             <div class="card border-warning mb-3">
                 <div class="card-header">My Golden Words:</div>
@@ -146,7 +261,7 @@ console.log('Script Ended');
             </div>
 
         </section>
-         <!-- Section 3 End --------------------------- -->
+         <!-- Section End --------------------------- -->
 
 
          <!-- Footer Start -->
@@ -159,7 +274,7 @@ console.log('Script Ended');
     
                 <!-- style="max-width: 309px; left: -56px; top: -24px; position: relative;" -->
                 </div>
-                <div class="col-md p-md-4">
+                <div class="col-lg p-md-4">
                 <h3>
                     Karthi
                     <small class="d-block fs-6">UI Developer</small>

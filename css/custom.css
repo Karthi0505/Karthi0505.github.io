@@ -12,6 +12,13 @@ body {
     background-color: rgb(255 235 59 / 50%);
 }
 
+.sup {
+    vertical-align: super;  
+}
+.sub {
+    vertical-align: sub;  
+}
+
 .questions > li {
     font-size: 1.1em;
     margin-bottom: 0.8em;
