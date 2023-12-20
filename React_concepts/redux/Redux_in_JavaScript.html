@@ -57,19 +57,237 @@
     <!-- jsPDF library -->
     <!-- <button id="exportButton" onclick="fn()">Export to PDF</button> -->
 
+    <!-- Section 1 Start ########################### -->
+    <section class="container-fluid">
+      <h1 class="text-center my-4">Redux <small>in JavaScript</small></h1>
 
-    <div class="container-fluid"> <!-- Container -->
+      <p class="mb-5 fs-4 text-center border rounded p-4 w-75 mx-auto">
+        (Redux is a JavaScript library for managing and centralizing application state.)
+      </p>  
+    </section>
+    <!-- Section 1 End --------------------------- -->
 
-      <h1 class="mt-5 mb-2 pt-5 text-center">
-        Redux <small>in JavaScript</small>
-      </h1>
-      <p class="mb-5 text-center">(Redux is a JavaScript library for managing and centralizing application state.)</p>
+    <!-- Section 2 Start ########################### -->
+    <section class="container-fluid">
+      <h2>Basic</h2>
+      <ul>
+        <li>
+          The whole global <strong>state</strong> of your app is <strong>stored in an object</strong> tree inside a <strong>single store</strong>. 
+        </li>
+        <li>
+          Only way <strong>to change the state</strong> tree is to <strong>create an action object</strong>, and <strong>dispatch it to the store</strong>. 
+        </li>
+        <li>
+          in response to an action, you <strong>write pure reducer functions</strong> that <strong>calculate a new state based on the old state and the action</strong>
 
-
-
-    </div> <!-- Container End -->
+          <span class="d-block text-secondary">Note: reducers functions can be split into multiple smaller reducer functions - to make it easier to understand and maintain the reducer logic.</span>
+        </li>
+      </ul>
+      
+    </section>
+    <!-- Section 2 End --------------------------- -->
 
     <hr>
+
+
+    <!-- Section Start ########################### -->
+    <section class="container-fluid">
+      <h2 class="text-decoration-underline text-secondary">Syntaxes</h2>
+
+      <h3 class="mt-4">createStore()</h3>
+      
+      <section class="border p-3">
+        <div class="card">
+          <div class="card-header">
+            Syntax:
+          </div>
+          <div class="card-body fw-bold text-secondary">
+            const store = 
+              <span class="text-danger">
+                createStore( 
+              </span>
+                <span class="text-success">
+                  reducerFunction_as_callback
+                </span>, 
+                preloadedState?, 
+                enhancer? 
+              <span class="text-danger">
+                )
+              </span>
+          </div>
+          <div class="card-footer text-secondary">
+            <strong>Returns:</strong> createStore returns a <strong>"store object"</strong>, (that holds the complete state of your app)
+          </div>
+        </div>
+
+        <h4 class="mt-4">reducerFunction</h4>
+        <p>
+          Reducer take in two things as parameter: 
+          i) previous state 
+          ii) and an action.
+          
+        </p>
+        <div class="card">
+          <div class="card-header">
+            Syntax:
+          </div>
+          <div class="card-body fw-bold text-secondary">
+            (
+              <span class="text-danger">
+                state
+              </span>,
+              <span class="text-success">
+                action
+              </span>
+            ) => 
+            <span class="text-danger">
+              newState
+            </span>
+          </div>
+          <div class="card-footer text-secondary">
+            <strong>Returns:</strong> newly <strong>updated state</strong>. So reducers are basically pure JS functions
+          </div>
+        </div>
+
+        <h4 class="mt-4 text-secondary">STORE METHODS</h4>
+        <section class="border p-3">
+
+          <h4 class="">getState()</h4>
+
+          <div class="card">
+            <div class="card-header">
+              Syntax:
+            </div>
+            <div class="card-body fw-bold text-secondary">
+              store
+              <span class="text-danger">
+                .getState()
+              </span>
+            </div>
+            <div class="card-footer text-secondary">
+              <strong>Returns</strong> the <strong>current state</strong> tree of your application
+            </div>
+          </div>
+          
+          <h4 class="mt-4">dispatch(action)</h4>
+          <p>
+            <strong>Dispatches an action to the Redux store</strong>. The store <strong>runs the reducer function again</strong> with the previous state and the current action. 
+            <span class="d-block text-primary">Note: This is the only way to trigger a state change.</span>
+          </p>
+            
+          <div class="card">
+            <div class="card-header">
+              Syntax:
+            </div>
+            <div class="card-body fw-bold text-secondary">
+              store
+              <span class="text-danger">
+                .dispatch(
+                  <span class="text-success">action</span>
+                )
+              </span>
+            </div>
+          </div>
+          
+          <h4 class="mt-4">subscribe( listenerFunction_callback )</h4>
+          <p>
+            subscribe() registers a function to be called on state changes
+            <span class="d-block text-primary">Note: You may then call getState() to read the current state tree inside the callback.</span>
+          </p>
+            
+          <div class="card">
+            <div class="card-header">
+              Syntax:
+            </div>
+            <div class="card-body fw-bold text-secondary">
+              store
+              <span class="text-danger">
+                .subscribe( 
+                  <span class="text-success">listenerFunction_callback</span>
+                )
+              </span>
+            </div>
+          </div>
+          
+          <h4 class="mt-4">unsubscribe()</h4>
+          <p>
+            To unsubscribe the change listener, invoke the function returned by subscribe.
+          </p>
+            
+          <div class="card">
+            <div class="card-header">
+              Syntax:
+            </div>
+            <div class="card-body fw-bold text-secondary">
+              const unsubscribe = 
+              store
+              <span class="text-danger">
+                .subscribe( 
+                  <span class="text-success">listenerFunction_callback</span>
+                )
+              </span>
+              <span class="d-block text-danger">
+                unsubscribe()
+              </span>
+            </div>
+          </div>
+
+        </section>
+      </section>
+
+
+    </section>
+    <!-- Section End --------------------------- -->
+      
+
+    <!-- Section Start ########################### -->
+    <section class="container-fluid pt-5">
+      <h2 id="" class="h5 border-bottom border-danger">Example 1</h2>
+
+      <div class="border-bottom border-danger mb-5">
+
+
+    <p class="h5 text-decoration-underline">Modified code </p>
+    <h3 class="h4">
+        
+    </h3>
+
+         <div class="row">
+              <div class="col-lg-8">
+      
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">
+</code></pre>
+  <!-- JS code end -->
+
+              </div>
+              <div class="col-lg-4">
+                  <div class="card">
+                      <div class="card-header">
+                          Console
+                      </div>
+                      <div class="card-body">
+                          <p class="mb-0 fw-bold text-secondary">
+                              aaaa
+                          </p>
+                      </div>
+                  </div> <!--Card End-->
+
+          <h4 class="h5 mt-3">Explanation:</h4>
+          <p>
+           
+          </p>
+         
+              </div> <!--Column End-->
+          </div> <!--row End-->
+
+          
+          
+      </div>
+      
+  </section> <!-- Container End -->
+  <!-- Section End --------------------------- -->
+
 
 
     <!-- Footer Start -->
