@@ -247,47 +247,214 @@
       <div class="border-bottom border-danger mb-5">
 
 
-    <p class="h5 text-decoration-underline">Modified code </p>
-    <h3 class="h4">
-        
-    </h3>
+        <!-- <p class="h5 text-decoration-underline">Modified code </p> -->
 
          <div class="row">
-              <div class="col-lg-8">
-      
+          
+          <div class="col-lg-4">
+            <p>
+              Run output in terminal
+              <span class="fw-bold d-block">node filename.js</span>
+            </p>
+            
+            <div class="card">
+                <div class="card-header">
+                    Terminal
+                </div>
+                <div class="card-body">
+                    <p class="mb-0 fw-bold text-secondary">
+                      { value: 1 }<br />
+                      { value: 2 }<br />
+                      { value: 1 }
+                    </p>
+                </div>
+            </div> <!--Card End-->
+
+            <p>
+              Live output
+            </p>
+
+            <h4 class="h5 mt-3">STEPS:</h4>
+            <ul class="text-secondary nested-list-custom-space">
+              <li class="mb-2">
+                <span class="fw-bold">Create a Store</span>,
+                <ol class="">
+                  <li class="mb-2">
+                    Create <span class="fw-bold">Reducer Function</span> inside createStore() call,
+                    <ol class="listStyle_lower-alpha">
+                      <li class="mb-2">Put <span class="fw-bold">state object</span> inside Reducer Function call,</li>
+                      <li class="mb-2"><span class="fw-bold">Pass an action object</span> inside Reducer Function call,</li>
+                      <li class="mb-2">Put state updating code inside Reducer Function block and <span class="fw-bold">return the new state</span>.</li>
+                    </ol>
+                  </li>
+
+                  <li class="mb-2"><span class="fw-bold">Dispatch an action</span> object to the Store. (The store runs the reducer function).</li>
+                  <li class="mb-2"><span class="fw-bold">Subscribe a function</span> to be called whenever the state changes.</li>
+                  <li class="mb-2"><span class="fw-bold">Get the current state</span> using getState()</li>
+                </ol>
+
+              </li>
+            </ul>
+            
+        </div> <!--Column End-->
+
+        <div class="col-lg-8"> <!--Column Start-->
+
 <!-- JS code start -->
-<pre><code class="language-javascript fs-6">
+<pre><code class="language-javascript fs-6">// import { createStore } from "redux";
+  const redux = require('redux'); 
+  
+  function counterReducer(state = { value: 0 }, action) {
+    switch (action.type) {
+      case "counter/incremented":
+        return { ...state, value: state.value + 1 };
+  
+      case "counter/decremented":
+        return { ...state, value: state.value - 1 };
+  
+      default:
+        return state;
+    }
+  }
+  
+  // Create a Redux store holding the state of your app.
+  // Its API is { subscribe, dispatch, getState }.
+  let store = redux.createStore(counterReducer);
+  
+  // You can use subscribe() to update the UI in response to state changes.
+  // Normally you'd use a view binding library (e.g. React Redux) rather than subscribe() directly.
+  // There may be additional use cases where it's helpful to subscribe as well.
+  store.subscribe(() => console.log(store.getState()));
+  
+  // The only way to mutate the internal state is to dispatch an action.
+  // The actions can be serialized, logged or stored and later replayed.
+  store.dispatch({ type: "counter/incremented" }); //{value: 1}
+  
+  store.dispatch({ type: "counter/incremented" }); //{value: 2}
+  
+  store.dispatch({ type: "counter/decremented" }); //{value: 1}  
 </code></pre>
-  <!-- JS code end -->
+<!-- JS code end -->
 
-              </div>
-              <div class="col-lg-4">
-                  <div class="card">
-                      <div class="card-header">
-                          Console
-                      </div>
-                      <div class="card-body">
-                          <p class="mb-0 fw-bold text-secondary">
-                              aaaa
-                          </p>
-                      </div>
-                  </div> <!--Card End-->
+        </div> <!-- Column End -->
+      </div> <!--row End-->
 
-          <h4 class="h5 mt-3">Explanation:</h4>
-          <p>
-           
-          </p>
-         
-              </div> <!--Column End-->
-          </div> <!--row End-->
-
-          
-          
-      </div>
+    
+    
+    </div>
       
   </section> <!-- Container End -->
   <!-- Section End --------------------------- -->
 
+
+  <!-- Section Start ########################### -->
+  <section class="container-fluid pt-5">
+    <h2 id="" class="h5 border-bottom border-danger">Example 2</h2>
+
+    <div class="border-bottom border-danger mb-5">
+
+      <div class="d-sm-flex align-items-sm-baseline">
+        <p class="h5 text-decoration-underline">JS with full HTML code</p>
+        <p>
+          <a class="ms-md-3" href="./Redux_in_JavaScript_with_HTML.html" target="_blank">Click for Live Preview link</a>
+        </p>
+      </div>
+
+<!-- Html code start -->
+<pre class="mb-0"><code class="pb-0">&lt;!DOCTYPE html&gt;
+  &lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Plain JavaScript Redux Example&lt;/title&gt;
+    &lt;style&gt;
+      button{
+        padding:10px;font-size:16px;margin:10px;color:#FFF;font-weight:bold;cursor:pointer
+      }
+      #increment{background:#1a524d}
+      #decrement{background:#7a2c46}
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  
+  &lt;button id="increment"&gt;dispatch an action object type "INCREMENT"&lt;/button&gt;
+  &lt;button id="decrement"&gt;dispatch an action object type "DECREMENT"&lt;/button&gt;
+  
+  
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.1/redux.min.js"&gt;&lt;/script&gt;
+  
+  &lt;script&gt;
+  </code></pre>
+  <!-- Html code end -->
+  
+  <!-- JS code start -->
+  <pre class="mb-0"><code class="language-javascript fs-6 pt-0 pb-0">// Alternate to import createStore
+    const { createStore } = Redux;
+  
+    // Creating State object
+    const initialState = {
+      count: 0,
+    };
+  
+    // REDUCER FUNCTION - takes previous state and an action. And "RETURNS A NEW STATE".
+    // ( state , action ) => newState
+    function rootReducerFn( state = initialState, action ) {
+      switch (action.type) {
+        case 'INCREMENT':
+          return { ...state, count: state.count + 1 };
+        case 'DECREMENT':action
+          return { ...state, count: state.count - 1 };
+        default:
+          return state;
+      }
+    }
+  
+    // Creating a store ######################
+    const store = createStore( rootReducerFn );
+    // #######################################
+  
+  
+    // Redux store subscribe
+    // subscribe() registers a function to be called on state changes
+    store.subscribe(() => {
+      console.log('Current State:', store.getState());
+    });
+  
+  
+    // JS EventListener Start -----------------
+    document.getElementById('increment')
+      .addEventListener('click', function () {
+        // Dispatching an action
+        store.dispatch( {type: 'INCREMENT'});      
+        // Put the action object inside dispatch() call
+      });
+  
+    document.getElementById('decrement')
+      .addEventListener('click', function () {
+        // Dispatch the action
+        store.dispatch( decrement() ) 
+        //we can also put the action type object in a function and call that function 
+      })
+    // JS EventListener End ---------------------
+  
+    function decrement() {
+      return { type: 'DECREMENT' }; // action type object
+    }</code></pre>
+  <!-- JS code end -->
+  
+  <!-- Html code start --><pre><code class="pt-0">
+    &lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+  </code></pre>
+  <!-- Html code end -->
+
+    </div>
+      
+  </section> <!-- Container End -->
+  <!-- Section End --------------------------- -->
+
+  
 
 
     <!-- Footer Start -->
@@ -330,15 +497,15 @@
   <!-- Syntax highlight JS Start -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>
-    hljs.highlightAll();
+      hljs.highlightAll();
   </script>
   <!-- Syntax highlight JS End -->
 
 
   <!-- html2pdf Start -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
   integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
   <!-- html2pdf End -->
 
   <!-- Custom Script Start -->

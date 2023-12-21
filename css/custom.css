@@ -18,6 +18,24 @@ body {
 .sub {
     vertical-align: sub;  
 }
+.nested-list-custom-space ol {
+    padding-left: 15px;
+}
+.listStyle-circle {
+    list-style-type: circle;
+}
+
+.listStyle-square {
+    list-style-type: square;
+}
+
+.listStyle_lower-roman {
+    list-style-type: lower-roman;
+}
+
+.listStyle_lower-alpha {
+    list-style-type: lower-alpha;
+}
 
 .questions > li {
     font-size: 1.1em;
