@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>React Concepts</title>
+  <title>Redux in JavaScript</title>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="./../../css/bootstrap.css">
@@ -42,7 +42,7 @@
               </li>
               <li class="nav-item ms-md-2">
                 <!-- jsPDF library -->
-                <button id="export_to_pdf_Button" class="btn btn-danger">Export to PDF</button>
+                <button class="btn btn-danger print-JS" title="Note: Select Save as PDF - In Destination dropdown">Export to PDF</button>
               </li>
           </ul>
           
@@ -66,7 +66,7 @@
       </p>  
     </section>
     <!-- Section 1 End --------------------------- -->
-
+      
     <!-- Section 2 Start ########################### -->
     <section class="container-fluid">
       <h2>Basic</h2>
@@ -322,9 +322,10 @@
   let store = redux.createStore(counterReducer);
   
   // You can use subscribe() to update the UI in response to state changes.
-  // Normally you'd use a view binding library (e.g. React Redux) rather than subscribe() directly.
+  // Normally you'd use a view binding library (e.g. React Redux) rather than 
+  // subscribe() directly.
   // There may be additional use cases where it's helpful to subscribe as well.
-  store.subscribe(() => console.log(store.getState()));
+  // store.subscribe(() => console.log(store.getState()));
   
   // The only way to mutate the internal state is to dispatch an action.
   // The actions can be serialized, logged or stored and later replayed.
@@ -351,12 +352,12 @@
   <section class="container-fluid pt-5">
     <h2 id="" class="h5 border-bottom border-danger">Example 2</h2>
 
-    <div class="border-bottom border-danger mb-5">
+    <div class="mb-5">
 
       <div class="d-sm-flex align-items-sm-baseline">
-        <p class="h5 text-decoration-underline">JS with full HTML code</p>
+        <p class="h5 text-decoration-underline pe-md-3">JS with full HTML code</p>
         <p>
-          <a class="ms-md-3" href="./Redux_in_JavaScript_with_HTML.html" target="_blank">Click for Live Preview link</a>
+          <a href="./Redux_in_JavaScript_with_HTML.html" target="_blank">Click for Live Preview link</a>
         </p>
       </div>
 
@@ -369,7 +370,8 @@
     &lt;title&gt;Plain JavaScript Redux Example&lt;/title&gt;
     &lt;style&gt;
       button{
-        padding:10px;font-size:16px;margin:10px;color:#FFF;font-weight:bold;cursor:pointer
+        padding:10px;font-size:16px;margin:10px;color:#FFF;
+        font-weight:bold;cursor:pointer
       }
       #increment{background:#1a524d}
       #decrement{background:#7a2c46}
@@ -388,15 +390,15 @@
   <!-- Html code end -->
   
   <!-- JS code start -->
-  <pre class="mb-0"><code class="language-javascript fs-6 pt-0 pb-0">// Alternate to import createStore
-    const { createStore } = Redux;
+  <pre class="mb-0"><code class="language-javascript fs-6 pt-0 pb-0">const { createStore } = Redux; // Alternate to import createStore
   
     // Creating State object
     const initialState = {
       count: 0,
     };
   
-    // REDUCER FUNCTION - takes previous state and an action. And "RETURNS A NEW STATE".
+    // REDUCER FUNCTION - takes previous state and an action. 
+    // And "RETURNS A NEW STATE".
     // ( state , action ) => newState
     function rootReducerFn( state = initialState, action ) {
       switch (action.type) {
@@ -433,7 +435,7 @@
       .addEventListener('click', function () {
         // Dispatch the action
         store.dispatch( decrement() ) 
-        //we can also put the action type object in a function and call that function 
+        //We can also put the action type object in a function and call it. 
       })
     // JS EventListener End ---------------------
   
@@ -461,13 +463,13 @@
     <footer class="bg-secondary text-white py-5 position-relative">
       <div class="container-fluid">
 
-        <div class="d-md-flex align-items-md-center">
+        <div class="d-sm-flex align-items-md-center">
           <div class="dp-image">
             <img src="./../../images/IMG_2414.JPG" alt="Karthi DP" class="img-fluid" style="max-width: 309px; left: -56px; top: -24px; position: relative;">
 
             <!-- style="max-width: 309px; left: -56px; top: -24px; position: relative;" -->
           </div>
-          <div class="col-md p-md-4">
+          <div class="col-sm p-sm-4">
             <h3>
               Karthi
               <small class="d-block fs-6">UI Developer</small>
@@ -481,13 +483,19 @@
         </div>
 
       </div>
+
     </footer>
     <!-- Footer End -->
 
-
+    
 
 
   </div>
+
+
+  <button id="scrollTopBtn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+  </button>
 
 
   <!-- Bootstrap JS ########################### -->
