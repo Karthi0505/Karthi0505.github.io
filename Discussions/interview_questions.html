@@ -60,26 +60,113 @@
 
          <div class="row flex-row-reverse border-bottom pb-3 mb-5">
             <!-- Sidebar Start -->
-            <aside class="col-sm-3 sidebar border-start mb-5">
+            <aside class="col-sm-3 sidebar sticky-sidebar border-start mb-5">
                <h2 class="mb-0 h5 text-secondary bg-light py-2 px-3">Categorized <small>(by Company)</small></h2>
 
-               <nav class="list-group">
-                  <a href="#seidor_open_trends" class="list-group-item list-group-item-action active" aria-current="true">
+               <nav class="list-group" id="sidebar_nav">
+                  <a href="#servion" class="list-group-item list-group-item-action">
+                     Servion
+                  </a>
+                  <a href="#finsire" class="list-group-item list-group-item-action">
+                     Finsire
+                  </a>
+                  <a href="#seidor_open_trends" class="list-group-item list-group-item-action">
                      SEIDOR Open trends
                   </a>
-                  <!-- <a href="#" class="list-group-item list-group-item-action">
-                     aaaaaaaaaaaaa
-                  </a> -->
                </nav>
             </aside>
             <!-- Sidebar End -->
 
             <!-- Main Content Start -->
-            <main class="col-sm-9">
+            <main class="col-sm-9" data-bs-spy="scroll" data-bs-target="#sidebar_nav" data-bs-offset="0" tabindex="0">
+
+               <!-- Card Start -->
+               <div id="servion" class="card mb-4">
+                  <div class="card-header bg-dark bg-gradient text-white">
+                     Servion - Frontend Questions 
+                  </div>
+                  <div class="card-body">
+                    	<h3 class="card-title h5 text-decoration-underline text-secondary">HTML</h5>
+
+                    	<ol class="questions">
+								<li>What are the new <strong>features in HTML5</strong></li>
+                    	</ol>
+
+                    	<h3 class="card-title h5 text-decoration-underline text-secondary">CSS</h5>
+
+                    	<ol class="questions">
+                        <li>Difference between <strong>Flex and Grid</strong></li>
+								<li>How will you make responsive with Flex</li>
+                    	</ol>
+
+                    	<h3 class="card-title h5 text-decoration-underline text-secondary">JavaScript</h5>
+
+                    	<ol class="questions">
+                        <li>Difference between <strong>var, let, and const</strong></li>
+                        <li>What is Temporal Dead Zone</li>
+                        <li>What is <strong>Memoizing</strong></li>
+                        <li>What is Closure</li>
+                        <li>What is <strong>Hoisting</strong> in JS</li>
+                        <li>What are <strong>Arrow functions</strong> and its differences</li>
+                    	</ol>
+
+                    	<h3 class="card-title h5 text-decoration-underline text-secondary">React</h5>
+
+                     <ol class="questions">
+                        <li>What is the <strong>advantage</strong> of Virtual DOM and <strong>drawbacks of Virtual DOM</strong></li>
+								<li>What are the things you do for <strong>Optimizing React</strong></li>
+                        <li>What is <strong>Lazy Loading</strong></li>
+                        <li>Difference between <strong>useMemo and useCallback</strong></li>
+                        <li>Have you used <strong>NextJS?</strong></li>
+                        <li>What are all you do with Webpack</li>
+                     </ol>
+                  </div>
+                  <div class="card-footer text-body-secondary">
+                     12/Jan/2024
+                  </div>
+               </div>
+               <!-- Card End -->
+
+               <!-- Card Start -->
+               <div id="finsire" class="card mb-4">
+                  <div class="card-header bg-dark bg-gradient text-white">
+                     Finsire - Frontend Questions 
+                  </div>
+                  <div class="card-body">
+                    	<h3 class="card-title h5 text-decoration-underline text-secondary">CSS</h5>
+
+                    	<ol class="questions">
+								<li>What is <strong>Flex</strong></li>
+								<li>What are the <strong>positions</strong> in CSS and explain it</li>
+                    	</ol>
+
+                    	<h3 class="card-title h5 text-decoration-underline text-secondary">JavaScript</h5>
+
+                    	<ol class="questions">
+								<li>What is <strong>"debounce"</strong> and then what is <strong>"throttle"</strong></li>
+                        <li>What is <strong>Closure</strong></li>
+                        <li>What is <strong>Hoisting</strong> in JS</li>
+                        <li>What are <strong>Arrow functions</strong> and its differences</li>
+                    	</ol>
+
+                    	<h3 class="card-title h5 text-decoration-underline text-secondary">React</h5>
+
+                     <ol class="questions">
+                        <li>What are <strong>Ref's</strong></li>
+								<li>Difference between <strong>useEffect</strong> and <strong>useLayoutEffect</strong></li>
+								<li>What Plugin you use for forms?</li>
+								<li>What Library you use for form validation?</li>
+                     </ol>
+                  </div>
+                  <div class="card-footer text-body-secondary">
+                     12/Jan/2024
+                  </div>
+               </div>
+               <!-- Card End -->
 
                <!-- Card Start -->
                <div id="seidor_open_trends" class="card">
-                  <div class="card-header">
+                  <div class="card-header bg-dark bg-gradient text-white">
                      SEIDOR Open trends - Frontend Questions 
                   </div>
                   <div class="card-body">

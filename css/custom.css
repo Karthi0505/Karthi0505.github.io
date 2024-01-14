@@ -67,6 +67,13 @@ footer {
 }
 /* Footer CSS End */
 
+/* Sticky Sidebar Start */
+.sticky-sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+/* Sticky Sidebar End */
 
 /* PDF save CSS Start  */
 .print .sidebar {
