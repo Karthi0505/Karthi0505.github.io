@@ -90,48 +90,65 @@
 
                     <div class="row pictorial-images">
 
-                        <div class="col-sm-12 text-center my-5">
-                            <h2 id="Before_using_React_memo">Before using React memo</h2>
+                        <div class="col-sm-12">
+
+                            <p>Consider the below points on component rendering</p>
+                            <ul>
+                                <li>When a web page loads, all component renders - This is called <strong>initial render</strong></li>
+                                <li>A component <strong>re-renders</strong> whenever its state or prop changes - This is called <strong>subsequent render</strong></li>
+                                <li class="fw-bold text-danger">If a component renders, then all of its children component also renders</li>
+                                <li></li>
+                            </ul>
+
+
+                            <h2 class="my-5 text-center" id="Before_using_React_memo">Before using React memo</h2>
+
+                            
+
+                            <p>Lets notice the issue in react rendering</p>
+
+                            
+
                         </div>
 
                         <div class="col-sm-6">
                             <figure>
                                 <figcaption>App component</figcaption>
 
-                                <img src="./../images/react_memo/1_App.png" alt="Before React memo - App"
+                                <img src="./../images/react_memo/1_App.PNG" alt="Before React memo - App"
                                     class="img-fluid">
                             </figure>
                         </div>
                         <div class="col-sm-6">
                             <figure>
                                 <figcaption>A component</figcaption>
-                                <img src="./../images/react_memo/2_A.png" alt="A component re-renders on button click"
+                                <img src="./../images/react_memo/2_A.PNG" alt="A component re-renders on button click"
                                     class="img-fluid">
                             </figure>
                         </div>
                         <div class="col-sm-6">
                             <figure>
                                 <figcaption>B component</figcaption>
-                                <img src="./../images/react_memo/3_B.png" alt="B component" class="img-fluid">
+                                <img src="./../images/react_memo/3_B.PNG" alt="B component" class="img-fluid">
                             </figure>
                         </div>
                         <div class="col-sm-6">
                             <figure>
                                 <figcaption>C component</figcaption>
-                                <img src="./../images/react_memo/4_C.png" alt="C component" class="img-fluid">
+                                <img src="./../images/react_memo/4_C.PNG" alt="C component" class="img-fluid">
                             </figure>
                         </div>
                         <div class="col-sm-6">
                             <figure>
                                 <figcaption>Output: On Initial render</figcaption>
-                                <img src="./../images/react_memo/5_output_initial-render.png"
+                                <img src="./../images/react_memo/5_output_initial-render.PNG"
                                     alt="Output: Initial render" class="img-fluid">
                             </figure>
                         </div>
                         <div class="col-sm-6">
                             <figure>
                                 <figcaption>Output: On Subsequent render</figcaption>
-                                <img src="./../images/react_memo/6_output_subsequent-render.png"
+                                <img src="./../images/react_memo/6_output_subsequent-render.PNG"
                                     alt="Output: Subsequent render" class="img-fluid">
                             </figure>
                         </div>
@@ -144,7 +161,7 @@
                         <div class="col-sm-6">
                             <figure>
                                 <figcaption>B component - wrapped with memo()</figcaption>
-                                <img src="./../images/react_memo/7_B.png" alt="B component - wrapped with memo()"
+                                <img src="./../images/react_memo/7_B.PNG" alt="B component - wrapped with memo()"
                                     class="img-fluid">
                             </figure>
                         </div>
@@ -152,7 +169,7 @@
                             <figure>
                                 <figcaption>Only 'A' component renders on Subsequent, and child not renders
                                     unnecessarily</figcaption>
-                                <img src="./../images/react_memo/8_output.png" alt="Output on Subsequent renders"
+                                <img src="./../images/react_memo/8_output.PNG" alt="Output on Subsequent renders"
                                     class="img-fluid">
                             </figure>
                         </div>
@@ -164,20 +181,20 @@
                         <div class="col-sm-6">
                             <figure>
                                 <figcaption>'A' component: pass a prop to 'B' component's inatance</figcaption>
-                                <img src="./../images/react_memo/9_A.png" alt="" class="img-fluid">
+                                <img src="./../images/react_memo/9_A.PNG" alt="" class="img-fluid">
                             </figure>
                         </div>
                         <div class="col-sm-6">
                             <figure>
                                 <figcaption>Get the passed prop in 'B' component</figcaption>
-                                <img src="./../images/react_memo/10_B.png" alt="B component getting the passed prop"
+                                <img src="./../images/react_memo/10_B.PNG" alt="B component getting the passed prop"
                                     class="img-fluid">
                             </figure>
                         </div>
                         <div class="col-sm-6">
                             <figure>
                                 <figcaption>Output: Child comp re-renders only if prop changes</figcaption>
-                                <img src="./../images/react_memo/11_output.png" alt="On prop change - child re-renders"
+                                <img src="./../images/react_memo/11_output.PNG" alt="On prop change - child re-renders"
                                     class="img-fluid">
                             </figure>
                         </div>
