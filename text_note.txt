@@ -1,6 +1,6 @@
 
 git add . 
-git commit -m "React memo doc added"
+git commit -m "React memo updated"
 git push
 ------------------------------------------------------
 

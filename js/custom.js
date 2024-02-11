@@ -49,18 +49,6 @@
   // pdf to html End -------------------------------------------------------
 
 
-  
-  /* Scrollspy offset Start -------------------- */
-  // var offset = 200;
-
-  //   $('a').click(function(event) {
-  //       event.preventDefault();
-  //       $($(this).attr('href'))[0].scrollIntoView();
-  //       scrollBy(0, -offset);
-  //   });
-  /* Scrollspy offset End -------------------- */
-
-
   // Scroll to top - Start (PUT THIS CODE AT LAST -since thsi will block below codes, if scroll-to-top button not present in the page) #####################################################
   let scrollTopBtn = document.getElementById("scrollTopBtn");
 

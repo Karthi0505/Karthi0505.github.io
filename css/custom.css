@@ -1,3 +1,6 @@
+html {
+    scroll-padding-top: 58px; /* height of sticky header */
+}
 body {
     font-size: 16px;
 }
@@ -7,6 +10,7 @@ body {
 [title]:hover,
 [title]:not('button') {
     background-color: rgb(0 188 212 / 10%);
+    cursor: help;
 }
 
 .linkHoverStyle-1 a:hover {
@@ -83,17 +87,22 @@ footer {
 /* Sticky Sidebar Start */
 .sticky-sidebar {
     position: sticky;
-    top: 0;
+    top: 75px;
     height: 100vh;
 }
 /* Sticky Sidebar End */
 
 /* PDF save CSS Start  */
-.print .sidebar {
-    display: none;
-}
-.print .sidebar ~ main {
-    width: 100%;
+@media print {
+    .print-w-100 {
+        width: 100%;
+    }
+    .sidebar {
+        display: none;
+    }
+    .sidebar ~ main {
+        width: 100%;
+    }
 }
 /* PDF save CSS End  */
 
