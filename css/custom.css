@@ -43,6 +43,19 @@ body {
     margin-bottom: 0.8em;
 }
 
+/* Header CSS start */
+body > header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9;
+    border-bottom: 2px solid #8BC34A;
+}
+body {
+    padding-top: 58px;
+}
+/* Header CSS start */
+
 /* Footer CSS Start */
 footer .dp-image {
     width: 200px;
@@ -95,6 +108,18 @@ footer {
     fill: rgb(255 255 255 / 80%);
 }
 /* Scroll css Start -------------------- */
+
+/* Pictorial images CSS Start */
+.pictorial-images figure {
+    margin-bottom: 24px;
+}
+.pictorial-images figure figcaption {
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    background: var(--bs-gray-100);
+}
+/* Pictorial images CSS End ------------ */
 
 /* Print Media Start  */
 @media print {

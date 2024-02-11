@@ -15,25 +15,7 @@
   ) // && condition end
   // Print Js End
 
-
-  // Scroll to top - Start #####################################################
-  let scrollTopBtn = document.getElementById("scrollTopBtn");
-
-  window.onscroll = function () {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-      scrollTopBtn.style.display = "block";
-    } else {
-      scrollTopBtn.style.display = "none";
-    }
-  };
-
-  scrollTopBtn.onclick = function () {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  };
-  // Scroll to top - End -------------------------------------------------------
-
-
+  
   // pdf to html Start ###############################################
   const export_to_pdf_Button = document.getElementById('export_to_pdf_Button');
 
@@ -65,6 +47,40 @@
     document.getElementById('export_to_pdf_Button').addEventListener('click', fn_save_pdf)
   }
   // pdf to html End -------------------------------------------------------
+
+
+  
+  /* Scrollspy offset Start -------------------- */
+  // var offset = 200;
+
+  //   $('a').click(function(event) {
+  //       event.preventDefault();
+  //       $($(this).attr('href'))[0].scrollIntoView();
+  //       scrollBy(0, -offset);
+  //   });
+  /* Scrollspy offset End -------------------- */
+
+
+  // Scroll to top - Start (PUT THIS CODE AT LAST -since thsi will block below codes, if scroll-to-top button not present in the page) #####################################################
+  let scrollTopBtn = document.getElementById("scrollTopBtn");
+
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      scrollTopBtn.style.display = "block";
+    } else {
+      scrollTopBtn.style.display = "none";
+    }
+  };
+
+  scrollTopBtn.onclick = function () {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
+  // Scroll to top - End -------------------------------------------------------
+
+  
+  
 
 
 })() //IIFE End

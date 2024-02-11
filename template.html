@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,25 +18,36 @@
 
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-           <div class="container-fluid">
-              <a class="navbar-brand" href="/">Home</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                 aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                       <a class="nav-link active" aria-current="page" href="./../react_home.html">React main page</a>
-                    </li>
-                 </ul>
-  
-                 <!-- jsPDF library -->
-                 <button id="export_to_pdf_Button" class="btn btn-danger">Export to PDF</button>
-  
-              </div>
-           </div>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./../react_home.html">React main
+                                page</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+
+                        <li class="nav-item ms-md-2">
+
+                            <button class="btn btn-danger print-JS"
+                                title="Note: Select Save as PDF - In Destination dropdown">Export to PDF</button>
+                        </li>
+                    </ul>
+
+
+                    <button class="btn btn-danger print-JS"
+                        title="Note: Select Save as PDF - In Destination dropdown">Export to PDF</button>
+
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -46,51 +58,60 @@
             <h1 class="text-center my-4">PageHeaading</h1>
 
             <p class="mb-5 fs-4 text-center border rounded p-4 w-75 mx-auto">
-                
-            </p>  
+
+            </p>
         </section>
         <!-- Section 1 End --------------------------- -->
-        
 
-        
+
+
         <!-- Section Start ########################### -->
         <section class="container-fluid">
 
-<!-- JS code start -->
-<pre><code class="language-javascript fs-6">
+            <!-- JS code start -->
+            <pre><code class="language-javascript fs-6">
 Your code goes here...
 </code></pre>
-<!-- JS code end -->
+            <!-- JS code end -->
 
         </section>
         <!-- Section End --------------------------- -->
 
 
-            
+
         <!-- Footer Start -->
         <footer class="bg-secondary text-white py-5 position-relative">
             <div class="container-fluid">
-    
-            <div class="d-md-flex align-items-md-center">
-                <div class="dp-image">
-                <img src="./../images/IMG_2414.JPG" alt="Karthi DP" class="img-fluid" style="max-width: 309px; left: -56px; top: -24px; position: relative;">
-    
-                <!-- style="max-width: 309px; left: -56px; top: -24px; position: relative;" -->
+
+                <div class="d-md-flex align-items-md-center">
+                    <div class="dp-image">
+                        <img src="./../../images/IMG_2614.JPG" alt="Karthi DP" class="img-fluid"
+                            style="max-width: 270px; left: -32px; top: -24px; position: relative;">
+
+                    </div>
+                    <div class="col-md p-md-4">
+                        <h3>
+                            Karthi
+                            <small class="d-block fs-6">UI Developer</small>
+                        </h3>
+                        <address>
+                            <span class="d-block">8428881664</span>
+                            <span class="d-block">karthi.uideveloper@gmail.com</span>
+                        </address>
+                    </div>
+
                 </div>
-                <div class="col-md p-md-4">
-                <h3>
-                    Karthi
-                    <small class="d-block fs-6">UI Developer</small>
-                </h3>
-                <address>
-                    <span class="d-block">8428881664</span>
-                    <span class="d-block">karthi.uideveloper@gmail.com</span>
-                </address>
-                </div>
-    
+
             </div>
-    
-            </div>
+
+            <button id="scrollTopBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32"
+                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                    <path
+                        d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+                </svg>
+            </button>
+
         </footer>
         <!-- Footer End -->
 
@@ -109,13 +130,14 @@ Your code goes here...
     <!-- Syntax highlight JS End -->
 
     <!-- html2pdf Start -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
     integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <!-- html2pdf End -->
 
     <!-- Custom Script Start -->
     <script src="./../js/custom.js"></script>
     <!-- Custom Script End -->
 </body>
+
 </html>
