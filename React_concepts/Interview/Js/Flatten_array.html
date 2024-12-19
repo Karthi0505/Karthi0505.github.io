@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="./../../../css/bootstrap.css">
+   <!-- HighlightJS CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="./../../../css/custom.css">
+</head>
+
+<body id="body" data-spy="scroll" data-target="#sidebar_nav" data-offset="150">
+
+   <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+         <div class="container-fluid">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+               aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="./../../react_home.html">React main
+                        page</a>
+                  </li>
+               </ul>
+
+               <ul class="navbar-nav mb-2 mb-lg-0">
+
+                  <li class="nav-item ms-md-2">
+
+                     <button class="btn btn-danger print-JS"
+                        title="Note: Select Save as PDF - In Destination dropdown">Export to PDF</button>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+   </header>
+
+   <div id="element-to-print">
+
+      <!-- Section 1 Start ########################### -->
+      <section class="container-fluid">
+         <h1 class="text-center my-4">Flatten Array</h1>
+
+         <p class="mb-5 fs-4 text-center border rounded p-4 w-75 mx-auto">
+            Flatten Array in JS, using various methods
+         </p>
+      </section>
+      <!-- Section 1 End --------------------------- -->
+
+
+
+      <!-- Section 2 Start ########################### -->
+      <section class="container-fluid mb-5">
+
+
+         <div class="row flex-row-reverse border-bottom pb-3 mb-5">
+            <!-- Sidebar Start -->
+            <aside class="d-none d-sm-block col-sm-3 sidebar sticky-sidebar border-start mb-5 d-print-none">
+               <h2 class="mb-0 h5 text-secondary bg-light py-2 px-3">Categorized <small>by</small></h2>
+
+               <nav class="list-group" id="sidebar_nav">
+                  <a href="#1" class="list-group-item list-group-item-action">
+                    flat() method
+                  </a>
+                  <a href="#2" class="list-group-item list-group-item-action">
+                    Using reduce() and concat()
+                  </a>
+                  <a href="#3" class="list-group-item list-group-item-action">
+                    Using a recursive function
+                  </a>
+               </nav>
+            </aside>
+            <!-- Sidebar End -->
+
+            <!-- Main Content Start -->
+            <main class="col-sm-9 " data-bs-spy="scroll" data-bs-target="#sidebar_nav" data-bs-offset="208" tabindex="0">
+
+
+            <div class="row pictorial-images">
+            
+                <div class="col-sm-12">
+            
+                    <h2 class="pt-4 pb-5 mt-1 mb-0 text-center" id="1">Using the flat() method (ES2019)</h2>
+                    <!-- JS code start -->
+<pre><code class="language-javascript fs-5">const arr = [1, 2, [3, 4, [5, 6]]];
+const flattened = arr.flat(Infinity); // Flatten to any depth
+
+console.log(flattened); // Output: [1, 2, 3, 4, 5, 6]
+</code></pre>
+<!-- JS code end -->
+                </div>
+                <hr class="col-sm-12" />
+
+
+                  <div class="col-sm-12">
+                     <h2 id="2" class="text-center pt-4 pb-1 mt-1 mb-0">Using reduce() and concat()</h2>
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">function flatten(arr) {
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+        result = result.concat(flatten(arr[i]));
+      } else {
+        result.push(arr[i]);
+      }
+    }
+    return result;
+}
+
+const arr = [1, 2, [3, 4, [5, 6]]];
+const flattened = flatten(arr);
+
+console.log(flattened); // Output: [1, 2, 3, 4, 5, 6]
+</code></pre>
+<!-- JS code end -->
+                  </div>
+
+                  <hr class="col-sm-12" />
+
+
+                  <div class="col-sm-12">
+                     <h2 id="3" class="pt-4 pb-5 mt-1 mb-0">Using a recursive function:</h2>
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">function flatten(arr) {
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+        result = result.concat(flatten(arr[i]));
+      } else {
+        result.push(arr[i]);
+      }
+    }
+    return result;
+}
+
+const arr = [1, 2, [3, 4, [5, 6]]];
+const flattened = flatten(arr);
+
+console.log(flattened); // Output: [1, 2, 3, 4, 5, 6]
+</code></pre>
+<!-- JS code end -->
+                  </div>
+
+               </div>
+
+
+            </main>
+            <!-- Main Content End -->
+         </div>
+
+
+      </section>
+      <!-- Section 2 End --------------------------- -->
+
+
+
+      <!-- Footer Start -->
+      <footer class="bg-secondary text-white py-5 position-relative">
+         <div class="container-fluid">
+
+            <div class="d-md-flex align-items-md-center">
+               <div class="dp-image">
+                  <img src="./../../images/IMG_2414.JPG" alt="Karthi DP" class="img-fluid"
+                     style="max-width: 309px; left: -56px; top: -24px; position: relative;">
+
+                  <!-- style="max-width: 309px; left: -56px; top: -24px; position: relative;" -->
+               </div>
+               <div class="col-md p-md-4">
+                  <h3>
+                     Karthi
+                     <small class="d-block fs-6">UI Developer</small>
+                  </h3>
+                  <address>
+                     <span class="d-block">8428881664</span>
+                     <span class="d-block">karthi.uideveloper@gmail.com</span>
+                  </address>
+               </div>
+
+            </div>
+
+         </div>
+
+      </footer>
+      <!-- Footer End -->
+
+
+   </div> <!--element-to-print div End -->
+
+
+   <!-- Bootstrap JS ########################### -->
+   <script src="./../../../js/bootstrap.bundle.js"></script>
+
+   <!-- Syntax highlight JS Start -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+   <script>
+      hljs.highlightAll();
+   </script>
+   <!-- Syntax highlight JS End -->
+
+   <!-- html2pdf Start -->
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+   <!-- html2pdf End -->
+
+   <!-- Custom Script Start -->
+   <script src="./../../../js/custom.js"></script>
+   <!-- Custom Script End -->
+</body>
+
+</html>
