@@ -47,9 +47,23 @@ body {
     margin-bottom: 0.8em;
 }
 
+/* Color Start */
 .bg-grey {
     background: #5a5a5a;
 }
+.red {
+    color: var(--bs-red);
+}
+.green {
+    color: var(--bs-green);
+}
+/* Color End */
+
+/* Border Start */
+.top-blue-line {
+    border-top: 4px solid #00BCD4;
+}
+/* Border End */
 
 /* Bootstrap override Start */
 .carousel.highlight-indicators .carousel-indicators button {
@@ -184,3 +198,17 @@ footer {
 }
 /* print html2pdf End */
 
+/* JS Code deco Start */
+.hljs_code-heading {
+    display: inline-block;
+    background: #f3f3f3;
+    padding: 0 6px;
+}
+.hljs_code-heading + pre{
+    border-top: 4px solid #00BCD4;
+}
+.hljs-wrapper {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f3f3f3;
+}
+/* JS Code deco Start */

@@ -72,6 +72,9 @@
                      <a href="#seidor_open_trends" class="list-group-item list-group-item-action">
                         SEIDOR Open trends
                      </a>
+                     <a href="#infosys" class="list-group-item list-group-item-action">
+                        Infosys
+                     </a>
                   </nav>
                </aside>
                <!-- Sidebar End -->
@@ -216,6 +219,478 @@ Above code explained <a href="./../JS_Concepts/Closure.html#loop_n_setTimeout" t
                   </div>
                   <div class="card-footer text-body-secondary">
                      17/Dec/2023
+                  </div>
+                </div>
+                <!-- Card End -->
+
+               <!-- Card Start -->
+               <div id="infosys" class="card">
+                  <div class="card-header bg-dark bg-gradient text-white">
+                     Infosys - Frontend Questions [31/05/2025]
+                  </div>
+                  <div class="card-body">
+                    	<h3 class="card-title h5 text-decoration-underline text-secondary">JavaScript</h5>
+
+                    	<ol class="questions">
+								<li>
+									<p class="mb-1">What will be the output</p>
+
+<div class="hljs-wrapper">
+   <span class="hljs_code-heading">q1:</span>
+
+<!-- JS code start -->
+<pre class="mb-1"><code class="language-javascript fs-6">let x = 0.1 + 0.2;
+let y = 0.3;
+console.log(x == y);
+Output - 
+</code></pre>
+<!-- JS code end -->
+
+   <details >
+      <summary>Answer</summary>
+      My answer - <b class="red">true</b>
+      <p>correct answer is <b class="green">false</b></p>
+
+      <strong>How? - </strong>
+      <ul class="mb-4">
+         <li>This is due to floating-point precision errors in programming languages</li>
+         <li>0.1 + 0.2 actually results in: 0.30000000000000004</li>
+         <li>x == y  // becomes 0.30000000000000004 == 0.3 => false</li>
+      </ul>
+   </details>
+</div>
+
+<div class="hljs-wrapper">
+   <span class="hljs_code-heading">Q2:</span>
+
+<!-- JS code start -->
+<pre class="mb-1"><code class="language-javascript fs-6">let x = Infinity;
+console.log(typeof x);
+Output - 
+</code></pre>
+<!-- JS code end -->
+
+<details>
+   <summary>Answer</summary>
+   My answer - <b class="red">String</b>
+   <p>Correct answer : <b class="green">number</b></p>
+
+   <span>Explanation:</span>
+   <ul>
+      <li>
+         In JavaScript, Infinity is a special numeric value. It is still considered a number by the language.
+         <ul class="mb-3">
+            <li>typeof Infinity → "number"</li>
+            <li>typeof -Infinity → "number"</li>
+            <li>typeof NaN → also "number"</li>
+         </ul>
+      </li>
+      <li>
+         Infinity in Java, Python, C, and C++,
+         <div class="table-responsive">
+            <table class="table table-bordered">
+               <thead>
+               <tr>
+                  <th>Language</th>
+                  <th>Infinity Value</th>
+                  <th>Type</th>
+                  <th>Type Output</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+                  <td>Java</td>
+                  <td><code>Double.POSITIVE_INFINITY</code></td>
+                  <td><code>double</code></td>
+                  <td><code>Double</code> (via <code>getClass()</code>)</td>
+               </tr>
+               <tr>
+                  <td>Python</td>
+                  <td><code>float('inf')</code></td>
+                  <td><code>float</code></td>
+                  <td><code>&lt;class 'float'&gt;</code></td>
+               </tr>
+               <tr>
+                  <td>C</td>
+                  <td><code>INFINITY</code></td>
+                  <td><code>double</code></td>
+                  <td>N/A (manually tracked)</td>
+               </tr>
+               <tr>
+                  <td>C++</td>
+                  <td><code>INFINITY</code></td>
+                  <td><code>double</code></td>
+                  <td>N/A (manually tracked)</td>
+               </tr>
+               <tr>
+                  <td>JS</td>
+                  <td><code>Infinity</code></td>
+                  <td><code>number</code></td>
+                  <td><code>"number"</code></td>
+               </tr>
+               </tbody>
+            </table>
+         </div>
+      </li>
+   </ul>
+ </details>
+</div>
+
+<div class="hljs-wrapper">
+   <span class="hljs_code-heading">q3:</span>
+
+<!-- JS code start -->
+<pre class="mb-1 top-blue-line"><code class="language-javascript fs-6">let x = [];
+console.log(Boolean(x));
+Output - 
+</code></pre>
+<!-- JS code end -->
+
+<details>
+   <summary>Answer</summary>
+   My answer - <b class="red">true</b>
+   <p>Correct answer : <b class="green">true</b></p>
+
+   <span>Explanation:</span>
+   <ul class="mb-4">
+      <li>
+         In Javascript, only below values are converted to false. All other values are true
+         <ul>
+            <li>false</li>
+            <li>0</li>
+            <li>"" <i>(Note: non-empty string is true, even just space: " ")</i>()</li>
+            <li>null</li>
+            <li>undefined</li>
+            <li>NaN</li>
+         </ul> 
+      </li>
+   </ul>
+ </details>
+</div>
+
+<div class="hljs-wrapper">
+   <span class="hljs_code-heading">q4:</span>
+
+<!-- JS code start -->
+<pre class="mb-1"><code class="language-javascript fs-6">let x = [];
+let y = [];
+let z = x + y;
+
+console.log(typeof z);
+
+Output - 
+</code></pre>
+<!-- JS code end -->
+
+<details>
+   <summary>Answer</summary>
+   My answer - <b class="red">undefined</b>
+   <p>Correct answer : <b class="green">string</b></p>
+
+   <span>Explanation:</span>
+   <p>Why is the output "string"?</p>
+   <ul class="mb-4">
+      <li>In JavaScript, when you use the + operator on non-numeric types, it performs string concatenation.</li>
+      <li>x and y are both empty arrays: []</li>
+      <li>JavaScript converts both arrays to empty strings using .toString()</li>
+      <li>"" + "" → "" (an empty string)</li>
+      <li>You can try: <br />
+         console.log(x.toString()); // "" <br />
+         console.log(y.toString()); // "" <br />
+      </li>
+      <li>
+         <div class="table-responsive">
+            <table class="table table-bordered">
+               <thead>
+                  <tr>
+                     <th>Expression</th>
+                     <th>Result</th>
+                     <th>Type</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td><code>[] + []</code></td>
+                     <td><code>""</code></td>
+                     <td><code>string</code></td>
+                  </tr>
+                  <tr>
+                     <td><code>[] + {}</code></td>
+                     <td><code>"[object Object]"</code></td>
+                     <td><code>string</code></td>
+                  </tr>
+                  <tr>
+                     <td><code>{} + []</code></td>
+                     <td><code>0</code> (if parsed as expression)</td>
+                     <td><code>number</code></td>
+                  </tr>
+                  <tr>
+                     <td><code>{} + {}</code></td>
+                     <td><code>"NaN"</code> (or <code>[object Object][object Object]</code> in some contexts)
+                     
+                        <br />
+                        Block + Object (may return NaN)
+                     </td>
+                     <td><code>string</code> or <code>number</code></td>
+                  </tr>
+                  <tr>
+                  <td><code>({} + {})</code></td>
+                  <td><code>"[object Object][object Object]"</code>
+                     <br />
+                     Object + Object as strings
+                  </td>
+                  <td><code>string</code></td>
+                  </tr>
+               </tbody>
+            </table>  
+         </div>        
+      </li>
+   </ul>
+ </details>
+</div>
+
+<div class="hljs-wrapper">
+   <span class="hljs_code-heading">q5:</span>
+
+<!-- JS code start -->
+<pre class="mb-1"><code class="language-javascript fs-6">let x = [1, 2, 3];
+
+let y = x.map((num) => {
+   x.push(num + 3);
+   return num + 1;
+});
+console.log(y);
+
+Output. -
+</code></pre>
+<!-- JS code end -->
+
+<details>
+   <summary>Answer</summary>
+   My answer. - <b class="red">[2, 3, 4]</b>
+   <p>Correct answer : <b class="green">[2, 3, 4]</b></p>
+ </details>
+</div>
+
+<div class="hljs-wrapper">
+   <span class="hljs_code-heading">q6:</span>
+
+<!-- JS code start -->
+<pre class="mb-1"><code class="language-javascript fs-6">var x = 23;
+
+(function(){
+   var x = 43;
+   (function random(){
+      x++;
+      console.log(x);
+   x=21
+   })();
+})();
+Output -
+</code></pre>
+<!-- JS code end -->
+
+<details>
+   <summary>Answer</summary>
+   My answer - <b class="red">44</b>
+   <p>Correct answer : <b class="green">44</b></p>
+ </details>
+</div>
+
+<div class="hljs-wrapper">
+   <span class="hljs_code-heading">q7:</span>
+
+<!-- JS code start -->
+<pre class="mb-1"><code class="language-javascript fs-6">import React from 'react';
+
+export function App(props) {
+      const handleOnClick = () => {
+         console.log("Button Clicked")
+      }
+      return (
+         &lt;div&gt;
+            &lt;button onClick={() =&gt; handleOnClick()} &gt;&lt;/button&gt;
+            &lt;button onClick={() =&gt; handleOnClick} &gt;&lt;/button&gt;
+            &lt;button onClick={handleOnClick()} &gt;&lt;/button&gt;
+            &lt;button onClick={handleOnClick} &gt;&lt;/button&gt;
+         &lt;/div&gt;
+      )
+}
+Output - 
+</code></pre>
+<!-- JS code end -->
+
+<details>
+   <summary>Answer</summary>
+   My answer - 
+   <div class="red">
+      <p>handleOnClick() Function call handeled by react</p>
+      <p>handleOnClick reference passed</p>
+      <p>handleOnClick() - Error, cannot call directly on onClick</p>
+      <p>handleOnClick Function called by react</p>
+   </div>
+   Correct answer: 
+   <div class="green">
+   
+   </div>
+
+   <span>Explanation:</span>
+   <p>You're using 4 different ways to attach an event handler in React.</p>
+   <ul class="mb-4">
+      <li class="border-bottom mb-3 pb-3">
+         &lt;button onClick={() =&gt; handleOnClick()}&gt;&lt;/button&gt;
+         <br />
+         ✅ 
+         <ul>
+            <li>On click, the arrow function is called → handleOnClick() is invoked → logs "Button Clicked"</li>
+            <li>This is a common and safe way to call a function with no or fixed arguments.</li>
+            <li>
+               Output: 
+                  On click: Button Clicked
+            </li>
+         </ul>
+      </li>
+      <!-- Button 2 -->
+      <li class="border-bottom mb-3 pb-3">
+         &lt;button onClick={() =&gt; handleOnClick}&gt;&lt;/button&gt;
+         <br />
+         ⚠️ 
+         <ul>
+            <li>On click, the arrow function returns the function handleOnClick, but does not call it.</li>
+            <li>
+               Output: 
+                  On click: No Output
+            </li>
+         </ul>
+      </li>
+      <!-- Button 3 -->
+      <li class="border-bottom mb-3 pb-3">
+         &lt;button onClick={handleOnClick()}&gt;&lt;/button&gt;
+         <br />
+         ❌ 
+         <ul>
+            <li>handleOnClick() is called immediately during render, not on click.</li>
+            <li>The return value of handleOnClick() (which is undefined) becomes the onClick handler.</li>
+            <li>So, nothing happens on click, and the log appears once at render time.</li>
+            <li>
+               Output: <br />
+                  At render: <br />
+                  Button Clicked
+            </li>
+            <li>
+               On click: 
+               Error or nothing (because onClick is undefined)
+            </li>
+         </ul>
+      </li>
+      <!-- Button 4 -->
+      <li class="border-bottom mb-3 pb-3">
+         &lt;button onClick={handleOnClick}&gt;&lt;/button&gt;
+         <br />
+         ✅ 
+         <ul>
+            <li>handleOnClick is passed by reference.</li>
+            <li>On click, React calls handleOnClick().</li>
+            <li>This is the cleanest and most performant way when no arguments are needed.</li>
+            <li>
+               Output: 
+                  On click: Button Clicked
+            </li>
+         </ul>
+      </li>
+      <li class="border-bottom mb-3 pb-3">
+         <div class="table-responsive">
+            <table class="table table-bordered">
+               <thead>
+               <tr>
+                  <th>Button</th>
+                  <th>Code</th>
+                  <th>On Click Behavior</th>
+                  <th>Output</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+                  <td>1</td>
+                  <td><code>onClick={() => handleOnClick()}</code></td>
+                  <td>✅ Calls the function</td>
+                  <td><code>Button Clicked</code></td>
+               </tr>
+               <tr>
+                  <td>2</td>
+                  <td><code>onClick={() => handleOnClick}</code></td>
+                  <td>❌ Returns function, not called</td>
+                  <td><em>Nothing happens</em></td>
+               </tr>
+               <tr>
+                  <td>3</td>
+                  <td><code>onClick={handleOnClick()}</code></td>
+                  <td>❌ Invokes immediately on render</td>
+                  <td><code>Button Clicked</code> (at render), <em>nothing on click</em></td>
+               </tr>
+               <tr>
+                  <td>4</td>
+                  <td><code>onClick={handleOnClick}</code></td>
+                  <td>✅ Calls function on click</td>
+                  <td><code>Button Clicked</code></td>
+               </tr>
+               </tbody>
+            </table>
+          </div>
+      </li>
+   </ul>
+      
+</details>
+</div>
+
+<div class="hljs-wrapper">
+   <span class="hljs_code-heading">Q8 a)</span>
+
+<!-- JS code start -->
+<pre class="mb-1"><code class="language-javascript fs-6">var x;
+x==undefined ? console.log(true) : console.log(false)
+
+Output. -
+</code></pre>
+<!-- JS code end -->
+
+<details>
+   <summary>Answer</summary>
+   My answer - <b class="red">true</b>
+   <p>Correct answer : <b class="green">true</b></p>
+</details>
+</div>
+
+
+<div class="hljs-wrapper">
+   <span class="hljs_code-heading">Q8 b)</span>
+
+<!-- JS code start -->
+<pre class="mb-1"><code class="language-javascript fs-6">null ? console.log(true) : console.log(false)
+Output -
+</code></pre>
+<!-- JS code end -->
+
+   <details>
+      <summary>Answer</summary>
+      My answer - <b class="red">false</b>
+      <p>Correct answer : <b class="green">false</b></p>
+   </details>
+</div>
+
+								</li>
+                    	</ol>
+
+                    	<!-- <h3 class="card-title h5 text-decoration-underline text-secondary">React</h5> -->
+
+                     <!-- <ol class="questions">
+								<li>
+									If we remove two elements from an array, how it will update through Virtual DOM
+								</li>
+                     </ol> -->
+                  </div>
+                  <div class="card-footer text-body-secondary">
+                     31/May/2025
                   </div>
                 </div>
                 <!-- Card End -->
