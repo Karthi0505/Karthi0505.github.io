@@ -131,7 +131,7 @@ Or in one command:
 Add to vite.config.ts:
 
 /// <reference types="vitest" />
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   test: {
@@ -154,7 +154,7 @@ Run:
     ------
 {
     "scripts": {
-        "test": "vitest"
+        "test": "vitest" (or) "vitest run" (Note: vitest run - runs and stops. Plain vitest runs and lizens)
     }
 }
 -------------------------------
@@ -162,7 +162,10 @@ Then:
     npm test
 ------------------------------------------------
 
-
+### I got an error on methods - Cannot find name 'it' - Cannot find name 'expect'
+For this - in tsconfig.app.json types - I added "vitest/globals"
+"types": ["vite/client", "vitest/globals"],
+ 
 
 Thats All!
 
