@@ -1,0 +1,509 @@
+
+npm install @reduxjs/toolkit react-redux
+
+Redux Toolkit includes these APIs:
+configureStore()
+createReducer()
+createAction()
+createSlice():
+combineSlices()
+createAsyncThunk
+createEntityAdapter
+createSelector
+---------------------------------------------------------
+
+RTK Query
+RTK Query is included within the installation of the core Redux Toolkit package.
+
+RTK Query includes these APIs:
+createApi()
+fetchBaseQuery()
+<ApiProvider />
+setupListeners()
+-----------------------------------------------------------
+
+
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+Redux Essentials, Part 1: Redux Overview and Concepts
+https://redux.js.org/tutorials/essentials/part-1-overview-concepts
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+What is Redux
+Redux is a pattern and library for managing and updating global application state, where the UI triggers events called "actions" to describe what happened, and separate update logic called "reducers" updates the state in response.
+It serves as a centralized store for state that needs to be used across your entire application, with rules ensuring that the state can only be updated in a predictable fashion.
+
+Redux guides you towards writing code that is predictable and testable, which helps give you confidence that your application will work as expected.
+
+When Should I Use Redux?
+There are more concepts to learn, and more code to write.
+It's a trade-off between short term and long term productivity.
+
+Redux is more useful when:
+- You have large amounts of application state that are needed in many places in the app
+- The app state is updated frequently over time
+- The logic to update that state may be complex
+- The app has a medium or large-sized codebase, and might be worked on by many people
+----------------------------------
+
+Redux DevTools Extension
+Shows a history of the changes to the state in your Redux store over time. 
+This allows you to debug your applications effectively.
+-----------------------------------
+
+Mutable/Immutable
+In order to update values immutably, your code must make copies of existing objects/arrays, and then modify the copies.
+
+We can do this by hand using JavaScript's array / object spread operators, as well as array methods that return new copies of the array instead of mutating the original array:
+
+const obj = {
+  a: {
+    // To safely update obj.a.c, we have to copy each piece
+    c: 3
+  },
+  b: 2
+}
+
+const obj2 = {
+  // copy obj
+  ...obj,
+  // overwrite a
+  a: {
+    // copy obj.a
+    ...obj.a,
+    // overwrite c
+    c: 42
+  }
+}
+
+const arr = ['a', 'b']
+// Create a new copy of arr, with "c" appended to the end
+const arr2 = arr.concat('c')
+
+// or, we can make a copy of the original array:
+const arr3 = arr.slice()
+// and mutate the copy:
+arr3.push('c')
+---------------------------------------------
+
+Action
+A typical action object might look like this:
+
+const addTodoAction = {
+  type: 'todos/todoAdded',
+  payload: 'Buy milk'
+}
+----------------
+
+Action Creators
+An action creator is a function that creates and returns an action object. 
+We typically use these so we don't have to write the action object by hand every time:
+
+const addTodo = text => {
+  return {
+    type: 'todos/todoAdded',
+    payload: text
+  }
+}
+------------------
+
+Reducers
+A reducer is a function that receives the current state and an action object, decides how to update the state if necessary, and returns the new state:
+
+(state, action) => newState
+
+info: "Reducer" functions get their name because they're similar to the kind of callback function you pass to the Array.reduce() method.
+
+Reducers must always follow some specific rules:
+- They should only calculate the new state value based on the state and action arguments
+- They are not allowed to modify the existing state. Instead, they must make immutable updates, by copying the existing state and making changes to the copied values.
+- They must be "pure" - they cannot do any asynchronous logic, calculate random values, or cause other "side effects"
+
+Eg:
+const initialState = { value: 0 }
+
+function counterReducer(state = initialState, action) {
+  // Check to see if the reducer cares about this action
+  if (action.type === 'counter/increment') {
+    // If so, make a copy of `state`
+    return {
+      ...state,
+      // and update the copy with the new value
+      value: state.value + 1
+    }
+  }
+  // otherwise return the existing state unchanged
+  return state
+}
+-------------------------------------------------------------------------
+
+Store
+The Redux application state lives in an object called the store.
+
+Eg:
+import { configureStore } from '@reduxjs/toolkit'
+const store = configureStore({ reducer: counterReducer })
+console.log(store.getState())
+// {value: 0}
+--------------------------------------
+
+Dispatch
+The Redux store has a method called dispatch. 
+The only way to update the state is to call store.dispatch() and pass in an action object.
+
+Eg:
+store.dispatch({ type: 'counter/increment' })
+console.log(store.getState())
+// {value: 1}
+
+we can call getState() to retrieve the updated value.
+
+Selectors
+Selectors are functions that know how to extract specific pieces of information from a store state value. 
+As an application grows bigger, this can help avoid repeating logic as different parts of the app need to read the same data:
+
+Eg:
+const selectCounterValue = state => state.value
+const currentValue = selectCounterValue(store.getState())
+console.log(currentValue)
+// 2
+--------------------------------------------------------------------
+
+
+
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+Redux Essentials, Part 2: Redux Toolkit App Structure
+https://redux.js.org/tutorials/essentials/part-2-app-structure
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+How to use Redux devtools is mentioned in this page
+
+1. State tab
+   Open Redux DevTools and click the "State" tab in the upper-right toolbar. - It shows the state values.
+You should see something that looks like this image 'State_inReduxDevTool.png'
+
+2. Diff tab
+   Click the "+" button in the app/trigger action dispatch, then look at the "Diff" tab:
+   Shows the value changed from - to
+
+3. Action tab
+   You should see a number of actions dispatched, one for each time we clicked a button.
+   - Now select the last action "counter/incrementByAmount" entry from the list on the left, and click the "Action" tab on the right side:
+    - And if you click the diff tab - you can see what value changed in that action.
+
+The ability to see what is happening inside of our app and how our state is changing over time is very powerful!
+-----------------------------------------------------------------------
+
+Let's start by looking at how the Redux store is created.
+
+1. Creating the Redux Store
+app/store.ts
+------------
+export const store = configureStore({
+  reducer: {
+    counter: counterReducer
+  }
+})
+------------------------------
+configureStore automatically adds several middleware to the store setup by default to provide a good developer experience, and also sets up the store so that the Redux DevTools Extension can inspect its contents.
+------------------------------
+For TypeScript usage, we also want to export some reusable types based on the Store, such as the RootState and AppDispatch types. We'll see how those get used later.
+------------------------------
+
+features/counter/counterSlice.ts
+----------------
+
+Redux Slices
+
+A "slice" is a collection of Redux reducer logic and actions for a single feature in your app, 
+(The name comes from splitting up the root Redux state object into multiple "slices" of state.)
+
+For example, in a blogging app, our store setup might look like:
+
+export const store = configureStore({
+  reducer: {
+    users: usersReducer,
+    posts: postsReducer,
+    comments: commentsReducer
+  }
+})
+
+In that example, state.users, state.posts, and state.comments are each a separate "slice" of the Redux state.
+
+(Since usersReducer is responsible for updating the state.users slice, we refer to it as a "slice reducer" function.)
+---------------------------------
+
+
+Detailed Explanation: Reducers and State Structure
+--------------------------------------------------
+A Redux store needs to have a single "root reducer" function passed in when it's created.
+
+If we tried calling all of the slice reducers by hand, it might look like above example.
+(That calls each slice reducer individually, passes in the specific slice of the Redux state, and includes each return value in the final new Redux state object.)
+
+Redux has a function called "combineReducers" that does this for us automatically. 
+i) It accepts an object full of slice reducers as its argument,
+ii) and returns a function that calls each slice reducer whenever an action is dispatched.
+iii) The result from each slice reducer are all combined together into a single object as the final result. 
+
+When we pass an object of slice reducers to configureStore, it passes those to combineReducers for us to generate the root reducer.
+
+As we saw earlier, you can also pass a reducer function directly as the reducer argument:
+const store = configureStore({
+  reducer: rootReducer
+})
+-------------------------------------------------------------------------------
+
+
+Creating Slice Reducers and Actions
+------------------------------------
+
+We know that actions are plain objects with a type field. (the type field is always a string)
+where are those action objects, type strings, and action creators defined?
+
+We could write those all by hand, every time. But, that would be tedious.
+- what's really important in Redux is the reducer functions, and the logic they have for calculating new state.
+
+Redux Toolkit has a function called "createSlice", which takes care of the work of generating action type strings, action creator functions, and action objects.
+
+"createSlice" automatically generates action creators - with the same names as the reducer functions we wrote.
+
+Eg:
+We can check that by calling one of them and seeing what it returns:
+console.log(counterSlice.actions.increment())
+// {type: "counter/increment"}
+---------------------------------------------
+
+It also generates the slice reducer function that knows how to respond to all these action types:
+const newState = counterSlice.reducer(
+  { value: 10 },
+  counterSlice.actions.increment()
+)
+console.log(newState)
+// {value: 11}
+-----------------------------------------------
+
+Rules of Reducers
+- They should only calculate the new state value based on the "state" and "action" arguments
+- They are not allowed to modify the existing state. Instead, they must make immutable updates, by copying the existing state and making changes to the copied values.
+- They must be "pure" - they cannot do any asynchronous logic or other "side effects"
+
+But why are these rules important? There are a few different reasons:
+- One of the goals of Redux is to make your code predictable.
+
+createSlice uses a library called Immer inside. Immer uses a special JS tool called a Proxy to wrap the data you provide, and lets you write code that "mutates" that wrapped data. But, "Immer tracks all the changes you've tried to make, and then uses that list of changes to return a safely immutably updated value"
+
+warning
+You can only write "mutating" logic in Redux Toolkit's createSlice and createReducer because they use Immer inside! If you write mutating logic in your code without Immer, it will mutate the state and cause bugs!
+
+Code:
+features/counter/counterSlice.ts
+---------------------------------
+export const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  // The `reducers` field lets us define reducers and generate associated actions
+  reducers: {
+    increment: state => {
+      // Redux Toolkit allows us to write "mutating" logic in reducers. It
+      // doesn't actually mutate the state because it uses the Immer library,
+      // which detects changes to a "draft state" and produces a brand new
+      // immutable state based off those changes
+      state.value += 1
+    },
+    decrement: state => {
+      state.value -= 1
+    },
+    // Use the PayloadAction type to declare the contents of `action.payload`
+    incrementByAmount: (state, action: PayloadAction<number>) => {
+      state.value += action.payload
+    }
+  }
+})
+----------------------------------------------
+
+Action parameter
+It will be passed in anyway, so we can skip declaring action as a parameter for the reducers
+
+On the other hand, the incrementByAmount reducer does need to know something: how much it should be adding to the counter value. So, we declare the reducer as having both state and action arguments. for sending payload (action.payload)
+
+If we're using TypeScript, we need to tell TS what the type of action.payload will be.
+Eg: action: PayloadAction<number>.
+-------------------------------------------------
+
+Reading Data with Selectors
+-------------------------------
+We can call store.getState() to get the entire current root state object, and access its fields like state.counter.value.
+------------------------------------------------------------------------------------------------------
+
+
+
+Writing Async Logic with Thunks
+---------------------------------
+A thunk is a function that can contain asynchronous logic. 
+Thunks are written using two functions:
+- An inner thunk function, which gets dispatch and getState as arguments
+- The outer creator function, which creates and returns the thunk function
+
+Redux Toolkit's configureStore function already sets that up thunk automatically,
+Redux Toolkit includes a createAsyncThunk method that does all of the dispatching work for you. 
+
+When you use createAsyncThunk, 
+you handle its actions in createSlice.extraReducers. 
+
+Eg:
+export const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    // omit reducers
+  },
+  // "The `extraReducers` field lets the slice handle actions defined elsewhere,
+  // including actions generated by createAsyncThunk or in other slices."
+  extraReducers: builder => {
+    builder
+      // Handle the action types defined by the `incrementAsync` thunk defined below.
+      // This lets the slice reducer update the state with request status and results.
+      .addCase(incrementAsync.pending, state => {
+        state.status = 'loading'
+      })
+      .addCase(incrementAsync.fulfilled, (state, action) => {
+        state.status = 'idle'
+        state.value += action.payload
+      })
+      .addCase(incrementAsync.rejected, state => {
+        state.status = 'failed'
+      })
+  }
+})
+--------------------------------------------------------------------
+
+
+Reading Data with useSelector
+-----------------------------
+First, the useSelector hook lets our component extract whatever pieces of data it needs from the Redux store state.
+
+If we pass in a selector function, it calls someSelector(store.getState()) for us, and returns the result.
+
+So, we can get the current store counter value by doing:
+    const count = useSelector(selectCount)
+    const countPlusTwo = useSelector((state: RootState) => state.counter.value + 2)
+
+Any time an action has been dispatched and the Redux store has been updated, useSelector will re-run our selector function. If the selector returns a different value than last time, useSelector will make sure our component re-renders with the new value.
+
+
+Dispatching Actions with useDispatch
+--------------------------------------
+ Since we don't have access to the store itself, we need some way to have access to just the dispatch method
+ The useDispatch hook does that for us, and gives us the actual dispatch method from the Redux store:
+
+ const dispatch = useDispatch()
+
+ <button
+  className={styles.button}
+  aria-label="Increment value"
+  onClick={() => {
+    dispatch(increment())
+  }}
+>
+  +
+</button>
+-----------------------------------------------
+
+
+Component State and Forms
+-------------------------
+Do I always have to put all my app's state into the Redux store?
+- NO. Global state that is needed across the app should go in the Redux store. State that's only needed in one place should be kept in component state.
+
+Provider
+---------
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+)
+-------------------------------
+
+Summary
+---------
+- We can create a Redux store using the Redux Toolkit configureStore API
+  - configureStore accepts a reducer function as a named argument
+- Redux logic is typically organized into files called "slices"
+  - A "slice" contains the reducer logic and actions
+  - Redux Toolkit's createSlice API generates action creators and action types for each individual reducer function you provide
+- Redux Toolkit's createSlice API generates action creators and action types for each individual reducer function you provide
+  - Selectors accept (state: RootState) as their argument and either return a value from the state, or derive a new value
+  - Selectors can be written in slice files, or inline in the useSelector hook
+- Async logic is typically written in special functions called "thunks"
+  - Thunks receive dispatch and getState as arguments
+- React-Redux allows React components to interact with a Redux store
+  - Wrapping the app with <Provider store={store}> enables all components to use the store
+  - The useSelector hook lets React components read values from the Redux store
+  - The useDispatch hook lets components dispatch actions
+- Global state should go in the Redux store, local state should stay in React components
+---------------------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+Redux Essentials, Part 3: Basic Redux Data Flow
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+url: https://redux.js.org/tutorials/essentials/part-3-data-flow
+
+
+What You'll Learn:
+- How to set up a Redux store in a React application
+- How to add "slices" of reducer logic to the Redux store with createSlice
+- Reading Redux data in components with the useSelector hook
+- Dispatching actions in components with the useDispatch hook
+-----------------------------------------------------------------------------
+
+We're going to build a small social media feed app, which will include a number of features that demonstrate some real-world use cases. This will help you understand how to use Redux in your own applications.
+
+(We'll be using TypeScript syntax to write our code. You can use Redux with plain JavaScript, but using TypeScript helps prevent many common mistakes, provides built-in documentation for your code, and lets your editor show you what variable types are needed in places like React components and Redux reducers. 
+"We strongly recommend using TypeScript for all Redux applications.")
+
+(caution
+The example app is not meant as a complete production-ready project. The goal is to help you learn the Redux APIs and typical usage patterns, and point you in the right direction using some limited examples. Also, some of the early pieces we build will be updated later on to show better ways to do things. Please read through the whole tutorial to see all the concepts in use.)
+
+
+Project Setup
+For this tutorial, we've created a pre-configured starter project that already has React and Redux set up, includes some default styling, and has a fake REST API that will allow us to write actual API requests in our app. You'll use this as the basis for writing the actual application code.
+
+Starter template:
+  CodeSandbox: https://codesandbox.io/p/sandbox/github/reduxjs/redux-essentials-example-app/tree/ts-checkpoint-0-setup/?from-embed
+  (or)
+  Github: https://github.com/reduxjs/redux-essentials-example-app
+
+Final version:
+  codesandbox: https://codesandbox.io/p/sandbox/github/reduxjs/redux-essentials-example-app/tree/tutorial-steps-ts
+  github: https://github.com/reduxjs/redux-essentials-example-app/tree/tutorial-steps-ts
+
+
+Setting Up the Redux Store:
+
+
+
+
+
+
+
+
+
+
+
+
