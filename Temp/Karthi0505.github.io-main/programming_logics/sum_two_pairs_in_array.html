@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./../css/bootstrap.css">
+    <!-- HighlightJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../css/custom.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <h1 class="my-5">
+            <div class="f2-4 mb-2">Question:</div>
+            <small class="d-block fs-4">Find the continues pair largest sum in array</small>
+        </h1>
+
+        <p class="my-5 h1">
+            Largest Sum:
+            <span id="answer"></span>
+        </p>
+
+
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">const arr = [2,3,5,9,1,7,2];
+let sum = 0, max=0;
+
+for(let i=0; i < arr.length-1;i++) {
+    sum = arr[i]+arr[i+1]
+    if(max < sum){
+        max=sum;
+    }
+}
+
+document.getElementById("answer").innerHTML = max;
+</code></pre>
+<!-- JS code end -->
+            
+      
+        
+    </div>
+
+    <div class="container-fluid">
+        <details>
+            <summary class="fs-3 bg-light py-2 px-3">Instructions: How to Check this code</summary>
+            <!-- List Component Start -->
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Inspect this page</div>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Source tab</div>
+                        <img class="img-fluid" src="./images/inspect_source.PNG"  />
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Select source file</div>
+                        <p>This .html source file has the JS code</p>
+                        <img class="img-fluid" src="./images/inspect_source_file.PNG" />
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Keep Breakpoint</div>
+                        <p>See the JS code starting and Click on the line number</p>
+                        <img class="img-fluid" src="./images/inspect_breakpoint.PNG" />
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Then "Refresh" the browser.</div>
+                        <img class="img-fluid" src="./images/inspect_breakpoint_refresh.PNG" />
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Step/run statement by statement</div>
+                        <p>Press <kbd>f9</kbd> (or) Click Step icon one by one</p>
+                        <img class="img-fluid" src="./images/inspect_brkpnt_step.PNG" />
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Now you can watch what happens to the code, when running line by line</div>
+                        
+                        You can also see the details like
+                        <ul class="mb-3">
+                            <li>variable's current value below the script dropdown</li>
+                            <li>CallStack details below the CallStack dropdown. etc..</li>
+                        </ul>
+                    
+                        <img class="img-fluid" src="./images/inspect_brkpnt_step_one_by_one.PNG" />
+
+                    </div>
+                </li>
+            </ol>
+            <!-- List Component End -->
+
+        </details>
+    </div>
+
+    <script>
+        const arr = [2,3,5,9,1,7,2]
+        let sum = 0,max=0;
+        for(let i=0;i<arr.length-1;i++)
+        {
+            sum = arr[i]+arr[i+1]
+            if(max<sum){
+                max=sum;
+            }
+        }
+        document.getElementById("answer").innerHTML = max;
+    </script>
+
+    <!-- <script src="./puzzle_program.js"></script> -->
+
+
+
+
+    
+    <!-- Bootstrap JS ########################### -->
+    <script src="./../js/bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+
+</html>

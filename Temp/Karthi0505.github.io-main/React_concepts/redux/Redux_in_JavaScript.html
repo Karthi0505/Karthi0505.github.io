@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redux in JavaScript</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./../../css/bootstrap.css">
+  <!-- HighlightJS CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./../../css/custom.css">
+</head>
+
+<body id="body">
+
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item border-start border-end">
+              <a class="nav-link" href="./../react_home.html">React main page</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item border-end">
+                <a class="nav-link active" aria-current="page" href="./Redux_in_JavaScript.html">Redux in JavaScript</a>
+              </li>
+              <li class="nav-item border-end">
+                  <a class="nav-link" href="./Redux_in_React.html">Redux in React</a>
+              </li>
+              <li class="nav-item border-end">
+                  <a class="nav-link" href="./Redux_Toolkit_in_React.html">Redux-Toolkit in React</a>
+              </li>
+              <li class="nav-item ms-md-2">
+                
+                <button class="btn btn-danger print-JS" title="Note: Select Save as PDF - In Destination dropdown">Export to PDF</button>
+              </li>
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div id="element-to-print">
+
+    
+    
+    <!-- <button id="exportButton" onclick="fn()">Export to PDF</button> -->
+
+    <!-- Section 1 Start ########################### -->
+    <section class="container-fluid">
+      <h1 class="text-center my-4">Redux <small>in JavaScript</small></h1>
+
+      <p class="mb-5 fs-4 text-center border rounded p-4 w-75 mx-auto">
+        (Redux is a JavaScript library for managing and centralizing application state.)
+      </p>  
+    </section>
+    <!-- Section 1 End --------------------------- -->
+      
+    <!-- Section 2 Start ########################### -->
+    <section class="container-fluid">
+      <h2>Basic</h2>
+      <ul>
+        <li>
+          The whole global <strong>state</strong> of your app is <strong>stored in an object</strong> tree inside a <strong>single store</strong>. 
+        </li>
+        <li>
+          Only way <strong>to change the state</strong> tree is to <strong>create an action object</strong>, and <strong>dispatch it to the store</strong>. 
+        </li>
+        <li>
+          in response to an action, you <strong>write pure reducer functions</strong> that <strong>calculate a new state based on the old state and the action</strong>
+
+          <span class="d-block text-secondary">Note: reducers functions can be split into multiple smaller reducer functions - to make it easier to understand and maintain the reducer logic.</span>
+        </li>
+      </ul>
+      
+    </section>
+    <!-- Section 2 End --------------------------- -->
+
+    <hr>
+
+
+    <!-- Section Start ########################### -->
+    <section class="container-fluid">
+      <h2 class="text-decoration-underline text-secondary">Syntaxes</h2>
+
+      <h3 class="mt-4">createStore()</h3>
+      
+      <section class="border p-3">
+        <div class="card">
+          <div class="card-header">
+            Syntax:
+          </div>
+          <div class="card-body fw-bold text-secondary">
+            const store = 
+              <span class="text-danger">
+                createStore( 
+              </span>
+                <span class="text-success">
+                  reducerFunction_as_callback
+                </span>, 
+                preloadedState?, 
+                enhancer? 
+              <span class="text-danger">
+                )
+              </span>
+          </div>
+          <div class="card-footer text-secondary">
+            <strong>Returns:</strong> createStore returns a <strong>"store object"</strong>, (that holds the complete state of your app)
+          </div>
+        </div>
+
+        <h4 class="mt-4">reducerFunction</h4>
+        <p>
+          Reducer take in two things as parameter: 
+          i) previous state 
+          ii) and an action.
+          
+        </p>
+        <div class="card">
+          <div class="card-header">
+            Syntax:
+          </div>
+          <div class="card-body fw-bold text-secondary">
+            (
+              <span class="text-danger">
+                state
+              </span>,
+              <span class="text-success">
+                action
+              </span>
+            ) => 
+            <span class="text-danger">
+              newState
+            </span>
+          </div>
+          <div class="card-footer text-secondary">
+            <strong>Returns:</strong> newly <strong>updated state</strong>. So reducers are basically pure JS functions
+          </div>
+        </div>
+
+        <h4 class="mt-4 text-secondary">STORE METHODS</h4>
+        <section class="border p-3">
+
+          <h4 class="">getState()</h4>
+
+          <div class="card">
+            <div class="card-header">
+              Syntax:
+            </div>
+            <div class="card-body fw-bold text-secondary">
+              store
+              <span class="text-danger">
+                .getState()
+              </span>
+            </div>
+            <div class="card-footer text-secondary">
+              <strong>Returns</strong> the <strong>current state</strong> tree of your application
+            </div>
+          </div>
+          
+          <h4 class="mt-4">dispatch(action)</h4>
+          <p>
+            <strong>Dispatches an action to the Redux store</strong>. The store <strong>runs the reducer function again</strong> with the previous state and the current action. 
+            <span class="d-block text-primary">Note: This is the only way to trigger a state change.</span>
+          </p>
+            
+          <div class="card">
+            <div class="card-header">
+              Syntax:
+            </div>
+            <div class="card-body fw-bold text-secondary">
+              store
+              <span class="text-danger">
+                .dispatch(
+                  <span class="text-success">action</span>
+                )
+              </span>
+            </div>
+          </div>
+          
+          <h4 class="mt-4">subscribe( listenerFunction_callback )</h4>
+          <p>
+            subscribe() registers a function to be called on state changes
+            <span class="d-block text-primary">Note: You may then call getState() to read the current state tree inside the callback.</span>
+          </p>
+            
+          <div class="card">
+            <div class="card-header">
+              Syntax:
+            </div>
+            <div class="card-body fw-bold text-secondary">
+              store
+              <span class="text-danger">
+                .subscribe( 
+                  <span class="text-success">listenerFunction_callback</span>
+                )
+              </span>
+            </div>
+          </div>
+          
+          <h4 class="mt-4">unsubscribe()</h4>
+          <p>
+            To unsubscribe the change listener, invoke the function returned by subscribe.
+          </p>
+            
+          <div class="card">
+            <div class="card-header">
+              Syntax:
+            </div>
+            <div class="card-body fw-bold text-secondary">
+              const unsubscribe = 
+              store
+              <span class="text-danger">
+                .subscribe( 
+                  <span class="text-success">listenerFunction_callback</span>
+                )
+              </span>
+              <span class="d-block text-danger">
+                unsubscribe()
+              </span>
+            </div>
+          </div>
+
+        </section>
+      </section>
+
+
+    </section>
+    <!-- Section End --------------------------- -->
+      
+
+    <!-- Section Start ########################### -->
+    <section class="container-fluid pt-5">
+      <h2 id="" class="h5 border-bottom border-danger">Example 1</h2>
+
+      <div class="border-bottom border-danger mb-5">
+
+
+        <!-- <p class="h5 text-decoration-underline">Modified code </p> -->
+
+         <div class="row">
+          
+          <div class="col-lg-4">
+            <p>
+              Run output in terminal
+              <span class="fw-bold d-block">node filename.js</span>
+            </p>
+            
+            <div class="card">
+                <div class="card-header">
+                    Terminal
+                </div>
+                <div class="card-body">
+                    <p class="mb-0 fw-bold text-secondary">
+                      { value: 1 }<br />
+                      { value: 2 }<br />
+                      { value: 1 }
+                    </p>
+                </div>
+            </div> <!--Card End-->
+
+            <p>
+              Live output
+            </p>
+
+            <h4 class="h5 mt-3">STEPS:</h4>
+            <ul class="text-secondary nested-list-custom-space">
+              <li class="mb-2">
+                <span class="fw-bold">Create a Store</span>,
+                <ol class="">
+                  <li class="mb-2">
+                    Create <span class="fw-bold">Reducer Function</span> inside createStore() call,
+                    <ol class="listStyle_lower-alpha">
+                      <li class="mb-2">Put <span class="fw-bold">state object</span> inside Reducer Function call,</li>
+                      <li class="mb-2"><span class="fw-bold">Pass an action object</span> inside Reducer Function call,</li>
+                      <li class="mb-2">Put state updating code inside Reducer Function block and <span class="fw-bold">return the new state</span>.</li>
+                    </ol>
+                  </li>
+
+                  <li class="mb-2"><span class="fw-bold">Dispatch an action</span> object to the Store. (The store runs the reducer function).</li>
+                  <li class="mb-2"><span class="fw-bold">Subscribe a function</span> to be called whenever the state changes.</li>
+                  <li class="mb-2"><span class="fw-bold">Get the current state</span> using getState()</li>
+                </ol>
+
+              </li>
+            </ul>
+            
+        </div> <!--Column End-->
+
+        <div class="col-lg-8"> <!--Column Start-->
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-6">// import { createStore } from "redux";
+  const redux = require('redux'); 
+  
+  function counterReducer(state = { value: 0 }, action) {
+    switch (action.type) {
+      case "counter/incremented":
+        return { ...state, value: state.value + 1 };
+  
+      case "counter/decremented":
+        return { ...state, value: state.value - 1 };
+  
+      default:
+        return state;
+    }
+  }
+  
+  // Create a Redux store holding the state of your app.
+  // Its API is { subscribe, dispatch, getState }.
+  let store = redux.createStore(counterReducer);
+  
+  // You can use subscribe() to update the UI in response to state changes.
+  // Normally you'd use a view binding library (e.g. React Redux) rather than 
+  // subscribe() directly.
+  // There may be additional use cases where it's helpful to subscribe as well.
+  // store.subscribe(() => console.log(store.getState()));
+  
+  // The only way to mutate the internal state is to dispatch an action.
+  // The actions can be serialized, logged or stored and later replayed.
+  store.dispatch({ type: "counter/incremented" }); //{value: 1}
+  
+  store.dispatch({ type: "counter/incremented" }); //{value: 2}
+  
+  store.dispatch({ type: "counter/decremented" }); //{value: 1}  
+</code></pre>
+<!-- JS code end -->
+
+        </div> <!-- Column End -->
+      </div> <!--row End-->
+
+    
+    
+    </div>
+      
+  </section> <!-- Container End -->
+  <!-- Section End --------------------------- -->
+
+
+  <!-- Section Start ########################### -->
+  <section class="container-fluid pt-5">
+    <h2 id="" class="h5 border-bottom border-danger">Example 2</h2>
+
+    <div class="mb-5">
+
+      <div class="d-sm-flex align-items-sm-baseline">
+        <p class="h5 text-decoration-underline pe-md-3">JS with full HTML code</p>
+        <p>
+          <a href="./Redux_in_JavaScript_with_HTML.html" target="_blank">Click for Live Preview link</a>
+        </p>
+      </div>
+
+<!-- Html code start -->
+<pre class="mb-0"><code class="pb-0">&lt;!DOCTYPE html&gt;
+  &lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Plain JavaScript Redux Example&lt;/title&gt;
+    &lt;style&gt;
+      button{
+        padding:10px;font-size:16px;margin:10px;color:#FFF;
+        font-weight:bold;cursor:pointer
+      }
+      #increment{background:#1a524d}
+      #decrement{background:#7a2c46}
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  
+  &lt;button id="increment"&gt;dispatch an action object type "INCREMENT"&lt;/button&gt;
+  &lt;button id="decrement"&gt;dispatch an action object type "DECREMENT"&lt;/button&gt;
+  
+  
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.1/redux.min.js"&gt;&lt;/script&gt;
+  
+  &lt;script&gt;
+  </code></pre>
+  <!-- Html code end -->
+  
+  <!-- JS code start -->
+  <pre class="mb-0"><code class="language-javascript fs-6 pt-0 pb-0">const { createStore } = Redux; // Alternate to import createStore
+  
+    // Creating State object
+    const initialState = {
+      count: 0,
+    };
+  
+    // REDUCER FUNCTION - takes previous state and an action. 
+    // And "RETURNS A NEW STATE".
+    // ( state , action ) => newState
+    function rootReducerFn( state = initialState, action ) {
+      switch (action.type) {
+        case 'INCREMENT':
+          return { ...state, count: state.count + 1 };
+        case 'DECREMENT':action
+          return { ...state, count: state.count - 1 };
+        default:
+          return state;
+      }
+    }
+  
+    // Creating a store ######################
+    const store = createStore( rootReducerFn );
+    // #######################################
+  
+  
+    // Redux store subscribe
+    // subscribe() registers a function to be called on state changes
+    store.subscribe(() => {
+      console.log('Current State:', store.getState());
+    });
+  
+  
+    // JS EventListener Start -----------------
+    document.getElementById('increment')
+      .addEventListener('click', function () {
+        // Dispatching an action
+        store.dispatch( {type: 'INCREMENT'});      
+        // Put the action object inside dispatch() call
+      });
+  
+    document.getElementById('decrement')
+      .addEventListener('click', function () {
+        // Dispatch the action
+        store.dispatch( decrement() ) 
+        //We can also put the action type object in a function and call it. 
+      })
+    // JS EventListener End ---------------------
+  
+    function decrement() {
+      return { type: 'DECREMENT' }; // action type object
+    }</code></pre>
+  <!-- JS code end -->
+  
+  <!-- Html code start --><pre><code class="pt-0">
+    &lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+  </code></pre>
+  <!-- Html code end -->
+
+    </div>
+      
+  </section> <!-- Container End -->
+  <!-- Section End --------------------------- -->
+
+  
+
+
+    <!-- Footer Start -->
+    <footer class="bg-secondary text-white py-5 position-relative">
+      <div class="container-fluid">
+
+        <div class="d-sm-flex align-items-md-center">
+          <div class="dp-image">
+            <!-- <img src="./../../images/IMG_2414.JPG" alt="Karthi DP" class="img-fluid" style="max-width: 309px; left: -56px; top: -24px; position: relative;"> -->
+            <img src="./../../images/IMG_2614.JPG" alt="Karthi DP" class="img-fluid" style="max-width: 270px; left: -32px; top: -24px; position: relative;">
+
+            <!-- style="max-width: 309px; left: -56px; top: -24px; position: relative;" -->
+          </div>
+          <div class="col-sm p-sm-4">
+            <h3>
+              Karthi
+              <small class="d-block fs-6">UI Developer</small>
+            </h3>
+            <address>
+              <span class="d-block">8428881664</span>
+              <span class="d-block">karthi.uideveloper@gmail.com</span>
+            </address>
+          </div>
+
+        </div>
+
+      </div>
+      
+      <button id="scrollTopBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+      </button>
+
+    </footer>
+    <!-- Footer End -->
+
+    
+
+
+  </div>
+
+
+
+
+
+  <!-- Bootstrap JS ########################### -->
+  <script src="./../../js/bootstrap.bundle.js"></script>
+
+
+  <!-- Syntax highlight JS Start -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+      hljs.highlightAll();
+  </script>
+  <!-- Syntax highlight JS End -->
+
+
+  <!-- html2pdf Start -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+  <!-- html2pdf End -->
+
+  <!-- Custom Script Start -->
+  <script src="./../../js/custom.js"></script>
+  <!-- Custom Script End -->
+</body>
+
+</html>
