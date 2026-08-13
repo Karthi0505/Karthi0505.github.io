@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plain JavaScript Redux Example</title>
+  <style>button{padding:10px;font-size:16px;margin:10px;color:#FFF;font-weight:bold;cursor:pointer}#increment{background:#1a524d}#decrement{background:#7a2c46}</style>
+</head>
+<body>
+
+<button id="increment">dispatch an action object type "INCREMENT"</button>
+<button id="decrement">dispatch an action object type "DECREMENT"</button>
+<p>
+  Check the output in console
+</p>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.1/redux.min.js"></script>
+
+<script>
+  // Alternate to import createStore
+  const { createStore } = Redux;
+
+  // STEPS___________________________
+  // 1) Create a Store, 2) Create Reducer Function inside createStore() call, 3) Create a state object inside Reducer Function call, 4) Pass the action object inside Reducer Function call, 5) Put state updating code inside Reducer Function block and return the new state, 6) Dispatch an action object to reducer function 7) subscribe a function to be called whenever the state changes, 7) Get the current state using getState()
+
+  // Creating State object
+  const initialState = {
+    count: 0,
+  };
+
+  // REDUCER FUNCTION - takes previous state and an action. And "RETURNS A NEW STATE".
+  // ( state , action ) => newState
+  function rootReducerFn( state = initialState, action ) {
+    switch (action.type) {
+      case 'INCREMENT':
+        return { ...state, count: state.count + 1 };
+      case 'DECREMENT':action
+        return { ...state, count: state.count - 1 };
+      default:
+        return state;
+    }
+  }
+
+  // Creating a store ######################
+  const store = createStore( rootReducerFn );
+  // #######################################
+
+
+  // Redux store subscribe
+  // subscribe() registers a function to be called on state changes
+  store.subscribe(() => {
+    console.log('Current State:', store.getState());
+  });
+
+
+  // JS EventListener Start -----------------
+  document.getElementById('increment')
+    .addEventListener('click', function () {
+      // Dispatching an action
+      store.dispatch( {type: 'INCREMENT'});      
+      // Put the action object inside dispatch() call
+    });
+
+  document.getElementById('decrement')
+    .addEventListener('click', function () {
+      // Dispatch the action
+      store.dispatch( decrement() ) 
+      //we can also put the action type object in a function and call that function 
+    })
+// JS EventListener End ---------------------
+
+  function decrement() {
+    return { type: 'DECREMENT' }; // action type object
+  }
+
+</script>
+
+
+</body>
+</html>

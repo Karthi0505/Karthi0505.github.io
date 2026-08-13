@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./../../css/bootstrap.css">
+    <!-- HighlightJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../../css/custom.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <h1 class="my-3">List of Logic Program Task</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="row flex-row-reverse border-bottom pb-3 mb-5">
+            <aside class="col-sm-3 border-start">
+                <h2>Menu</h2>
+                <nav class="list-group">
+                    <a href="./../index.html" class="list-group-item list-group-item-action">
+                       Logic Program Tasks
+                    </a>
+                    <a href="./index.html" class="list-group-item list-group-item-action active" aria-current="true">
+                       100 js Algorithms
+                    </a>
+                </nav>
+            </aside>
+            <div class="col-sm-9">
+               
+                        
+        <!-- Accordion Start -->
+        <div class="accordion style-1" id="accordionExample">
+
+            <!-- question 1   -Start---------- -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#question-1" aria-expanded="false" aria-controls="question-1">
+                        <span>
+                            Absolute Values Sum Minimization (Finding Median)
+                        </span>
+                        <span class="position-absolute top-0 end-0 translate-middle badge rounded-pill bg-danger">
+                            Easy
+                            <span class="visually-hidden">Difficulty Level: Easy</span>
+                          </span>
+                    </button>
+                </h2>
+                <div id="question-1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+
+<!-- JS code start -->
+<pre><code class="language-javascript fs-5">// Absolute Values Sum Minimization
+function absoluteValuesSumMinimization(a) {
+	//find the median
+	const isEven = a.length % 2 === 0;
+
+	return isEven ? a[a.length / 2 - 1] : a[ Math.floor(a.length / 2) ];
+	//if even, divide array length by 2, then minus one 
+	//if odd, divide array length by 2
+}
+
+console.log( absoluteValuesSumMinimization( [2,4,7,6]) );
+console.log( absoluteValuesSumMinimization( [2,4,8,6,12]) );
+console.log( absoluteValuesSumMinimization( [2,4,3,6,6,8]) );
+console.log( absoluteValuesSumMinimization( [2,4,3,6,6,8,9]) );
+</code></pre>
+<!-- JS code end -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- question 1   -End---------- -->
+
+
+
+        </div>
+        <!-- Accordion End -->
+
+
+            </div>  <!-- column end -->
+        </div> <!-- row end -->
+
+    </div>
+    
+
+
+
+
+
+
+    <!-- Bootstrap JS ########################### -->
+    <script src="./../../js/bootstrap.bundle.js"></script>
+
+    <!-- Syntax highlight JS Start -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <!-- Syntax highlight JS End -->
+</body>
+</html>
