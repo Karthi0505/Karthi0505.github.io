@@ -1,5 +1,7 @@
 import './App.css'
-import FolderStructure from './components/FolderStructure/FolderStructure'
+// import Debounce from './components/debounce_n_throttle/Debounce/Debounce'
+import Debounce_customHook from './components/debounce_n_throttle/Debounce/Debounce_customHook'
+// import FolderStructure from './components/FolderStructure/FolderStructure'
 
 function App() {
 
@@ -11,7 +13,11 @@ function App() {
         </a> 
       </h1>
 
-      <FolderStructure />
+      {/* <Debounce /> */}
+      <Debounce_customHook />
+
+      {/* FOLDER STRUCTURE TASK */}
+      {/* <FolderStructure /> */}
     </>
   )
 }
